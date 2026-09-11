@@ -1,8 +1,24 @@
-body { font-family: Arial; margin: 0; }
-header { background: #7b3f32; color: white; padding: 15px; font-weight: bold; }
-main { display: flex; gap: 30px; padding: 30px; }
-img { width: 55%; height: 400px; object-fit: cover; }
-section { max-width: 400px; }
-label, select { display: block; margin-top: 10px; }
-button { background: #7b3f32; color: white; border: 0; padding: 10px; margin-top: 10px; }
-@media (max-width: 600px) { main { display: block; } img { width: 100%; height: 300px; } }
+/* Colores y estilos simples */
+body { font-family: Arial; background: #eee9dd; margin: 0; font-size: 16px; }
+header { background: #7b3f32; color: white; padding: 8px 10%; display: flex; gap: 30px; }
+header b { font-size: 12px; }
+header span { font-size: 12px; }
+nav { background: white; padding: 8px 10%; }
+nav a { color: black; text-decoration: none; margin-right: 25px; font-size: 12px; }
+main { background: white; min-height: 80vh; margin: 0; padding: 35px 10%; }
+h2 { font-size: 24px; margin: 8px 0; }
+h3 { font-size: 17px; }
+.banner, .foto { background: #ddd; border: 1px solid #888; text-align: center; padding: 45px 10px; }
+.pequeno { padding: 30px; }
+.productos { display: flex; gap: 12px; }
+article { border: 1px solid #888; padding: 15px; width: 31%; }
+article .foto { padding: 25px 5px; margin-bottom: 8px; font-size: 11px; }
+article p { margin: 5px 0; }
+aside { float: left; width: 150px; border: 1px solid #888; padding: 10px; margin-right: 15px; }
+aside p { margin: 10px 0 3px; }
+input, select { width: 130px; }
+button { background: #7b3f32; color: white; border: 0; padding: 6px 12px; }
+.crud { clear: both; padding-top: 20px; }
+.detalle { display: flex; gap: 25px; align-items: center; }
+.grande { width: 280px; padding: 100px 10px; }
+@media (max-width: 600px) { .productos, .detalle { display: block; } article { width: auto; margin-bottom: 10px; } aside { float: none; width: auto; margin-bottom: 10px; } .grande { width: auto; } }
