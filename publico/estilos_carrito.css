@@ -154,3 +154,5 @@ body {
     margin-top: 15px;
     cursor: pointer;
 }
+nav { background: rgb(165, 144, 144); padding: 8px 10%; }
+nav a { color: black; text-decoration: none; margin-right: 25px; font-size: 12px; }
