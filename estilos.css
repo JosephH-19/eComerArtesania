@@ -1,5 +1,5 @@
 /* Colores y estilos simples */
-body { font-family: Arial; background: #eee9dd; margin: 0; font-size: 16px; }
+body { font-family: Arial; background: #eee9dd; margin: 0; font-size: 16px; background-image: url('1.jpg'); background-size: cover; }
 header { background: #7b3f32; color: white; padding: 8px 10%; display: flex; gap: 30px; }
 header b { font-size: 12px; }
 header span { font-size: 12px; }
@@ -22,3 +22,17 @@ button { background: #7b3f32; color: white; border: 0; padding: 6px 12px; }
 .detalle { display: flex; gap: 25px; align-items: center; }
 .grande { width: 280px; padding: 100px 10px; }
 @media (max-width: 600px) { .productos, .detalle { display: block; } article { width: auto; margin-bottom: 10px; } aside { float: none; width: auto; margin-bottom: 10px; } .grande { width: auto; } }
+.login  {
+border: 1px solid #888; padding: 15px; width: 300px; margin: 0 auto; background: #9e6f65; display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 2px solid #dcd7c3;
+}
+.login, .box {
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 2px solid #dcd7c3;
+}
