@@ -1,0 +1,156 @@
+/* =========================================
+   1. RESETEO Y FONDO GENERAL
+   ========================================= */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e0e0e0;
+    padding: 40px;
+}
+
+.Contenido-carrito {
+    background-color: #f4f1e1;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 3px solid #333;
+    border-radius: 12px;
+    
+}
+
+/* =========================================
+   2. CABECERA (Barra Marrón)
+   ========================================= */
+.barra-superior {
+    background-color: #8b5a43;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 3px solid #333;
+}
+
+.caja-iconos button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* =========================================
+   3. TÍTULOS DE COLUMNAS
+   ========================================= */
+.titulos-columnas {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-bottom: 2px solid #dcd7c3;
+    font-weight: bold;
+    color: #333;
+}
+
+/* =========================================
+   4. FILAS DE PRODUCTOS (Flexbox)
+   ========================================= */
+.Contenido-carrito section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 2px solid #dcd7c3;
+}
+
+/* Imágenes */
+.img-1 img, .img-2 img {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+    border: 1px solid #999;
+}
+
+/* Detalles del texto */
+.Detalle-1, .Detalle-2 {
+    flex: 1; /* Esto hace que el texto ocupe el espacio sobrante y empuje lo demás */
+    padding-left: 15px;
+}
+
+.Detalle-1 h3, .Detalle-2 h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.Detalle-1 p, .Detalle-2 p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Botones de cantidad */
+.Cantidad-1, .Cantidad-2 {
+    display: flex;
+    align-items: center;
+    margin-right: 40px; /* Separa la cantidad del subtotal */
+}
+
+.Cantidad-1 button, .Cantidad-2 button {
+    padding: 5px 10px;
+    background-color: #e0e0e0;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+.Cantidad-1 input, .Cantidad-2 input {
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #999;
+    border-left: none;
+    border-right: none;
+}
+
+/* Subtotales individuales */
+.sub-1, .sub-2 {
+    font-weight: bold;
+    color: #333;
+    width: 80px;
+    text-align: right;
+}
+
+/* =========================================
+   5. SECCIÓN DE RESUMEN Y BOTÓN FINAL
+   ========================================= */
+.Contenido-carrito section:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-bottom: none;
+}
+
+.Contenido-carrito section:last-child h2 {
+    display: none; /* Oculta la palabra "Resumen" */
+}
+
+.Contenido-carrito section:last-child p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.Contenido-carrito section:last-child button {
+    background-color: #7b4c3a;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+}
