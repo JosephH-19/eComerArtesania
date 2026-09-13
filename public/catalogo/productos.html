@@ -1,45 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-    <link rel="stylesheet" href="../publico/estilos.css">
+
+    <title>Taller Buendía - Catálogo</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
+
 <body>
-    
-<header><b>TALLER<br>BUENDÍA</b><span>Taller Buendía - Textil Huanca</span></header>
+
+    <header>
+        <b>TALLER<br>BUENDÍA</b>
+
+        <span>Taller Buendía - Textil Huanca</span>
+
+        <a href="../../admin/login/login.html">
+            INGRESAR AL SISTEMA
+        </a>
+    </header>
+
+
+    <!-- MENÚ PRINCIPAL -->
+
     <nav>
+        <a href="../index.html">INICIO</a>
+        <a href="../nosotros/nosotros.html">NOSOTROS</a>
+        <a href="productos.html">CATÁLOGO</a>
+        <a href="carrito.html">CARRITO</a>
+        <a href="../publicidad/promociones.html">PUBLICIDAD</a>
+        <a href="../contacto/contacto.html">CONTACTO</a>
+    </nav>
 
-    <a href="index.html">INICIO</a>
-    <a href="nosotros.html">NOSOTROS</a>
-    <a href="Historia.html">HISTORIA</a>
-    <a href="productos.html">PRODUCTOS</a>
-    <a href="detalle.html">DETALLE</a> 
-    <a href="pago.html">PAGO</a>
-    <a href="carrito.html">CARRITO DE COMPRAS</a>
-    <a href="Publicidad.html">PUBLICIDAD</a>  
-    <a href="Contacto.html">Contacto</a>
-  </nav>
 
-<main>
-    
-    <p>Explore nuestra cultura y tradición.</p>
-    <h3>PRODUCTOS DESTACADOS</h3>
-    <aside>
-      <b>Filtros</b>
-      <p>Categoría</p>
-      <select><option>Todos</option><option>Textiles</option><option>Cerámica</option></select>
-      <p>Rango de precio</p>
-      <select><option>Todos</option><option>S/ 0 - S/ 50</option><option>S/ 51 - S/ 100</option></select>
-    </aside>
-    <section class="productos">
-      <article><div class="article .foto">Poncho Callhua</div><img src="../CATALOGO PONCHOS/8.jpg" alt="Bolso Andino" class=" article .foto" width="100%"; height: 180px; ><b>Color Marron</b><p>S/ 75.00</p></article>
-      <article><div class="article .foto">Poncho Andino</div><img src="../CATALOGO PONCHOS/6.jpg" alt="Florero"class=" article .foto" width="100%"; height: 180px><b>Color Blanco con Rojo</b><p>S/ 48.00</p></article>
-        <article><div class="article .foto">Poncho Sicaino</div><img src="../CATALOGO PONCHOS/4.jpg" alt="Chullo de lana" class=" article .foto" width="100%"; height: 180px><b>Color Blanco con negro</b><p>S/ 35.00</p></article>
-      </section>
-  </main>
+    <!-- MENÚ INTERNO DEL CATÁLOGO -->
 
+    <nav class="subnav">
+        <a href="productos.html">PRODUCTOS</a>
+        <a href="detalle-producto.html">DETALLE DEL PRODUCTO</a>
+        <a href="artesano.html">ARTESANO</a>
+    </nav>
+
+
+    <main>
+
+        <p>Explore nuestra cultura y tradición.</p>
+
+        <h1>CATÁLOGO DE PRODUCTOS</h1>
+
+        <div class="catalogo">
+
+            <!-- FILTROS -->
+
+            <aside class="filtros">
+
+                <h3>FILTROS</h3>
+
+                <p>Categoría</p>
+
+                <select>
+                    <option>Todos</option>
+                    <option>Textiles</option>
+                    <option>Cerámica</option>
+                </select>
+
+                <p>Rango de precio</p>
+
+                <select>
+                    <option>Todos</option>
+                    <option>S/ 0 - S/ 50</option>
+                    <option>S/ 51 - S/ 100</option>
+                    <option>S/ 101 - S/ 200</option>
+                    <option>Más de S/ 200</option>
+                </select>
+
+                <p>Disponibilidad</p>
+
+                <select>
+                    <option>Todos</option>
+                    <option>Disponible</option>
+                    <option>Agotado</option>
+                </select>
+
+            </aside>
+
+
+            <!-- PRODUCTOS -->
+
+            <section class="productos">
+
+                <article class="producto-card">
+
+                    <div class="producto-imagen">
+                        <img src="../../assets/productos/8.jpg"
+                            alt="Poncho Callhua">
+                    </div>
+
+                    <div class="producto-contenido">
+
+                        <h3>Poncho Callhua</h3>
+
+                        <p>Color: Marrón</p>
+
+                        <p class="precio">S/ 75.00</p>
+
+                        <div class="acciones-producto">
+
+                            <a href="detalle-producto.html">
+                                VER
+                            </a>
+
+                            <button type="button">
+                                AGREGAR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="producto-card">
+
+                    <div class="producto-imagen">
+                        <img src="../../assets/productos/6.jpg"
+                            alt="Poncho Andino">
+                    </div>
+
+                    <div class="producto-contenido">
+
+                        <h3>Poncho Andino</h3>
+
+                        <p>Color: Blanco con Rojo</p>
+
+                        <p class="precio">S/ 48.00</p>
+
+                        <div class="acciones-producto">
+
+                            <a href="detalle-producto.html">
+                                VER
+                            </a>
+
+                            <button type="button">
+                                AGREGAR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="producto-card">
+
+                    <div class="producto-imagen">
+                        <img src="../../assets/productos/4.jpg"
+                            alt="Poncho Sicaino">
+                    </div>
+
+                    <div class="producto-contenido">
+
+                        <h3>Poncho Sicaino</h3>
+
+                        <p>Color: Blanco con Negro</p>
+
+                        <p class="precio">S/ 35.00</p>
+
+                        <div class="acciones-producto">
+
+                            <a href="detalle-producto.html">
+                                VER
+                            </a>
+
+                            <button type="button">
+                                AGREGAR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>Taller Buendía - Textil Huanca</p>
+    </footer>
 
 </body>
+
 </html>

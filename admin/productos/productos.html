@@ -1,220 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Productos - Taller Buendía</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    /* Estilos proporcionados por el usuario */
-    body { font-family: Arial; background: #eee9dd; margin: 0; font-size: 16px; background-image: url('1.jpg'); background-size: cover; }
-    header { background: #7b3f32; color: white; padding: 8px 10%; display: flex; gap: 30px; justify-content: space-between; align-items: center; }
-    header b { font-size: 12px; }
-    header span { font-size: 12px; }
-    nav { background: white; padding: 8px 10%; }
-    nav a { color: black; text-decoration: none; margin-right: 25px; font-size: 12px; }
-    main { background: white; min-height: 80vh; margin: 0; padding: 35px 10%; }
-    h2 { font-size: 24px; margin: 8px 0; }
-    h3 { font-size: 17px; }
-    .banner, .foto { background: #ddd; border: 1px solid #888; text-align: center; padding: 45px 10px; }
-    .pequeno { padding: 30px; }
-    .productos { display: flex; gap: 12px; flex-wrap: wrap; }
-    article { border: 1px solid #888; padding: 15px; width: 31%; box-sizing: border-box; }
-    article .foto { padding: 25px 5px; margin-bottom: 8px; font-size: 11px; }
-    article p { margin: 5px 0; }
-    aside { float: left; width: 150px; border: 1px solid #888; padding: 10px; margin-right: 15px; background: #fdfdfd; }
-    aside p { margin: 10px 0 3px; font-size: 12px; font-weight: bold; }
-    aside a { text-decoration: none; color: black; font-size: 12px; display: block; margin-bottom: 8px; }
-    aside a.activo { font-weight: bold; color: #7b3f32; }
-    input, select { width: 130px; font-size: 12px; padding: 3px; box-sizing: border-box; }
-    button { background: #7b3f32; color: white; border: 0; padding: 6px 12px; cursor: pointer; font-size: 12px; }
-    .crud { clear: both; padding-top: 20px; }
-    .detalle { display: flex; gap: 25px; align-items: center; }
-    .grande { width: 280px; padding: 100px 10px; }
-    @media (max-width: 600px) { .productos, .detalle { display: block; } article { width: auto; margin-bottom: 10px; } aside { float: none; width: auto; margin-bottom: 10px; } .grande { width: auto; } }
-    
-    /* Adaptaciones auxiliares para mantener el layout visual limpio */
-    .menu-lateral { margin-bottom: 15px; border-bottom: 1px solid #ccc; pb: 10px; }
-    .acciones-card { display: flex; gap: 5px; margin-top: 10px; }
-    .acciones-card button { padding: 4px 8px; font-size: 11px; }
-    .btn-secundario { background: #888; }
-    .btn-danger { background: #a93226; }
-    .tabla-crud { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
-    .tabla-crud th, .tabla-crud td { border: 1px solid #888; padding: 8px; text-align: left; }
-    .tabla-crud th { background: #eee; }
-  </style>
+  <title>Taller Buendía - Gestión de Productos</title>
+
+  <link rel="stylesheet" href="../../public/css/estilos.css">
 </head>
+
 <body>
 
-  <!-- ENCABEZADO -->
   <header>
-    <b>TALLER BUENDÍA - ZONA DE GESTIÓN</b>
-    <div>
-      <span>Usuario: Admin (lufe)</span>
-    </div>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
   </header>
 
-  
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- MENÚ DE ADMINISTRACIÓN -->
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+    <a href="../login/login.html">SALIR</a>
+  </nav>
+
   <main>
-    <h2>GESTIÓN DE PRODUCTOS</h2>
 
-    <!-- FORMULARIO LATERAL CRUD (Crear / Filtrar / Editar) -->
-    <aside>
-      <h3>FORMULARIO</h3>
-      
-      <p>Nombre:</p>
-      <input type="text" value="Vasija de Barro">
+    <div class="titulo-seccion">
 
-      <p>Categoría:</p>
-      <select>
-        <option>Cerámica</option>
-        <option>Tejidos</option>
-        <option>Madera</option>
-      </select>
-
-      <p>Artesano:</p>
-      <select>
-        <option>Juan Pérez</option>
-        <option>Maria Luque</option>
-      </select>
-
-      <p>Precio (S/):</p>
-      <input type="number" value="45.00">
-
-      <p>Stock:</p>
-      <input type="number" value="12">
-
-      <p>Estado:</p>
-      <select>
-        <option>Disponible</option>
-        <option>Agotado</option>
-      </select>
-
-      <br><br>
-      <button style="width: 130px; margin-bottom: 5px;">GUARDAR</button>
-      <button class="btn-secundario" style="width: 130px;">LIMPIAR</button>
-    </aside>
-
-    <!-- LISTADO / CATALOGO CRUD (VISTA PREVIA) -->
-    <div style="overflow: hidden;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <h3>Listado de Productos (3)</h3>
-        <div>
-          <input type="text" placeholder="Buscar producto..." style="width: 180px;">
-          <button>BUSCAR</button>
-        </div>
+      <div>
+        <h2>GESTIÓN DE PRODUCTOS</h2>
+        <p>Consulta y administra los productos disponibles.</p>
       </div>
 
-      <div class="productos">
-        <!-- Tarjeta 1 -->
-        <article>
-          <div class="foto">
-            <i class="fa-solid fa-jar fa-2x"></i><br>
-            [Imagen: vasija.jpg]
-          </div>
-          <p><b>Vasija Decorativa</b></p>
-          <p style="font-size: 12px; color: #555;">Cat: Cerámica</p>
-          <p style="font-size: 12px;">Precio: S/ 45.00</p>
-          <p style="font-size: 12px;">Stock: 12 unids.</p>
-          <div class="acciones-card">
-            <button>EDITAR</button>
-            <button class="btn-danger">BORRAR</button>
-          </div>
-        </article>
+      <a class="boton" href="registrar.html">
+        NUEVO PRODUCTO
+      </a>
 
-        <!-- Tarjeta 2 -->
-        <article>
-          <div class="foto">
-            <i class="fa-solid fa-shirt fa-2x"></i><br>
-            [Imagen: poncho.jpg]
-          </div>
-          <p><b>Poncho Andino</b></p>
-          <p style="font-size: 12px; color: #555;">Cat: Tejidos</p>
-          <p style="font-size: 12px;">Precio: S/ 120.00</p>
-          <p style="font-size: 12px;">Stock: 5 unids.</p>
-          <div class="acciones-card">
-            <button>EDITAR</button>
-            <button class="btn-danger">BORRAR</button>
-          </div>
-        </article>
+    </div>
 
-        <!-- Tarjeta 3 -->
-        <article>
-          <div class="foto">
-            <i class="fa-solid fa-box-open fa-2x"></i><br>
-            [Imagen: tallado.jpg]
-          </div>
-          <p><b>Retablo Ayacuchano</b></p>
-          <p style="font-size: 12px; color: #555;">Cat: Madera</p>
-          <p style="font-size: 12px;">Precio: S/ 85.00</p>
-          <p style="font-size: 12px;">Stock: 2 unids.</p>
-          <div class="acciones-card">
-            <button>EDITAR</button>
-            <button class="btn-danger">BORRAR</button>
-          </div>
-        </article>
+    <!-- BÚSQUEDA -->
+    <section class="busqueda">
+
+      <label>Buscar producto</label>
+
+      <input
+        type="text"
+        placeholder="Nombre del producto">
+
+      <button>
+        BUSCAR
+      </button>
+
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filtros">
+
+      <div>
+        <label>Categoría</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Textiles</option>
+          <option>Cerámica</option>
+          <option>Madera</option>
+        </select>
       </div>
-    </div>
 
-    <!-- SECCIÓN DE VISTA TABULAR DE GESTIÓN (DETALLE Y TABLA) -->
-    <div class="crud">
-      <h3>REGISTRO DETALLADO</h3>
-      <table class="tabla-crud">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Producto</th>
-            <th>Categoría</th>
-            <th>Artesano</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>#PR01</td>
-            <td>Vasija Decorativa</td>
-            <td>Cerámica</td>
-            <td>Juan Pérez</td>
-            <td>S/ 45.00</td>
-            <td>12</td>
-            <td>
-              <button>EDITAR</button>
-              <button class="btn-danger">ELIMINAR</button>
-            </td>
-          </tr>
-          <tr>
-            <td>#PR02</td>
-            <td>Poncho Andino</td>
-            <td>Tejidos</td>
-            <td>Maria Luque</td>
-            <td>S/ 120.00</td>
-            <td>5</td>
-            <td>
-              <button>EDITAR</button>
-              <button class="btn-danger">ELIMINAR</button>
-            </td>
-          </tr>
-          <tr>
-            <td>#PR03</td>
-            <td>Retablo Ayacuchano</td>
-            <td>Madera</td>
-            <td>Juan Pérez</td>
-            <td>S/ 85.00</td>
-            <td>2</td>
-            <td>
-              <button>EDITAR</button>
-              <button class="btn-danger">ELIMINAR</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div>
+        <label>Estado</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+        </select>
+      </div>
+
+    </section>
+
+    <!-- LISTADO -->
+    <section>
+
+      <h3>LISTADO DE PRODUCTOS</h3>
+
+      <div class="productos-admin">
+
+        <!-- PRODUCTO 1 -->
+        <article class="producto-admin">
+
+          <img
+            src="../../assets/productos/8.jpg"
+            alt="Poncho Callhua">
+
+          <div>
+
+            <h3>Poncho Callhua</h3>
+
+            <p>
+              <b>Categoría:</b> Textiles
+            </p>
+
+            <p>
+              <b>Artesano:</b> Taller Buendía
+            </p>
+
+            <p>
+              <b>Precio:</b> S/ 75.00
+            </p>
+
+            <p>
+              <b>Stock:</b> 12 unidades
+            </p>
+
+            <p>
+              <b>Estado:</b> Disponible
+            </p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle.html">
+              VER
+            </a>
+
+            <a class="boton" href="editar.html">
+              EDITAR
+            </a>
+
+            <button class="btn-danger">
+              ELIMINAR
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 2 -->
+        <article class="producto-admin">
+
+          <img
+            src="../../assets/productos/6.jpg"
+            alt="Poncho Andino">
+
+          <div>
+
+            <h3>Poncho Andino</h3>
+
+            <p>
+              <b>Categoría:</b> Textiles
+            </p>
+
+            <p>
+              <b>Artesano:</b> Taller Buendía
+            </p>
+
+            <p>
+              <b>Precio:</b> S/ 48.00
+            </p>
+
+            <p>
+              <b>Stock:</b> 5 unidades
+            </p>
+
+            <p>
+              <b>Estado:</b> Disponible
+            </p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle.html">
+              VER
+            </a>
+
+            <a class="boton" href="editar.html">
+              EDITAR
+            </a>
+
+            <button class="btn-danger">
+              ELIMINAR
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 3 -->
+        <article class="producto-admin">
+
+          <img
+            src="../../assets/productos/4.jpg"
+            alt="Poncho Sicaino">
+
+          <div>
+
+            <h3>Poncho Sicaino</h3>
+
+            <p>
+              <b>Categoría:</b> Textiles
+            </p>
+
+            <p>
+              <b>Artesano:</b> Taller Buendía
+            </p>
+
+            <p>
+              <b>Precio:</b> S/ 35.00
+            </p>
+
+            <p>
+              <b>Stock:</b> 2 unidades
+            </p>
+
+            <p>
+              <b>Estado:</b> Disponible
+            </p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle.html">
+              VER
+            </a>
+
+            <a class="boton" href="editar.html">
+              EDITAR
+            </a>
+
+            <button class="btn-danger">
+              ELIMINAR
+            </button>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
 
   </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
 
 </body>
 </html>

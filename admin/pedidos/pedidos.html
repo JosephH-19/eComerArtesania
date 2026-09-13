@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Taller Buendía - Pedidos</title>
+
+  <link rel="stylesheet" href="../../public/css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+    <a href="../login/login.html">SALIR</a>
+  </nav>
+
+  <main>
+
+    <h2>GESTIÓN DE PEDIDOS Y PAGOS</h2>
+
+    <p>
+      Consulta los pedidos registrados y realiza el seguimiento de su proceso.
+    </p>
+
+    <section class="busqueda">
+
+      <label>Buscar pedido</label>
+
+      <input type="text" placeholder="Código o cliente">
+
+      <button>BUSCAR</button>
+
+    </section>
+
+    <section class="filtros">
+
+      <div>
+        <label>Estado del pedido</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Pedido recibido</option>
+          <option>Pago confirmado</option>
+          <option>En preparación</option>
+          <option>En fabricación</option>
+          <option>Control de calidad</option>
+          <option>Listo para entrega</option>
+          <option>Enviado</option>
+          <option>Entregado</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Estado del pago</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Pendiente</option>
+          <option>Confirmado</option>
+          <option>Rechazado</option>
+        </select>
+      </div>
+
+    </section>
+
+    <section>
+
+      <h3>LISTADO DE PEDIDOS</h3>
+
+      <div class="lista-simple">
+
+        <article class="item-admin">
+
+          <div>
+
+            <h3>PEDIDO #PED001</h3>
+
+            <p><b>Cliente:</b> Carlos Mendoza</p>
+
+            <p><b>Producto:</b> Poncho Callhua</p>
+
+            <p><b>Cantidad:</b> 1</p>
+
+            <p><b>Total:</b> S/ 75.00</p>
+
+            <p><b>Pago:</b> Confirmado</p>
+
+            <p><b>Estado:</b> En fabricación</p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle.html">
+              VER
+            </a>
+
+            <a class="boton" href="seguimiento.html">
+              SEGUIMIENTO
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <article class="item-admin">
+
+          <div>
+
+            <h3>PEDIDO #PED002</h3>
+
+            <p><b>Cliente:</b> Ana Torres</p>
+
+            <p><b>Producto:</b> Poncho Andino</p>
+
+            <p><b>Cantidad:</b> 2</p>
+
+            <p><b>Total:</b> S/ 96.00</p>
+
+            <p><b>Pago:</b> Confirmado</p>
+
+            <p><b>Estado:</b> Listo para entrega</p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle.html">
+              VER
+            </a>
+
+            <a class="boton" href="seguimiento.html">
+              SEGUIMIENTO
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

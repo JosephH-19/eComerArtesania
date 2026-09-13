@@ -1,0 +1,110 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Editar Producto</title>
+
+  <link rel="stylesheet" href="../../public/css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <h2>EDITAR PRODUCTO</h2>
+
+    <p>
+      Modifique la información del producto seleccionado.
+    </p>
+
+    <form class="formulario-admin">
+
+      <label>Nombre del producto</label>
+
+      <input
+        type="text"
+        value="Poncho Callhua">
+
+      <label>Descripción</label>
+
+      <textarea>Producto textil elaborado mediante técnicas tradicionales.</textarea>
+
+      <label>Categoría</label>
+
+      <select>
+        <option>Textiles</option>
+        <option>Cerámica</option>
+        <option>Madera</option>
+      </select>
+
+      <label>Artesano</label>
+
+      <select>
+        <option>Taller Buendía</option>
+        <option>Artesano externo</option>
+      </select>
+
+      <label>Precio</label>
+
+      <input
+        type="number"
+        value="75.00">
+
+      <label>Stock</label>
+
+      <input
+        type="number"
+        value="12">
+
+      <label>Estado</label>
+
+      <select>
+        <option>Disponible</option>
+        <option>Agotado</option>
+      </select>
+
+      <label>Imagen del producto</label>
+
+      <input type="file">
+
+      <div class="acciones-formulario">
+
+        <a class="boton-secundario" href="productos.html">
+          CANCELAR
+        </a>
+
+        <button type="submit">
+          GUARDAR CAMBIOS
+        </button>
+
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>
+```

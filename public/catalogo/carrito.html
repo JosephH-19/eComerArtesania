@@ -1,112 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="../publico/estilos_carrito.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Carrito de Compras</title>
+  <link rel="stylesheet" href="../css/estilos.css">
 </head>
-
-<nav>
-    <header class="barra-superior">
-
-        
-        <div class="caja-logo">
-            <h1>TALLER BUENDIA</h1>
-        </div>
-
-        <div class="caja-texto-centro">
-            <span>Taller Buendia - Textil Hualhuas</span>
-        </div>
-
-        <div class="caja-iconos">
-            <button >Buscar</button>
-            <button >Carrito</button>
-        </div>
-   </nav>
-    <nav>
-
-    <a href="index.html">INICIO</a>
-    <a href="nosotros.html">NOSOTROS</a>
-    <a href="Historia.html">HISTORIA</a>
-    <a href="productos.html">PRODUCTOS</a>
-    <a href="detalle.html">DETALLE</a> 
-    <a href="pago.html">PAGO</a>
-    <a href="carrito.html">CARRITO DE COMPRAS</a>
-    <a href="Publicidad.html">PUBLICIDAD</a>  
-    <a href="Contacto.html">CONTACTO</a>
-  </nav>
 <body>
-    <main class="Contenido-carrito">
-        <div class="titulos-columnas">
-            <span>Inicio</span>
-            <span>Cantidad</span>
-            <span>Subtotal</span>
-        </div>
 
-        <section>
-            <div class="img-1">
-            <img src="producto1.jpg" alt="Producto 1">
-            </div>
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Taller Buendía - Textil Huanca</span>
+    <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
+  </header>
 
-            <div class="Detalle-1">
-            <h3>Circonio del color...</h3>
-            <p>Textil Warihuesc</p>
-            <p>Precio: $120.00</p>
-            </div>
+  <!-- MENÚ PRINCIPAL -->
+  <nav>
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/nosotros.html">NOSOTROS</a>
+    <a href="productos.html">CATÁLOGO</a>
+    <a href="carrito.html">CARRITO</a>
+    <a href="../publicidad/promociones.html">PUBLICIDAD</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+  </nav>
 
-            <div class="Cantidad-1">
-            <!-- Cantidad -->
-            <button>-</button>
-            <input type="number" value="1">
-            <button>+</button>
-            </div>
+  <!-- MENÚ INTERNO -->
+  <nav class="subnav">
+    <a href="carrito.html">CARRITO</a>
+    <a href="pago.html">PAGO</a>
+  </nav>
 
-            <div class="sub-1">
-            <!-- Subtotal -->
-            <p>Subtotal: $120.00</p>
-            </div>
+  <main class="Contenido-carrito">
 
-        </section>
-        <section>
+    <div class="titulos-columnas">
+      <span>PRODUCTO</span>
+      <span>CANTIDAD</span>
+      <span>SUBTOTAL</span>
+    </div>
 
-            <div class="img-2">
-            <!-- Imagen del producto -->
-            <img src="producto2.jpg" alt="Producto 2">
-            </div>
+    <section>
 
-            <div class="Detalle-2">
-            <!-- Información del producto -->
-            <h3>Nombre del producto</h3>
-            <p>Textil Warihuesc</p>
-            <p>Precio: $110.00</p>
-            </div>
+      <div class="img-1">
+        <img src="../../assets/productos/8.jpg"
+             alt="Poncho Callhua">
+      </div>
 
-            <div class="Cantidad-2">
-            <!-- Cantidad -->
-            <button>-</button>
-            <input type="number" value="1">
-            <button>+</button>
-            </div>
+      <div class="Detalle-1">
+        <h3>Poncho Callhua</h3>
+        <p>Textil Huanca</p>
+        <p>Precio: S/ 75.00</p>
+      </div>
 
-            <div class="sub-2">
-            <!-- Subtotal -->
-            <p>Subtotal: $110.00</p>
-            </div>
+      <div class="Cantidad-1">
+        <button>-</button>
+        <input type="number" value="1">
+        <button>+</button>
+      </div>
 
-        </section>
+      <div class="sub-1">
+        <p>S/ 75.00</p>
+      </div>
 
-        <section>
+    </section>
 
-            <h2>Resumen</h2>
+    <section>
 
-            <p>Subtotal: $230.00</p>
-            <p>Total: $230.00</p>
+      <div class="img-2">
+        <img src="../../assets/productos/6.jpg"
+             alt="Poncho Andino">
+      </div>
 
-            <!-- Botón para continuar con el pedido -->
-            <button>IR AL PEDIDO</button>
+      <div class="Detalle-2">
+        <h3>Poncho Andino</h3>
+        <p>Textil Huanca</p>
+        <p>Precio: S/ 48.00</p>
+      </div>
 
-        </section>
-    </main>
+      <div class="Cantidad-2">
+        <button>-</button>
+        <input type="number" value="1">
+        <button>+</button>
+      </div>
+
+      <div class="sub-2">
+        <p>S/ 48.00</p>
+      </div>
+
+    </section>
+
+    <section>
+
+      <h2>RESUMEN</h2>
+
+      <p>Subtotal: S/ 123.00</p>
+
+      <p>Total: S/ 123.00</p>
+
+      <a href="pago.html">IR AL PAGO</a>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Textil Huanca</p>
+  </footer>
+
 </body>
 </html>

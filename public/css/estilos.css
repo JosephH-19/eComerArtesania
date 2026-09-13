@@ -51,6 +51,175 @@ border: 1px solid #888; padding: 15px; width: 300px; margin: 0 auto; background:
     border: 1px solid #888;
 }
 
+/* =========================================
+   CATÁLOGO DE PRODUCTOS
+   ========================================= */
+
+.catalogo {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+
+/* Filtros */
+
+.filtros {
+    float: none;
+    width: 170px;
+    min-width: 170px;
+    margin: 0;
+    padding: 15px;
+    border: 1px solid #888;
+    background: #eee9dd;
+}
+
+.filtros h3 {
+    margin-top: 0;
+}
+
+.filtros p {
+    margin-bottom: 5px;
+}
+
+.filtros select {
+    width: 100%;
+}
+
+
+/* Contenedor de productos */
+
+.productos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+/* Tarjeta */
+
+.producto-card {
+    width: auto;
+    min-width: 0;
+    padding: 0;
+    border: 1px solid #888;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Contenedor de imagen */
+
+.producto-imagen {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #ddd;
+}
+
+
+/* Imagen */
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Información */
+
+.producto-contenido {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.producto-contenido h3 {
+    margin: 0 0 8px;
+}
+
+.producto-contenido p {
+    margin: 5px 0;
+}
+
+
+/* Precio */
+
+.producto-contenido .precio {
+    font-weight: bold;
+    font-size: 18px;
+    color: #7b3f32;
+    margin-top: 10px;
+}
+
+
+/* Botones */
+
+.acciones-producto {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.acciones-producto a,
+.acciones-producto button {
+    font-size: 12px;
+    padding: 7px 10px;
+    text-align: center;
+}
+
+.acciones-producto a {
+    background: #7b3f32;
+    color: white;
+    text-decoration: none;
+}
+
+.acciones-producto button {
+    background: #9e6f65;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* Adaptación para pantallas pequeñas */
+
+@media (max-width: 900px) {
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .catalogo {
+        display: block;
+    }
+
+    .filtros {
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .producto-imagen {
+        height: 240px;
+    }
+
+}
+
 /* Adaptaciones auxiliares para mantener el layout visual limpio */
     .menu-lateral { margin-bottom: 15px; border-bottom: 1px solid #ccc; pb: 10px; }
     .acciones-card { display: flex; gap: 5px; margin-top: 10px; }
@@ -60,3 +229,429 @@ border: 1px solid #888; padding: 15px; width: 300px; margin: 0 auto; background:
     .tabla-crud { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 13px; }
     .tabla-crud th, .tabla-crud td { border: 1px solid #888; padding: 8px; text-align: left; }
     .tabla-crud th { background: #eee; }
+
+
+
+.subnav {
+    background: #9e6f65;
+    padding: 8px 10%;
+}
+
+.subnav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 25px;
+    font-size: 12px;
+}
+
+
+
+/* =========================================
+   ADMINISTRACIÓN
+   ========================================= */
+
+.usuario {
+    margin-left: auto;
+    font-size: 12px;
+}
+
+.admin-nav {
+    background: #9e6f65;
+    padding: 8px 10%;
+}
+
+.admin-nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 12px;
+}
+
+.login {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    width: 350px;
+    border: 1px solid #888;
+    padding: 30px;
+    background: #f4f1e1;
+}
+
+.login-box h1 {
+    margin-top: 0;
+}
+
+.login-box label,
+.formulario-admin label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.login-box button {
+    margin-top: 20px;
+}
+
+.login-box a {
+    display: block;
+    margin-top: 20px;
+    color: #7b3f32;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton {
+    display: inline-block;
+    background: #7b3f32;
+    color: white;
+    text-decoration: none;
+    padding: 7px 12px;
+    font-size: 12px;
+}
+
+.boton-secundario {
+    display: inline-block;
+    background: #888;
+    color: white;
+    text-decoration: none;
+    padding: 7px 12px;
+    font-size: 12px;
+}
+
+.busqueda {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #888;
+    background: #f4f1e1;
+}
+
+.busqueda label {
+    margin-right: 10px;
+}
+
+.busqueda input {
+    width: 220px;
+}
+
+.filtros {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.filtros label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.productos-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.producto-admin {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid #888;
+    padding: 15px;
+    background: #fff;
+}
+
+.producto-admin img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border: 1px solid #888;
+}
+
+.producto-admin > div:nth-child(2) {
+    flex: 1;
+}
+
+.producto-admin h3 {
+    margin-top: 0;
+}
+
+.producto-admin p {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn-danger {
+    background: #a93226;
+}
+
+.formulario-admin {
+    max-width: 600px;
+    border: 1px solid #888;
+    padding: 25px;
+    background: #f4f1e1;
+}
+
+.formulario-admin input,
+.formulario-admin select,
+.formulario-admin textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.formulario-admin textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.acciones-formulario {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.detalle-admin {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    max-width: 900px;
+    border: 1px solid #888;
+    padding: 25px;
+    background: #f4f1e1;
+}
+
+.detalle-imagen {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid #888;
+}
+
+.detalle-informacion {
+    flex: 1;
+}
+
+.detalle-informacion h1 {
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+
+    .titulo-seccion {
+        display: block;
+    }
+
+    .titulo-seccion .boton {
+        margin-top: 10px;
+    }
+
+    .producto-admin {
+        display: block;
+    }
+
+    .producto-admin img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .acciones {
+        flex-direction: row;
+        margin-top: 15px;
+    }
+
+    .detalle-admin {
+        display: block;
+    }
+
+    .detalle-imagen {
+        width: 100%;
+        height: auto;
+    }
+
+    .filtros {
+        display: block;
+    }
+}
+
+
+
+/* =========================================
+   LISTADOS ADMINISTRATIVOS
+   ========================================= */
+
+.lista-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #888;
+    padding: 20px;
+    background: #fff;
+}
+
+.item-admin h3 {
+    margin-top: 0;
+}
+
+.item-admin p {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 100px;
+}
+
+.detalle-pedido {
+    max-width: 800px;
+    border: 1px solid #888;
+    padding: 25px;
+    background: #f4f1e1;
+}
+
+.detalle-pedido h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-top: 25px;
+}
+
+.detalle-pedido h3:first-child {
+    margin-top: 0;
+}
+
+.resumen-seguimiento {
+    max-width: 800px;
+    border: 1px solid #888;
+    padding: 20px;
+    background: #f4f1e1;
+    margin-bottom: 20px;
+}
+
+.seguimiento {
+    max-width: 800px;
+}
+
+.paso {
+    border-left: 5px solid #888;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #eee;
+}
+
+.paso b {
+    font-size: 14px;
+}
+
+.paso p {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.paso.activo {
+    border-left: 5px solid #7b3f32;
+    background: #f4f1e1;
+}
+
+.actualizar-estado {
+    max-width: 800px;
+    border: 1px solid #888;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.metricas {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.metrica {
+    border: 1px solid #888;
+    background: #f4f1e1;
+    padding: 20px;
+    width: 20%;
+}
+
+.metrica h3 {
+    font-size: 14px;
+}
+
+.metrica p {
+    font-size: 13px;
+}
+
+.metrica .numero {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7b3f32;
+}
+
+.tabla-metricas {
+    margin-top: 30px;
+    max-width: 700px;
+}
+
+.tabla-metricas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-metricas th,
+.tabla-metricas td {
+    border: 1px solid #888;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-metricas th {
+    background: #eee;
+}
+
+@media (max-width: 600px) {
+
+    .item-admin {
+        display: block;
+    }
+
+    .acciones {
+        flex-direction: row;
+        margin-top: 15px;
+    }
+
+    .metrica {
+        width: auto;
+        flex: 1;
+    }
+}

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Taller Buendía - Registrar Promoción</title>
+
+  <link rel="stylesheet" href="../../public/css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="promociones.html">DESCUENTOS</a>
+  </nav>
+
+  <main>
+
+    <h2>REGISTRAR PROMOCIÓN</h2>
+
+    <form class="formulario-admin">
+
+      <label>Nombre de la promoción</label>
+      <input type="text" placeholder="Nombre de la promoción">
+
+      <label>Descripción</label>
+      <textarea placeholder="Descripción de la promoción"></textarea>
+
+      <label>Porcentaje de descuento</label>
+      <input type="number" placeholder="10">
+
+      <label>Fecha de inicio</label>
+      <input type="date">
+
+      <label>Fecha de finalización</label>
+      <input type="date">
+
+      <label>Estado</label>
+
+      <select>
+        <option>Activa</option>
+        <option>Programada</option>
+        <option>Inactiva</option>
+      </select>
+
+      <div class="acciones-formulario">
+
+        <a class="boton-secundario" href="promociones.html">
+          CANCELAR
+        </a>
+
+        <button type="submit">
+          GUARDAR PROMOCIÓN
+        </button>
+
+      </div>
+
+    </form>
+
+  </main>
+
+</body>
+</html>

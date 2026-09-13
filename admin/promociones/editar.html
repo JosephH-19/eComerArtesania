@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Taller Buendía - Editar Promoción</title>
+
+  <link rel="stylesheet" href="../../public/css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="promociones.html">DESCUENTOS</a>
+  </nav>
+
+  <main>
+
+    <h2>EDITAR PROMOCIÓN</h2>
+
+    <form class="formulario-admin">
+
+      <label>Nombre de la promoción</label>
+      <input type="text" value="Descuento de Temporada">
+
+      <label>Descripción</label>
+      <textarea>Descuento especial para productos seleccionados.</textarea>
+
+      <label>Porcentaje de descuento</label>
+      <input type="number" value="15">
+
+      <label>Fecha de inicio</label>
+      <input type="date" value="2026-09-01">
+
+      <label>Fecha de finalización</label>
+      <input type="date" value="2026-09-30">
+
+      <label>Estado</label>
+
+      <select>
+        <option>Activa</option>
+        <option>Programada</option>
+        <option>Inactiva</option>
+      </select>
+
+      <div class="acciones-formulario">
+
+        <a class="boton-secundario" href="promociones.html">
+          CANCELAR
+        </a>
+
+        <button type="submit">
+          GUARDAR CAMBIOS
+        </button>
+
+      </div>
+
+    </form>
+
+  </main>
+
+</body>
+</html>

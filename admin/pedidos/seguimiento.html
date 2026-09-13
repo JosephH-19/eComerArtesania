@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Taller Buendía - Seguimiento del Pedido</title>
+
+  <link rel="stylesheet" href="../../public/css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="pedidos.html">PEDIDOS</a>
+    <a href="detalle.html">DETALLE DEL PEDIDO</a>
+    <a href="seguimiento.html">SEGUIMIENTO</a>
+  </nav>
+
+  <main>
+
+    <h2>SEGUIMIENTO DEL PEDIDO #PED001</h2>
+
+    <section class="resumen-seguimiento">
+
+      <h3>RESUMEN</h3>
+
+      <p><b>Cliente:</b> Carlos Mendoza</p>
+
+      <p><b>Producto:</b> Poncho Callhua</p>
+
+      <p><b>Cantidad:</b> 1</p>
+
+      <p><b>Artesano responsable:</b> Taller Buendía</p>
+
+      <p><b>Estado actual:</b> En fabricación</p>
+
+    </section>
+
+
+    <section class="seguimiento">
+
+      <h3>ESTADO DEL PEDIDO</h3>
+
+      <div class="paso activo">
+        <b>1. PEDIDO RECIBIDO</b>
+        <p>El pedido fue registrado correctamente.</p>
+      </div>
+
+      <div class="paso activo">
+        <b>2. PAGO CONFIRMADO</b>
+        <p>El pago fue validado.</p>
+      </div>
+
+      <div class="paso activo">
+        <b>3. EN PREPARACIÓN</b>
+        <p>El pedido fue enviado al proceso de preparación.</p>
+      </div>
+
+      <div class="paso activo">
+        <b>4. EN FABRICACIÓN</b>
+        <p>El artesano está elaborando el producto.</p>
+      </div>
+
+      <div class="paso">
+        <b>5. CONTROL DE CALIDAD</b>
+        <p>Pendiente.</p>
+      </div>
+
+      <div class="paso">
+        <b>6. LISTO PARA ENTREGA</b>
+        <p>Pendiente.</p>
+      </div>
+
+      <div class="paso">
+        <b>7. ENVIADO</b>
+        <p>Pendiente.</p>
+      </div>
+
+      <div class="paso">
+        <b>8. ENTREGADO</b>
+        <p>Pendiente.</p>
+      </div>
+
+    </section>
+
+
+    <section class="actualizar-estado">
+
+      <h3>ACTUALIZAR ESTADO</h3>
+
+      <label>Nuevo estado</label>
+
+      <select>
+        <option>Pedido recibido</option>
+        <option>Pago confirmado</option>
+        <option>En preparación</option>
+        <option>En fabricación</option>
+        <option>Control de calidad</option>
+        <option>Listo para entrega</option>
+        <option>Enviado</option>
+        <option>Entregado</option>
+      </select>
+
+      <br><br>
+
+      <button>
+        ACTUALIZAR ESTADO
+      </button>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
