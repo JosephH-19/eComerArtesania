@@ -21,13 +21,13 @@
     <a href="clientes.html">CLIENTES</a>
     <a href="../promociones/promociones.html">DESCUENTOS</a>
     <a href="../pedidos/pedidos.html">PEDIDOS</a>
-    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
     <a href="../pagos/pagos.html">PAGOS</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
   </nav>
 
   <main>
     <h1>GESTIÓN DE CLIENTES</h1>
+    <p id="aviso-clientes" role="status"></p>
     
     <div class="acciones-principales">
       <a href="registrar-cliente.html" class="boton principal">+ REGISTRAR NUEVO CLIENTE</a>
@@ -41,12 +41,12 @@
       <label>Filtrar por:</label>
       <select>
         <option value="todos">Todos los clientes</option>
-        <option value="activos">Activos</option>
-        <option value="inactivos">Inactivos</option>
+        <option value="activo">Activos</option>
+        <option value="inactivo">Inactivos</option>
       </select>
     </div>
 
-    <table class="tabla-datos">
+    <table class="tabla-datos tabla-clientes">
       <thead>
         <tr>
           <th>ID</th>
@@ -70,7 +70,7 @@
           <td><span class="estado activo">ACTIVO</span></td>
           <td>
             <a href="detalle-cliente.html?id=CLI-001" class="boton-accion ver">VER</a>
-            <a href="editar-cliente.html?id=CLI-001" class="boton-accion editar">EDITAR</a>
+            <button type="button" class="boton-accion eliminar-cliente" data-cliente-id="CLI-001">ELIMINAR</button>
           </td>
         </tr>
         <tr>
@@ -83,7 +83,7 @@
           <td><span class="estado activo">ACTIVO</span></td>
           <td>
             <a href="detalle-cliente.html?id=CLI-002" class="boton-accion ver">VER</a>
-            <a href="editar-cliente.html?id=CLI-002" class="boton-accion editar">EDITAR</a>
+            <button type="button" class="boton-accion eliminar-cliente" data-cliente-id="CLI-002">ELIMINAR</button>
           </td>
         </tr>
         <tr>
@@ -96,7 +96,7 @@
           <td><span class="estado inactivo">INACTIVO</span></td>
           <td>
             <a href="detalle-cliente.html?id=CLI-003" class="boton-accion ver">VER</a>
-            <a href="editar-cliente.html?id=CLI-003" class="boton-accion editar">EDITAR</a>
+            <button type="button" class="boton-accion eliminar-cliente" data-cliente-id="CLI-003">ELIMINAR</button>
           </td>
         </tr>
       </tbody>
@@ -112,5 +112,6 @@
   <footer>
     <p>Taller Buendía - Panel de Gestión</p>
   </footer>
+  <script src="../js/clientes.js"></script>
 </body>
 </html>

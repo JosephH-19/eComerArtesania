@@ -28,30 +28,10 @@
     <a href="pago.html">PAGO</a>
   </nav>
 
-  <main class="pago">
-
-    <h1>REALIZAR PAGO</h1>
-
-    <p>Total a pagar: <strong>S/ 250.00</strong></p>
-
-    <form>
-      <label for="nombre">Nombre completo</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
-
-      <label for="tipo-pago">Tipo de pago</label>
-      <select id="tipo-pago" name="tipo-pago" required>
-        <option value="">Selecciona un método</option>
-        <option value="yape">Yape</option>
-        <option value="plin">Plin</option>
-        <option value="efectivo">Efectivo (recojo en taller)</option>
-      </select>
-
-      <label for="numero">Número de teléfono (para Yape/Plin)</label>
-      <input type="tel" id="numero" name="numero" placeholder="987654321" pattern="[0-9]{9}">
-
-      <button type="submit" class="boton principal">REALIZAR PAGO</button>
-    </form>
-
+  <main class="pago pago-estatico">
+    <h1>Confirmación de pago</h1>
+    <p>Elige el método de pago y registra tus datos junto con el pedido. Esta interfaz es una demostración: no procesa cobros reales.</p>
+    <a href="../pedidos/confirmar-pedido.html" class="boton principal">CONTINUAR A CONFIRMAR PEDIDO</a>
   </main>
 
   <footer>

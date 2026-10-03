@@ -33,33 +33,19 @@
         <h2>Detalles del Pedido</h2>
         <div id="pedido">
           <p><strong>Método de entrega:</strong> Recojo en el taller</p>
-          <p><strong>Método de pago:</strong> Yape (pago al confirmar)</p>
+          <p><strong>Método de pago:</strong> Se selecciona abajo</p>
           <p><strong>Total:</strong> <span id="total-pedido">S/ 123.00</span></p>
         </div>
       </div>
       
       <div class="resumen-productos">
         <h2>Productos en tu pedido</h2>
-        <div class="producto-resumen">
-          <img src="../../assets/productos/8.jpg" alt="Poncho Callhua" class="img-resumen">
-          <div class="info-resumen">
-            <h3>Poncho Callhua</h3>
-            <p>Cantidad: 1 | S/ 75.00</p>
-          </div>
-        </div>
-        <div class="producto-resumen">
-          <img src="../../assets/productos/6.jpg" alt="Poncho Andino" class="img-resumen">
-          <div class="info-resumen">
-            <h3>Poncho Andino</h3>
-            <p>Cantidad: 1 | S/ 48.00</p>
-          </div>
-        </div>
+        <div id="lista-productos-pedido"></div>
       </div>
     </div>
     
-    <div class="datos-cliente">
+    <form id="form-confirmar-pedido" class="datos-cliente formulario-pedido">
       <h2>Tus datos</h2>
-      <form>
         <div class="form-group">
           <label for="nombre">Nombre completo *</label>
           <input type="text" id="nombre" name="nombre" required>
@@ -77,28 +63,34 @@
           <input type="email" id="correo" name="correo" required>
         </div>
         <div class="form-group">
+          <label for="metodo-pago">Método de pago *</label>
+          <select id="metodo-pago" name="metodo-pago" required>
+            <option value="">Selecciona un método</option>
+            <option value="Yape">Yape</option>
+            <option value="Plin">Plin</option>
+            <option value="Efectivo al recoger">Efectivo al recoger</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="direccion">Dirección (opcional)</label>
           <input type="text" id="direccion" name="direccion">
         </div>
         <p class="nota">* Campos obligatorios</p>
-      </form>
-    </div>
+      <div class="acciones-pedido">
+        <a href="../catalogo/carrito.html" class="boton">Volver al carrito</a>
+        <button type="submit" class="boton principal">Confirmar pedido y pago de demostración</button>
+      </div>
+      <p id="aviso" role="status"></p>
+    </form>
     
     <p class="nota">
-      Recuerda: El pago se realizará mediante Yape al momento de recoger tu pedido en el taller.
-      No ingreses información de tarjetas de crédito o débito.
+      Prototipo estático: el pago es simulado y no se realiza ningún cobro real. El pedido se guardará solo en este navegador.
     </p>
-    
-    <div class="acciones-pedido">
-      <a href="../catalogo/carrito.html" class="boton">← Volver al carrito</a>
-      <a href="resultado-pedido.html" class="boton principal">Confirmar pedido</a>
-    </div>
-    
-    <p id="aviso" role="status"></p>
   </main>
 
   <footer>
     <p>Taller Buendía - Textil Huanca · Demostración académica, sin pedidos ni cobros reales.</p>
   </footer>
+  <script src="../js/pedidos.js"></script>
 </body>
 </html>

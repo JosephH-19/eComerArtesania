@@ -25,70 +25,20 @@
   </nav>
 
   <main>
-    <div class="resultado-container">
-      <div class="resultado-icono">✓</div>
-      <h1>¡PEDIDO CONFIRMADO CON ÉXITO!</h1>
-      
-      <div class="resultado-info">
-        <p class="numero-pedido"><strong>Número de Pedido:</strong> ORD-2026-001</p>
-        <p><strong>Fecha:</strong> 12/09/2026</p>
-        <p><strong>Total:</strong> S/ 123.00</p>
-      </div>
-
-      <div class="resultado-detalle">
-        <h2>Resumen de tu Pedido</h2>
-        <table class="tabla-productos">
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Cantidad</th>
-              <th>Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Poncho Callhua</td>
-              <td>1</td>
-              <td>S/ 75.00</td>
-            </tr>
-            <tr>
-              <td>Poncho Andino</td>
-              <td>1</td>
-              <td>S/ 48.00</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2"><strong>Total:</strong></td>
-              <td><strong>S/ 123.00</strong></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-
-      <div class="resultado-siguientes-pasos">
-        <h2>¿Qué sigue ahora?</h2>
-        <ol>
-          <li><strong>Realiza el pago:</strong> Usa Yape al número 987654321 (Taller Buendía) por el monto de S/ 123.00.</li>
-          <li><strong>Recoge tu pedido:</strong> Acércate a nuestro taller en Hualhuas, Huancayo para recoger tus productos.</li>
-          <li><strong>Revisa tu correo:</strong> Te enviaremos un comprobante a juan.perez@example.com.</li>
-        </ol>
-      </div>
-
-      <div class="acciones-resultado">
-        <a href="../catalogo/productos.html" class="boton">← SEGUIR COMPRANDO</a>
-        <a href="mis-pedidos.html" class="boton principal">VER MIS PEDIDOS</a>
-      </div>
-
+    <div class="resultado-container" id="resultado-pedido">
       <p class="nota">
-        <strong>Importante:</strong> Este es un prototipo académico. No se realizará ningún cobro real.
-        El Taller Buendía se reserva el derecho de confirmar la disponibilidad de los productos.
+        Prototipo estático: el registro solo queda guardado en el navegador donde se realizó el pedido.
       </p>
+    </div>
+    <div class="acciones-resultado">
+      <a href="../catalogo/productos.html" class="boton">SEGUIR COMPRANDO</a>
+      <a href="mis-pedidos.html" class="boton principal">CONSULTAR ESTADO POR DNI</a>
     </div>
   </main>
 
   <footer>
     <p>Taller Buendía - Textil Huanca · Huancayo, Junín</p>
   </footer>
+  <script src="../js/pedidos.js"></script>
 </body>
 </html>

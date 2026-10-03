@@ -21,7 +21,6 @@
     <a href="clientes.html">CLIENTES</a>
     <a href="../promociones/promociones.html">DESCUENTOS</a>
     <a href="../pedidos/pedidos.html">PEDIDOS</a>
-    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
     <a href="../pagos/pagos.html">PAGOS</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
   </nav>
@@ -33,33 +32,33 @@
       <div class="detalle-header">
         <h1>DETALLE DE CLIENTE</h1>
         <div class="acciones-detalle">
-          <a href="editar-cliente.html?id=CLI-001" class="boton">EDITAR</a>
+          <button type="button" id="eliminar-cliente" class="boton btn-danger">ELIMINAR CLIENTE</button>
         </div>
       </div>
 
       <div class="detalle-info">
         <div class="info-seccion">
           <h2>Información Personal</h2>
-          <p><strong>ID de Cliente:</strong> CLI-001</p>
-          <p><strong>Nombre Completo:</strong> Juan Pérez García</p>
-          <p><strong>DNI:</strong> 12345678</p>
-          <p><strong>Fecha de Nacimiento:</strong> 15/05/1985</p>
-          <p><strong>Género:</strong> Masculino</p>
+          <p><strong>ID de Cliente:</strong> <span id="detalle-id">CLI-001</span></p>
+          <p><strong>Nombre Completo:</strong> <span id="detalle-nombre">Juan Pérez García</span></p>
+          <p><strong>DNI:</strong> <span id="detalle-dni">12345678</span></p>
+          <p><strong>Fecha de Nacimiento:</strong> <span id="detalle-fecha-nacimiento">15/05/1985</span></p>
+          <p><strong>Género:</strong> <span id="detalle-genero">Masculino</span></p>
         </div>
 
         <div class="info-seccion">
           <h2>Información de Contacto</h2>
-          <p><strong>Correo Electrónico:</strong> juan.perez@example.com</p>
-          <p><strong>Teléfono:</strong> 987654321</p>
-          <p><strong>Dirección:</strong> Calle Real 123, Huancayo, Junín</p>
-          <p><strong>Distrito:</strong> Huancayo</p>
+          <p><strong>Correo Electrónico:</strong> <span id="detalle-correo">juan.perez@example.com</span></p>
+          <p><strong>Teléfono:</strong> <span id="detalle-telefono">987654321</span></p>
+          <p><strong>Dirección:</strong> <span id="detalle-direccion">Calle Real 123, Huancayo, Junín</span></p>
+          <p><strong>Distrito:</strong> <span id="detalle-distrito">Huancayo</span></p>
         </div>
       </div>
 
       <div class="info-seccion">
         <h2>Información Comercial</h2>
         <p><strong>Fecha de Registro:</strong> 01/01/2026</p>
-        <p><strong>Estado:</strong> <span class="estado activo">ACTIVO</span></p>
+        <p><strong>Estado:</strong> <span id="detalle-estado" class="estado activo">ACTIVO</span></p>
         <p><strong>Total de Pedidos:</strong> 3</p>
         <p><strong>Total Gastado:</strong> S/ 456.00</p>
       </div>
@@ -107,5 +106,6 @@
   <footer>
     <p>Taller Buendía - Panel de Gestión</p>
   </footer>
+  <script src="../js/clientes.js"></script>
 </body>
 </html>
