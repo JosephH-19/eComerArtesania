@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Pago</title>
-  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 <body>
 
@@ -14,7 +14,15 @@
     <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
   </header>
 
- 
+  <nav>
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="productos.html">CATÁLOGO</a>
+    <a href="carrito.html">CARRITO</a>
+    <a href="../promociones/index.html">PUBLICIDAD</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+  </nav>
+
   <nav class="subnav">
     <a href="carrito.html">CARRITO</a>
     <a href="pago.html">PAGO</a>
@@ -24,25 +32,25 @@
 
     <h1>REALIZAR PAGO</h1>
 
-    <p>Total a pagar: S/ 250.00</p>
+    <p>Total a pagar: <strong>S/ 250.00</strong></p>
 
-    <label>Nombre completo</label>
+    <form>
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
 
-    <input type="text" placeholder="Escribe tu nombre">
+      <label for="tipo-pago">Tipo de pago</label>
+      <select id="tipo-pago" name="tipo-pago" required>
+        <option value="">Selecciona un método</option>
+        <option value="yape">Yape</option>
+        <option value="plin">Plin</option>
+        <option value="efectivo">Efectivo (recojo en taller)</option>
+      </select>
 
-    <label>Tipo de pago</label>
+      <label for="numero">Número de teléfono (para Yape/Plin)</label>
+      <input type="tel" id="numero" name="numero" placeholder="987654321" pattern="[0-9]{9}">
 
-    <select>
-      <option>Tarjeta</option>
-      <option>Yape</option>
-      <option>Plin</option>
-    </select>
-
-    <label>Número de tarjeta</label>
-
-    <input type="text" placeholder="0000 0000 0000 0000">
-
-    <button>REALIZAR PAGO</button>
+      <button type="submit" class="boton principal">REALIZAR PAGO</button>
+    </form>
 
   </main>
 

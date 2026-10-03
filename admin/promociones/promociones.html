@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
-  <title>Taller Buendía - Promociones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Descuentos</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <nav class="admin-nav">
@@ -22,10 +23,12 @@
     <a href="../productos/productos.html">PRODUCTOS</a>
     <a href="../categorias/categorias.html">CATEGORÍAS</a>
     <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
     <a href="promociones.html">DESCUENTOS</a>
-    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
-    <a href="../login/login.html">SALIR</a>
   </nav>
 
   <main>
@@ -34,71 +37,95 @@
 
       <div>
         <h2>GESTIÓN DE DESCUENTOS</h2>
-        <p>Administra las promociones y descuentos de la tienda.</p>
+        <p>Crea y administra descuentos para productos.</p>
       </div>
 
       <a class="boton" href="registrar.html">
-        NUEVA PROMOCIÓN
+        NUEVO DESCUENTO
       </a>
 
     </div>
 
+    <section class="busqueda">
+
+      <label>Buscar descuento</label>
+
+      <input
+        type="text"
+        placeholder="Nombre del descuento">
+
+      <button>
+        BUSCAR
+      </button>
+
+    </section>
+
+    <section class="filtros-admin">
+
+      <div>
+        <label>Estado</label>
+        <select>
+          <option>Todos</option>
+          <option>Activo</option>
+          <option>Inactivo</option>
+          <option>Vencido</option>
+        </select>
+      </div>
+
+    </section>
+
     <section>
 
-      <h3>LISTADO DE PROMOCIONES</h3>
+      <h3>LISTADO DE DESCUENTOS</h3>
 
-      <div class="lista-simple">
+      <div class="promociones-admin">
 
-        <article class="item-admin">
-
+        <article class="promocion-admin">
           <div>
-
-            <h3>DESCUENTO DE TEMPORADA</h3>
-
-            <p><b>Descuento:</b> 15%</p>
-
-            <p><b>Vigencia:</b> 01/09/2026 - 30/09/2026</p>
-
-            <p><b>Estado:</b> Activa</p>
-
+            <h3>Fiestas Patrias</h3>
+            <p><b>Descripción:</b> 15% de descuento en todos los ponchos tradicionales.</p>
+            <p><b>Porcentaje:</b> 15%</p>
+            <p><b>Fecha inicio:</b> 01/07/2026</p>
+            <p><b>Fecha fin:</b> 31/07/2026</p>
+            <p><b>Estado:</b> <span class="estado activo">ACTIVO</span></p>
           </div>
-
           <div class="acciones">
-
-            <a class="boton" href="detalle.html">VER</a>
-
+            <a class="boton" href="detalle-promocion.html">VER</a>
             <a class="boton" href="editar.html">EDITAR</a>
-
-            <button class="btn-danger">ELIMINAR</button>
-
+            <button class="btn-danger">DESACTIVAR</button>
           </div>
-
         </article>
 
-        <article class="item-admin">
-
+        <article class="promocion-admin">
           <div>
-
-            <h3>PROMOCIÓN ARTESANÍA HUANCA</h3>
-
-            <p><b>Descuento:</b> 10%</p>
-
-            <p><b>Vigencia:</b> 15/09/2026 - 15/10/2026</p>
-
-            <p><b>Estado:</b> Programada</p>
-
+            <h3>Día de la Madre</h3>
+            <p><b>Descripción:</b> 20% de descuento en mantas de lana de alpaca.</p>
+            <p><b>Porcentaje:</b> 20%</p>
+            <p><b>Fecha inicio:</b> 01/05/2026</p>
+            <p><b>Fecha fin:</b> 15/05/2026</p>
+            <p><b>Estado:</b> <span class="estado inactivo">VENCIDO</span></p>
           </div>
-
           <div class="acciones">
-
-            <a class="boton" href="detalle.html">VER</a>
-
+            <a class="boton" href="detalle-promocion.html">VER</a>
             <a class="boton" href="editar.html">EDITAR</a>
-
-            <button class="btn-danger">ELIMINAR</button>
-
+            <button class="btn-danger" disabled>DESACTIVAR</button>
           </div>
+        </article>
 
+        <article class="promocion-admin">
+          <div>
+            <h3>Navidad</h3>
+            <p><b>Descripción:</b> 25% de descuento en kits de artesanías para regalo.</p>
+            <p><b>Porcentaje:</b> 25%</p>
+            <p><b>Fecha inicio:</b> 01/12/2026</p>
+            <p><b>Fecha fin:</b> 31/12/2026</p>
+            <p><b>Estado:</b> <span class="estado activo">ACTIVO</span></p>
+          </div>
+          <div class="acciones">
+            <a class="boton" href="detalle-promocion.html">VER</a>
+            <a class="boton" href="editar.html">EDITAR</a>
+            <button class="btn-danger">DESACTIVAR</button>
+          </div>
         </article>
 
       </div>
@@ -106,6 +133,10 @@
     </section>
 
   </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
 
 </body>
 </html>

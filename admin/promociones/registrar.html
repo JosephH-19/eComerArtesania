@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
-  <title>Taller Buendía - Registrar Promoción</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Registrar Descuento</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -15,56 +15,121 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
     <a href="promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
   </nav>
 
   <main>
 
-    <h2>REGISTRAR PROMOCIÓN</h2>
+    <a href="promociones.html">← Volver a Descuentos</a>
+
+    <h2>REGISTRAR NUEVO DESCUENTO</h2>
 
     <form class="formulario-admin">
 
-      <label>Nombre de la promoción</label>
-      <input type="text" placeholder="Nombre de la promoción">
+      <div class="form-section">
+        <h3>Datos del Descuento</h3>
 
-      <label>Descripción</label>
-      <textarea placeholder="Descripción de la promoción"></textarea>
+        <div class="form-group">
+          <label for="codigo">Código de Descuento *</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Ej: PROMO-004" required>
+        </div>
 
-      <label>Porcentaje de descuento</label>
-      <input type="number" placeholder="10">
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Navidad 2026" required>
+        </div>
 
-      <label>Fecha de inicio</label>
-      <input type="date">
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="3" placeholder="Descripción del descuento..."></textarea>
+        </div>
 
-      <label>Fecha de finalización</label>
-      <input type="date">
+      </div>
 
-      <label>Estado</label>
+      <div class="form-section">
+        <h3>Configuración de Descuento</h3>
 
-      <select>
-        <option>Activa</option>
-        <option>Programada</option>
-        <option>Inactiva</option>
-      </select>
+        <div class="form-group">
+          <label for="tipo-descuento">Tipo de Descuento *</label>
+          <select id="tipo-descuento" name="tipo-descuento" required>
+            <option value="">Seleccionar tipo...</option>
+            <option value="porcentaje" selected>Porcentaje (%)</option>
+            <option value="monto">Monto fijo (S/)</option>
+          </select>
+        </div>
 
-      <div class="acciones-formulario">
+        <div class="form-group">
+          <label for="valor">Valor *</label>
+          <input type="number" id="valor" name="valor" step="0.01" min="0" placeholder="Ej: 25" required>
+        </div>
 
-        <a class="boton-secundario" href="promociones.html">
-          CANCELAR
-        </a>
+      </div>
 
-        <button type="submit">
-          GUARDAR PROMOCIÓN
-        </button>
+      <div class="form-section">
+        <h3>Vigencia</h3>
 
+        <div class="form-group">
+          <label for="fecha-inicio">Fecha de Inicio *</label>
+          <input type="date" id="fecha-inicio" name="fecha-inicio" required>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha-fin">Fecha de Fin *</label>
+          <input type="date" id="fecha-fin" name="fecha-fin" required>
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Configuración</h3>
+
+        <div class="form-group">
+          <label for="aplicable-a">Aplicable a:</label>
+          <select id="aplicable-a" name="aplicable-a">
+            <option value="">Seleccionar...</option>
+            <option value="todos">Todos los productos</option>
+            <option value="categoria">Categoría específica</option>
+            <option value="producto">Producto específico</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="activo" selected>Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="boton principal">REGISTRAR DESCUENTO</button>
+        <button type="reset" class="boton">LIMPIAR FORMULARIO</button>
+        <a href="promociones.html" class="boton">CANCELAR</a>
       </div>
 
     </form>
 
   </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
 
 </body>
 </html>

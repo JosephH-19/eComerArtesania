@@ -2,8 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Detalle de Producto</title>
-  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 <body>
 
@@ -13,17 +14,25 @@
     <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
   </header>
 
- 
+  <nav>
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="productos.html">CATÁLOGO</a>
+    <a href="carrito.html">CARRITO</a>
+    <a href="../promociones/index.html">PUBLICIDAD</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+  </nav>
+
   <nav class="subnav">
     <a href="productos.html">PRODUCTOS</a>
     <a href="detalle-producto.html">DETALLE DEL PRODUCTO</a>
-    <a href="artesano.html">ARTESANO</a>
+    <a href="../artesanos/index.html">ARTESANOS</a>
   </nav>
 
   <main class="detalle">
 
     <img src="../../assets/general/poncho-principal.png"
-         alt="Poncho tipo Sicaya"
+         alt="Poncho tipo Sicaya - Diseño tradicional de Hualhuas en perlón con líneas negras"
          class="grande">
 
     <section>
@@ -34,24 +43,34 @@
 
       <p>
         Parte de la colección Herencia Callhua - Edición Limitada.
+        Este diseño tradicional proviene de la comunidad de Hualhuas,
+        reconocido como pueblo artesanal por su textilería.
       </p>
 
       <p>
-        Color: Perlón con líneas negras
+        <strong>Color:</strong> Perlón con líneas negras
       </p>
 
-      <label>Variante</label>
+      <p>
+        <strong>Materiales:</strong> Lana de oveja y perlón de alta calidad
+      </p>
 
-      <select>
-        <option>En Perlón - S/ 250</option>
-        <option>100% oveja tipo Callhua - S/ 550</option>
+      <label for="variante">Variante</label>
+
+      <select id="variante" name="variante">
+        <option value="perlon">En Perlón - S/ 250.00</option>
+        <option value="oveja">100% oveja tipo Callhua - S/ 550.00</option>
       </select>
 
       <p>
-        <b>Precio: S/ 250 - S/ 550</b>
+        <strong>Precio: S/ 250.00 - S/ 550.00</strong>
       </p>
 
-      <button>AÑADIR AL CARRITO</button>
+      <p>
+        <strong>Disponibilidad:</strong> <span class="stock-disponible">En stock</span>
+      </p>
+
+      <button class="boton principal">AÑADIR AL CARRITO</button>
 
     </section>
 

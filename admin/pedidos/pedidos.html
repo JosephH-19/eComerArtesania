@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Pedidos</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <nav class="admin-nav">
@@ -22,19 +23,22 @@
     <a href="../productos/productos.html">PRODUCTOS</a>
     <a href="../categorias/categorias.html">CATEGORÍAS</a>
     <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
     <a href="../promociones/promociones.html">DESCUENTOS</a>
-    <a href="pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
-    <a href="../login/login.html">SALIR</a>
   </nav>
 
   <main>
 
-    <h2>GESTIÓN DE PEDIDOS Y PAGOS</h2>
-
-    <p>
-      Consulta los pedidos registrados y realiza el seguimiento de su proceso.
-    </p>
+    <div class="titulo-seccion">
+      <div>
+        <h2>GESTIÓN DE PEDIDOS</h2>
+        <p>Consulta los pedidos registrados y realiza el seguimiento de su proceso.</p>
+      </div>
+    </div>
 
     <section class="busqueda">
 
@@ -46,117 +50,115 @@
 
     </section>
 
-    <section class="filtros">
-
+    <section class="filtros-admin">
       <div>
-        <label>Estado del pedido</label>
-
+        <label>Estado</label>
         <select>
           <option>Todos</option>
-          <option>Pedido recibido</option>
-          <option>Pago confirmado</option>
+          <option>Pendiente de pago</option>
+          <option>Confirmado</option>
           <option>En preparación</option>
-          <option>En fabricación</option>
-          <option>Control de calidad</option>
           <option>Listo para entrega</option>
-          <option>Enviado</option>
+          <option>En camino</option>
           <option>Entregado</option>
+          <option>Cancelado</option>
         </select>
       </div>
-
+      
       <div>
-        <label>Estado del pago</label>
-
-        <select>
-          <option>Todos</option>
-          <option>Pendiente</option>
-          <option>Confirmado</option>
-          <option>Rechazado</option>
-        </select>
+        <label>Fecha</label>
+        <input type="date">
       </div>
 
     </section>
 
     <section>
-
       <h3>LISTADO DE PEDIDOS</h3>
-
-      <div class="lista-simple">
-
-        <article class="item-admin">
-
-          <div>
-
-            <h3>PEDIDO #PED001</h3>
-
-            <p><b>Cliente:</b> Carlos Mendoza</p>
-
-            <p><b>Producto:</b> Poncho Callhua</p>
-
-            <p><b>Cantidad:</b> 1</p>
-
-            <p><b>Total:</b> S/ 75.00</p>
-
-            <p><b>Pago:</b> Confirmado</p>
-
-            <p><b>Estado:</b> En fabricación</p>
-
-          </div>
-
-          <div class="acciones">
-
-            <a class="boton" href="detalle.html">
-              VER
-            </a>
-
-            <a class="boton" href="seguimiento.html">
-              SEGUIMIENTO
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <article class="item-admin">
-
-          <div>
-
-            <h3>PEDIDO #PED002</h3>
-
-            <p><b>Cliente:</b> Ana Torres</p>
-
-            <p><b>Producto:</b> Poncho Andino</p>
-
-            <p><b>Cantidad:</b> 2</p>
-
-            <p><b>Total:</b> S/ 96.00</p>
-
-            <p><b>Pago:</b> Confirmado</p>
-
-            <p><b>Estado:</b> Listo para entrega</p>
-
-          </div>
-
-          <div class="acciones">
-
-            <a class="boton" href="detalle.html">
-              VER
-            </a>
-
-            <a class="boton" href="seguimiento.html">
-              SEGUIMIENTO
-            </a>
-
-          </div>
-
-        </article>
-
-      </div>
-
+      
+      <table class="tabla-datos">
+        <thead>
+          <tr>
+            <th>N° Pedido</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ORD-2026-001</td>
+            <td>Juan Pérez García</td>
+            <td>12/09/2026</td>
+            <td>S/ 123.00</td>
+            <td><span class="estado entregado">ENTREGADO</span></td>
+            <td>
+              <a class="boton-accion ver" href="detalle-pedido.html?id=ORD-2026-001">VER</a>
+              <a class="boton-accion editar" href="seguimiento.html?id=ORD-2026-001">SEGUIMIENTO</a>
+            </td>
+          </tr>
+          <tr>
+            <td>ORD-2026-002</td>
+            <td>María López Martínez</td>
+            <td>10/09/2026</td>
+            <td>S/ 85.00</td>
+            <td><span class="estado listo">LISTO PARA ENTREGA</span></td>
+            <td>
+              <a class="boton-accion ver" href="detalle-pedido.html?id=ORD-2026-002">VER</a>
+              <a class="boton-accion editar" href="seguimiento.html?id=ORD-2026-002">SEGUIMIENTO</a>
+            </td>
+          </tr>
+          <tr>
+            <td>ORD-2026-003</td>
+            <td>Carlos Gómez Sánchez</td>
+            <td>05/09/2026</td>
+            <td>S/ 200.00</td>
+            <td><span class="estado confirmado">CONFIRMADO</span></td>
+            <td>
+              <a class="boton-accion ver" href="detalle-pedido.html?id=ORD-2026-003">VER</a>
+              <a class="boton-accion editar" href="seguimiento.html?id=ORD-2026-003">SEGUIMIENTO</a>
+            </td>
+          </tr>
+          <tr>
+            <td>ORD-2026-004</td>
+            <td>Ana Rodríguez</td>
+            <td>03/09/2026</td>
+            <td>S/ 150.00</td>
+            <td><span class="estado preparacion">EN PREPARACIÓN</span></td>
+            <td>
+              <a class="boton-accion ver" href="detalle-pedido.html?id=ORD-2026-004">VER</a>
+              <a class="boton-accion editar" href="seguimiento.html?id=ORD-2026-004">SEGUIMIENTO</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
+    <div class="estadisticas-pedidos">
+      <div class="estadistica-card">
+        <h3>Pedidos Hoy</h3>
+        <p class="numero">5</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Pedidos Pendientes</h3>
+        <p class="numero">3</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Pedidos Entregados</h3>
+        <p class="numero">12</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Total Ventas</h3>
+        <p class="numero">S/ 2,450.00</p>
+      </div>
+    </div>
+
   </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
 
 </body>
 </html>

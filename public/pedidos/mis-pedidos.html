@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Pedidos | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <div>
+      <strong>TALLER BUENDÍA</strong>
+      <span>Textil Huanca · Artesanía de Huancayo</span>
+    </div>
+    <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
+  </header>
+
+  <nav aria-label="Menú principal">
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="../catalogo/productos.html">CATÁLOGO</a>
+    <a href="../catalogo/carrito.html">CARRITO</a>
+    <a href="../promociones/index.html">PROMOCIONES</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+  </nav>
+
+  <main>
+    <h1>Mis Pedidos</h1>
+    <p>Revisa el estado de tus pedidos realizados en Taller Buendía.</p>
+
+    <div class="filtros-pedidos">
+      <form>
+        <label for="filtro-estado">Filtrar por estado:</label>
+        <select id="filtro-estado">
+          <option value="todos">Todos los pedidos</option>
+          <option value="pendiente">Pendiente de pago</option>
+          <option value="confirmado">Confirmado</option>
+          <option value="preparacion">En preparación</option>
+          <option value="listo">Listo para entrega</option>
+          <option value="entregado">Entregado</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+      </form>
+    </div>
+
+    <div class="lista-pedidos">
+      <!-- Pedido 1 -->
+      <article class="pedido-card">
+        <div class="pedido-header">
+          <h2>Pedido #ORD-2026-001</h2>
+          <span class="estado-pedido confirmado">CONFIRMADO</span>
+        </div>
+        <div class="pedido-body">
+          <p><strong>Fecha:</strong> 12/09/2026</p>
+          <p><strong>Total:</strong> S/ 123.00</p>
+          <p><strong>Productos:</strong> 2 artículos</p>
+        </div>
+        <div class="pedido-footer">
+          <a href="detalle-pedido.html?ido=ORD-2026-001" class="boton">Ver detalle</a>
+        </div>
+      </article>
+
+      <!-- Pedido 2 -->
+      <article class="pedido-card">
+        <div class="pedido-header">
+          <h2>Pedido #ORD-2026-002</h2>
+          <span class="estado-pedido listo">LISTO PARA ENTREGA</span>
+        </div>
+        <div class="pedido-body">
+          <p><strong>Fecha:</strong> 10/09/2026</p>
+          <p><strong>Total:</strong> S/ 85.00</p>
+          <p><strong>Productos:</strong> 1 artículo</p>
+        </div>
+        <div class="pedido-footer">
+          <a href="detalle-pedido.html?ido=ORD-2026-002" class="boton">Ver detalle</a>
+        </div>
+      </article>
+
+      <!-- Pedido 3 -->
+      <article class="pedido-card">
+        <div class="pedido-header">
+          <h2>Pedido #ORD-2026-003</h2>
+          <span class="estado-pedido entregado">ENTREGADO</span>
+        </div>
+        <div class="pedido-body">
+          <p><strong>Fecha:</strong> 05/09/2026</p>
+          <p><strong>Total:</strong> S/ 200.00</p>
+          <p><strong>Productos:</strong> 3 artículos</p>
+        </div>
+        <div class="pedido-footer">
+          <a href="detalle-pedido.html?ido=ORD-2026-003" class="boton">Ver detalle</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="acciones">
+      <a href="../catalogo/productos.html" class="boton">← Seguir comprando</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Textil Huanca</p>
+  </footer>
+</body>
+</html>

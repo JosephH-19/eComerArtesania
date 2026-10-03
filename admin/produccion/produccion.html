@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Producción | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Panel de Gestión - Producción</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+    <h1>GESTIÓN DE PRODUCCIÓN</h1>
+    <p>Administra los pedidos que requieren fabricación y su estado en el proceso de producción.</p>
+
+    <div class="acciones-principales">
+      <div class="buscador">
+        <input type="text" placeholder="Buscar por número de pedido, producto o cliente...">
+        <button>Buscar</button>
+      </div>
+    </div>
+
+    <div class="filtros-admin">
+      <label>Filtrar por estado:</label>
+      <select id="filtro-estado">
+        <option value="todos">Todos</option>
+        <option value="pendiente">Pendiente de producción</option>
+        <option value="en-proceso">En proceso</option>
+        <option value="control-calidad">En control de calidad</option>
+        <option value="aprobado">Aprobado</option>
+        <option value="rechazado">Rechazado</option>
+      </select>
+    </div>
+
+    <table class="tabla-datos">
+      <thead>
+        <tr>
+          <th>N° Pedido</th>
+          <th>Producto</th>
+          <th>Cliente</th>
+          <th>Cantidad</th>
+          <th>Fecha Inicio</th>
+          <th>Estado</th>
+          <th>Artesano</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ORD-2026-005</td>
+          <td>Poncho Sicaya (Personalizado)</td>
+          <td>María López</td>
+          <td>1</td>
+          <td>10/09/2026</td>
+          <td><span class="estado en-proceso">EN PROCESO</span></td>
+          <td>José Buendía</td>
+          <td>
+            <a href="#" class="boton-accion ver">VER</a>
+            <a href="#" class="boton-accion editar">ACTUALIZAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ORD-2026-008</td>
+          <td>Manta Tradicional</td>
+          <td>Carlos Gómez</td>
+          <td>2</td>
+          <td>11/09/2026</td>
+          <td><span class="estado control-calidad">EN CONTROL DE CALIDAD</span></td>
+          <td>María López</td>
+          <td>
+            <a href="#" class="boton-accion ver">VER</a>
+            <a href="#" class="boton-accion editar">ACTUALIZAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ORD-2026-012</td>
+          <td>Chalina de Alpaca</td>
+          <td>Ana Martínez</td>
+          <td>1</td>
+          <td>12/09/2026</td>
+          <td><span class="estado pendiente">PENDIENTE</span></td>
+          <td>-</td>
+          <td>
+            <a href="#" class="boton-accion ver">VER</a>
+            <a href="#" class="boton-accion asignar">ASIGNAR ARTESANO</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="produccion-estadisticas">
+      <div class="estadistica-card">
+        <h3>Pedidos en Producción</h3>
+        <p class="numero">12</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Pedidos Completados</h3>
+        <p class="numero">45</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Tiempo Promedio</h3>
+        <p class="numero">5 días</p>
+      </div>
+    </div>
+
+    <div class="paginacion">
+      <button class="boton" disabled>← Anterior</button>
+      <span>Página 1 de 3</span>
+      <button class="boton">Siguiente →</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Panel de Gestión</p>
+  </footer>
+</body>
+</html>

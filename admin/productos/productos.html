@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Gestión de Productos</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -15,6 +15,7 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <!-- MENÚ DE ADMINISTRACIÓN -->
@@ -23,10 +24,11 @@
     <a href="productos.html">PRODUCTOS</a>
     <a href="../categorias/categorias.html">CATEGORÍAS</a>
     <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
     <a href="../promociones/promociones.html">DESCUENTOS</a>
     <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
-    <a href="../login/login.html">SALIR</a>
   </nav>
 
   <main>
@@ -60,7 +62,7 @@
     </section>
 
     <!-- FILTROS -->
-    <section class="filtros">
+    <section class="filtros-admin">
 
       <div>
         <label>Categoría</label>
@@ -68,8 +70,9 @@
         <select>
           <option>Todos</option>
           <option>Textiles</option>
-          <option>Cerámica</option>
-          <option>Madera</option>
+          <option>Ponchos</option>
+          <option>Mantas</option>
+          <option>Chalinas</option>
         </select>
       </div>
 
@@ -80,6 +83,7 @@
           <option>Todos</option>
           <option>Disponible</option>
           <option>Agotado</option>
+          <option>Bajo Pedido</option>
         </select>
       </div>
 
@@ -97,18 +101,18 @@
 
           <img
             src="../../assets/productos/8.jpg"
-            alt="Poncho Callhua">
+            alt="Poncho Callhua - Diseño tradicional en lana de oveja">
 
           <div>
 
             <h3>Poncho Callhua</h3>
 
             <p>
-              <b>Categoría:</b> Textiles
+              <b>Categoría:</b> Ponchos
             </p>
 
             <p>
-              <b>Artesano:</b> Taller Buendía
+              <b>Artesano:</b> José Buendía
             </p>
 
             <p>
@@ -127,7 +131,7 @@
 
           <div class="acciones">
 
-            <a class="boton" href="detalle.html">
+            <a class="boton" href="detalle-producto.html">
               VER
             </a>
 
@@ -136,7 +140,7 @@
             </a>
 
             <button class="btn-danger">
-              ELIMINAR
+              DESACTIVAR
             </button>
 
           </div>
@@ -149,18 +153,18 @@
 
           <img
             src="../../assets/productos/6.jpg"
-            alt="Poncho Andino">
+            alt="Poncho Andino - Diseño Sicaya en lana de alpaca">
 
           <div>
 
             <h3>Poncho Andino</h3>
 
             <p>
-              <b>Categoría:</b> Textiles
+              <b>Categoría:</b> Ponchos
             </p>
 
             <p>
-              <b>Artesano:</b> Taller Buendía
+              <b>Artesano:</b> María López
             </p>
 
             <p>
@@ -179,7 +183,7 @@
 
           <div class="acciones">
 
-            <a class="boton" href="detalle.html">
+            <a class="boton" href="detalle-producto.html">
               VER
             </a>
 
@@ -188,7 +192,7 @@
             </a>
 
             <button class="btn-danger">
-              ELIMINAR
+              DESACTIVAR
             </button>
 
           </div>
@@ -201,18 +205,18 @@
 
           <img
             src="../../assets/productos/4.jpg"
-            alt="Poncho Sicaino">
+            alt="Poncho Sicaino - Tejido tradicional con diseños geométricos">
 
           <div>
 
             <h3>Poncho Sicaino</h3>
 
             <p>
-              <b>Categoría:</b> Textiles
+              <b>Categoría:</b> Ponchos
             </p>
 
             <p>
-              <b>Artesano:</b> Taller Buendía
+              <b>Artesano:</b> Carlos Gómez
             </p>
 
             <p>
@@ -224,14 +228,14 @@
             </p>
 
             <p>
-              <b>Estado:</b> Disponible
+              <b>Estado:</b> Bajo Pedido
             </p>
 
           </div>
 
           <div class="acciones">
 
-            <a class="boton" href="detalle.html">
+            <a class="boton" href="detalle-producto.html">
               VER
             </a>
 
@@ -240,7 +244,7 @@
             </a>
 
             <button class="btn-danger">
-              ELIMINAR
+              DESACTIVAR
             </button>
 
           </div>

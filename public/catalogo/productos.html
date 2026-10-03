@@ -7,7 +7,7 @@
 
     <title>Taller Buendía - Catálogo</title>
 
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -27,26 +27,16 @@
 
     <nav>
         <a href="../index.html">INICIO</a>
-        <a href="../nosotros/nosotros.html">NOSOTROS</a>
+        <a href="../nosotros/index.html">NOSOTROS</a>
         <a href="productos.html">CATÁLOGO</a>
         <a href="carrito.html">CARRITO</a>
-        <a href="../publicidad/promociones.html">PUBLICIDAD</a>
+        <a href="../promociones/index.html">PUBLICIDAD</a>
         <a href="../contacto/contacto.html">CONTACTO</a>
     </nav>
 
 
-    <!-- MENÚ INTERNO DEL CATÁLOGO -->
-
-    <nav class="subnav">
-        <a href="productos.html">PRODUCTOS</a>
-        <a href="detalle-producto.html">DETALLE DEL PRODUCTO</a>
-        <a href="artesano.html">ARTESANO</a>
-    </nav>
-
-
+   
     <main>
-
-        <p>Explore nuestra cultura y tradición.</p>
 
         <h1>CATÁLOGO DE PRODUCTOS</h1>
 
@@ -60,28 +50,29 @@
 
                 <p>Categoría</p>
 
-                <select>
-                    <option>Todos</option>
-                    <option>Textiles</option>
-                    <option>Cerámica</option>
+                <select id="filtro-categoria">
+                    <option value="todos">Todos</option>
+                    <option value="textiles">Textiles</option>
+                    <option value="ponchos">Ponchos</option>
+                    <option value="mantas">Mantas</option>
                 </select>
 
                 <p>Rango de precio</p>
 
-                <select>
-                    <option>Todos</option>
-                    <option>S/ 0 - S/ 50</option>
-                    <option>S/ 51 - S/ 100</option>
-                    <option>S/ 101 - S/ 200</option>
-                    <option>Más de S/ 200</option>
+                <select id="filtro-precio">
+                    <option value="todos">Todos</option>
+                    <option value="0-50">S/ 0 - S/ 50</option>
+                    <option value="51-100">S/ 51 - S/ 100</option>
+                    <option value="101-200">S/ 101 - S/ 200</option>
+                    <option value="200+">Más de S/ 200</option>
                 </select>
 
                 <p>Disponibilidad</p>
 
-                <select>
-                    <option>Todos</option>
-                    <option>Disponible</option>
-                    <option>Agotado</option>
+                <select id="filtro-disponibilidad">
+                    <option value="todos">Todos</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="bajo-pedido">Bajo pedido</option>
                 </select>
 
             </aside>
@@ -95,25 +86,25 @@
 
                     <div class="producto-imagen">
                         <img src="../../assets/productos/8.jpg"
-                            alt="Poncho Callhua">
+                            alt="Poncho Callhua - Diseño tradicional de Hualhuas en lana de oveja">
                     </div>
 
                     <div class="producto-contenido">
 
                         <h3>Poncho Callhua</h3>
 
-                        <p>Color: Marrón</p>
+                        <p>Color: Marrón | Material: Lana 100% de oveja</p>
 
                         <p class="precio">S/ 75.00</p>
 
                         <div class="acciones-producto">
 
                             <a href="detalle-producto.html">
-                                VER
+                                VER DETALLES
                             </a>
 
-                            <button type="button">
-                                AGREGAR
+                            <button type="button" aria-label="Agregar Poncho Callhua al carrito">
+                                AGREGAR AL CARRITO
                             </button>
 
                         </div>
@@ -127,25 +118,25 @@
 
                     <div class="producto-imagen">
                         <img src="../../assets/productos/6.jpg"
-                            alt="Poncho Andino">
+                            alt="Poncho Andino - Diseño Sicaya en lana natural">
                     </div>
 
                     <div class="producto-contenido">
 
                         <h3>Poncho Andino</h3>
 
-                        <p>Color: Blanco con Rojo</p>
+                        <p>Color: Blanco con Rojo | Material: Lana de alpaca</p>
 
                         <p class="precio">S/ 48.00</p>
 
                         <div class="acciones-producto">
 
                             <a href="detalle-producto.html">
-                                VER
+                                VER DETALLES
                             </a>
 
-                            <button type="button">
-                                AGREGAR
+                            <button type="button" aria-label="Agregar Poncho Andino al carrito">
+                                AGREGAR AL CARRITO
                             </button>
 
                         </div>
@@ -159,27 +150,26 @@
 
                     <div class="producto-imagen">
                         <img src="../../assets/productos/4.jpg"
-                            alt="Poncho Sicaino">
+                            alt="Poncho Sicaino - Tejido tradicional en telar">
                     </div>
 
                     <div class="producto-contenido">
 
                         <h3>Poncho Sicaino</h3>
 
-                        <p>Color: Blanco con Negro</p>
+                        <p>Color: Blanco con Negro | Material: Lana de oveja</p>
 
                         <p class="precio">S/ 35.00</p>
 
                         <div class="acciones-producto">
 
                             <a href="detalle-producto.html">
-                                VER
+                                VER DETALLES
                             </a>
 
-                            <button type="button">
-                                AGREGAR
+                            <button type="button" aria-label="Agregar Poncho Sicaino al carrito">
+                                AGREGAR AL CARRITO
                             </button>
-
                         </div>
 
                     </div>

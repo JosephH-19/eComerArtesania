@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Registrar Categoría</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -15,47 +15,72 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
     <a href="categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
   </nav>
 
   <main>
 
-    <h2>REGISTRAR CATEGORÍA</h2>
+    <a href="categorias.html">← Volver a Categorías</a>
+
+    <h2>REGISTRAR NUEVA CATEGORÍA</h2>
 
     <form class="formulario-admin">
 
-      <label>Nombre de la categoría</label>
-      <input type="text" placeholder="Ejemplo: Textiles">
+      <div class="form-section">
+        <h3>Datos de la Categoría</h3>
 
-      <label>Descripción</label>
-      <textarea placeholder="Descripción de la categoría"></textarea>
+        <div class="form-group">
+          <label for="codigo">Código de Categoría *</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Ej: CAT-004" required>
+        </div>
 
-      <label>Estado</label>
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Chalinas" required>
+        </div>
 
-      <select>
-        <option>Activa</option>
-        <option>Inactiva</option>
-      </select>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="3" placeholder="Descripción de la categoría..."></textarea>
+        </div>
 
-      <div class="acciones-formulario">
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="activo" selected>Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
 
-        <a class="boton-secundario" href="categorias.html">
-          CANCELAR
-        </a>
+      </div>
 
-        <button type="submit">
-          GUARDAR CATEGORÍA
-        </button>
-
+      <div class="form-actions">
+        <button type="submit" class="boton principal">REGISTRAR CATEGORÍA</button>
+        <button type="reset" class="boton">LIMPIAR FORMULARIO</button>
+        <a href="categorias.html" class="boton">CANCELAR</a>
       </div>
 
     </form>
 
   </main>
 
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
 </body>
 </html>
-

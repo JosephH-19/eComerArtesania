@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Editar Producto</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -16,85 +15,110 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
     <a href="productos.html">PRODUCTOS</a>
     <a href="../categorias/categorias.html">CATEGORÍAS</a>
     <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
     <a href="../promociones/promociones.html">DESCUENTOS</a>
-    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
   </nav>
 
   <main>
 
-    <h2>EDITAR PRODUCTO</h2>
+    <a href="productos.html">← Volver a Productos</a>
 
-    <p>
-      Modifique la información del producto seleccionado.
-    </p>
+    <h2>EDITAR PRODUCTO</h2>
+    <p>Modificando: Poncho Callhua (ID: PON-001)</p>
 
     <form class="formulario-admin">
 
-      <label>Nombre del producto</label>
+      <div class="form-section">
+        <h3>Datos Básicos</h3>
 
-      <input
-        type="text"
-        value="Poncho Callhua">
+        <div class="form-group">
+          <label for="codigo">Código de Producto</label>
+          <input type="text" id="codigo" name="codigo" value="PON-001" readonly>
+        </div>
 
-      <label>Descripción</label>
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" value="Poncho Callhua" required>
+        </div>
 
-      <textarea>Producto textil elaborado mediante técnicas tradicionales.</textarea>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="3">Poncho tradicional de Hualhuas con diseño Callhua, tejido en telar con lana 100% de oveja.</textarea>
+        </div>
 
-      <label>Categoría</label>
+      </div>
 
-      <select>
-        <option>Textiles</option>
-        <option>Cerámica</option>
-        <option>Madera</option>
-      </select>
+      <div class="form-section">
+        <h3>Información Comercial</h3>
 
-      <label>Artesano</label>
+        <div class="form-group">
+          <label for="categoria">Categoría *</label>
+          <select id="categoria" name="categoria" required>
+            <option value="">Seleccionar categoría...</option>
+            <option value="ponchos" selected>Ponchos</option>
+            <option value="mantas">Mantas</option>
+            <option value="chalinas">Chalinas</option>
+          </select>
+        </div>
 
-      <select>
-        <option>Taller Buendía</option>
-        <option>Artesano externo</option>
-      </select>
+        <div class="form-group">
+          <label for="precio">Precio *</label>
+          <input type="number" id="precio" name="precio" step="0.01" min="0" value="75.00" required>
+        </div>
 
-      <label>Precio</label>
+        <div class="form-group">
+          <label for="stock">Stock *</label>
+          <input type="number" id="stock" name="stock" min="0" value="12" required>
+        </div>
 
-      <input
-        type="number"
-        value="75.00">
+      </div>
 
-      <label>Stock</label>
+      <div class="form-section">
+        <h3>Asignación y Estado</h3>
 
-      <input
-        type="number"
-        value="12">
+        <div class="form-group">
+          <label for="artesano">Artesano Responsable</label>
+          <select id="artesano" name="artesano">
+            <option value="">Seleccionar artesano...</option>
+            <option value="jose" selected>José Buendía</option>
+            <option value="maria">María López</option>
+            <option value="carlos">Carlos Gómez</option>
+          </select>
+        </div>
 
-      <label>Estado</label>
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="disponible" selected>Disponible</option>
+            <option value="agotado">Agotado</option>
+            <option value="bajo-pedido">Bajo Pedido</option>
+          </select>
+        </div>
 
-      <select>
-        <option>Disponible</option>
-        <option>Agotado</option>
-      </select>
+        <div class="form-group">
+          <label for="imagen">Imagen del Producto</label>
+          <input type="file" id="imagen" name="imagen" accept="image/*">
+          <p class="nota">Imagen actual: <a href="../../assets/productos/8.jpg" target="_blank">Ver imagen</a></p>
+        </div>
 
-      <label>Imagen del producto</label>
+      </div>
 
-      <input type="file">
-
-      <div class="acciones-formulario">
-
-        <a class="boton-secundario" href="productos.html">
-          CANCELAR
-        </a>
-
-        <button type="submit">
-          GUARDAR CAMBIOS
-        </button>
-
+      <div class="form-actions">
+        <button type="submit" class="boton principal">GUARDAR CAMBIOS</button>
+        <button type="button" class="boton" onclick="window.location.href='productos.html'">CANCELAR</button>
       </div>
 
     </form>
@@ -107,4 +131,3 @@
 
 </body>
 </html>
-```

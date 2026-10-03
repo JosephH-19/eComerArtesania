@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Clientes | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Panel de Gestión - Clientes</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+    <h1>GESTIÓN DE CLIENTES</h1>
+    
+    <div class="acciones-principales">
+      <a href="registrar-cliente.html" class="boton principal">+ REGISTRAR NUEVO CLIENTE</a>
+      <div class="buscador">
+        <input type="text" placeholder="Buscar cliente por nombre, DNI o correo...">
+        <button>Buscar</button>
+      </div>
+    </div>
+
+    <div class="filtros-admin">
+      <label>Filtrar por:</label>
+      <select>
+        <option value="todos">Todos los clientes</option>
+        <option value="activos">Activos</option>
+        <option value="inactivos">Inactivos</option>
+      </select>
+    </div>
+
+    <table class="tabla-datos">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre Completo</th>
+          <th>DNI</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Pedidos</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CLI-001</td>
+          <td>Juan Pérez García</td>
+          <td>12345678</td>
+          <td>juan.perez@example.com</td>
+          <td>987654321</td>
+          <td>3</td>
+          <td><span class="estado activo">ACTIVO</span></td>
+          <td>
+            <a href="detalle-cliente.html?id=CLI-001" class="boton-accion ver">VER</a>
+            <a href="editar-cliente.html?id=CLI-001" class="boton-accion editar">EDITAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>CLI-002</td>
+          <td>María López Martínez</td>
+          <td>87654321</td>
+          <td>maria.lopez@example.com</td>
+          <td>912345678</td>
+          <td>2</td>
+          <td><span class="estado activo">ACTIVO</span></td>
+          <td>
+            <a href="detalle-cliente.html?id=CLI-002" class="boton-accion ver">VER</a>
+            <a href="editar-cliente.html?id=CLI-002" class="boton-accion editar">EDITAR</a>
+          </td>
+        </tr>
+        <tr>
+          <td>CLI-003</td>
+          <td>Carlos Gómez Sánchez</td>
+          <td>11223344</td>
+          <td>carlos.gomez@example.com</td>
+          <td>922334455</td>
+          <td>1</td>
+          <td><span class="estado inactivo">INACTIVO</span></td>
+          <td>
+            <a href="detalle-cliente.html?id=CLI-003" class="boton-accion ver">VER</a>
+            <a href="editar-cliente.html?id=CLI-003" class="boton-accion editar">EDITAR</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="paginacion">
+      <button class="boton" disabled>← Anterior</button>
+      <span>Página 1 de 1</span>
+      <button class="boton" disabled>Siguiente →</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Panel de Gestión</p>
+  </footer>
+</body>
+</html>

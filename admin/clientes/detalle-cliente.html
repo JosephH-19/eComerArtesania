@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Cliente | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Panel de Gestión - Detalle de Cliente</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+    <a href="clientes.html">← Volver a Clientes</a>
+    
+    <div class="detalle-container">
+      <div class="detalle-header">
+        <h1>DETALLE DE CLIENTE</h1>
+        <div class="acciones-detalle">
+          <a href="editar-cliente.html?id=CLI-001" class="boton">EDITAR</a>
+        </div>
+      </div>
+
+      <div class="detalle-info">
+        <div class="info-seccion">
+          <h2>Información Personal</h2>
+          <p><strong>ID de Cliente:</strong> CLI-001</p>
+          <p><strong>Nombre Completo:</strong> Juan Pérez García</p>
+          <p><strong>DNI:</strong> 12345678</p>
+          <p><strong>Fecha de Nacimiento:</strong> 15/05/1985</p>
+          <p><strong>Género:</strong> Masculino</p>
+        </div>
+
+        <div class="info-seccion">
+          <h2>Información de Contacto</h2>
+          <p><strong>Correo Electrónico:</strong> juan.perez@example.com</p>
+          <p><strong>Teléfono:</strong> 987654321</p>
+          <p><strong>Dirección:</strong> Calle Real 123, Huancayo, Junín</p>
+          <p><strong>Distrito:</strong> Huancayo</p>
+        </div>
+      </div>
+
+      <div class="info-seccion">
+        <h2>Información Comercial</h2>
+        <p><strong>Fecha de Registro:</strong> 01/01/2026</p>
+        <p><strong>Estado:</strong> <span class="estado activo">ACTIVO</span></p>
+        <p><strong>Total de Pedidos:</strong> 3</p>
+        <p><strong>Total Gastado:</strong> S/ 456.00</p>
+      </div>
+
+      <div class="historial-pedidos">
+        <h2>Historial de Pedidos</h2>
+        <table class="tabla-datos">
+          <thead>
+            <tr>
+              <th>N° Pedido</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ORD-2026-001</td>
+              <td>12/09/2026</td>
+              <td>S/ 123.00</td>
+              <td><span class="estado entregado">ENTREGADO</span></td>
+              <td><a href="../pedidos/detalle-pedido.html?id=ORD-2026-001" class="boton-accion ver">VER</a></td>
+            </tr>
+            <tr>
+              <td>ORD-2026-005</td>
+              <td>10/09/2026</td>
+              <td>S/ 200.00</td>
+              <td><span class="estado listo">LISTO PARA ENTREGA</span></td>
+              <td><a href="../pedidos/detalle-pedido.html?id=ORD-2026-005" class="boton-accion ver">VER</a></td>
+            </tr>
+            <tr>
+              <td>ORD-2026-010</td>
+              <td>05/09/2026</td>
+              <td>S/ 133.00</td>
+              <td><span class="estado confirmado">CONFIRMADO</span></td>
+              <td><a href="../pedidos/detalle-pedido.html?id=ORD-2026-010" class="boton-accion ver">VER</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Panel de Gestión</p>
+  </footer>
+</body>
+</html>

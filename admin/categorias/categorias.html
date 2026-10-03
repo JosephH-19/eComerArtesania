@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Categorías</title>
 
-  <link rel="stylesheet" href="../../public/css/estilos.css">
+  <link rel="stylesheet" href="../../css/estilos.css">
 </head>
 
 <body>
@@ -16,6 +15,7 @@
     <b>TALLER<br>BUENDÍA</b>
     <span>Zona de Gestión</span>
     <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
   </header>
 
   <nav class="admin-nav">
@@ -23,10 +23,12 @@
     <a href="../productos/productos.html">PRODUCTOS</a>
     <a href="categorias.html">CATEGORÍAS</a>
     <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
     <a href="../promociones/promociones.html">DESCUENTOS</a>
     <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
     <a href="../metricas/metricas.html">MÉTRICAS</a>
-    <a href="../login/login.html">SALIR</a>
   </nav>
 
   <main>
@@ -48,9 +50,27 @@
 
       <label>Buscar categoría</label>
 
-      <input type="text" placeholder="Nombre de categoría">
+      <input
+        type="text"
+        placeholder="Nombre de la categoría">
 
-      <button>BUSCAR</button>
+      <button>
+        BUSCAR
+      </button>
+
+    </section>
+
+    <section class="filtros-admin">
+
+      <div>
+        <label>Estado</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Activo</option>
+          <option>Inactivo</option>
+        </select>
+      </div>
 
     </section>
 
@@ -58,57 +78,42 @@
 
       <h3>LISTADO DE CATEGORÍAS</h3>
 
-      <div class="lista-simple">
+      <div class="categorias-admin">
 
-        <article class="item-admin">
-
-          <div>
-            <h3>TEXTILES</h3>
-            <p>Productos elaborados con fibras y técnicas textiles.</p>
-            <p><b>Productos:</b> 15</p>
-            <p><b>Estado:</b> Activa</p>
-          </div>
-
+        <article class="categoria-admin">
+          <h3>Ponchos</h3>
+          <p><b>Descripción:</b> Prendas tradicionales tejidas en telar con diseños únicos de Hualhuas.</p>
+          <p><b>Productos:</b> 8 productos</p>
+          <p><b>Estado:</b> Activo</p>
           <div class="acciones">
-            <a class="boton" href="detalle.html">VER</a>
+            <a class="boton" href="detalle-categoria.html">VER</a>
             <a class="boton" href="editar.html">EDITAR</a>
-            <button class="btn-danger">ELIMINAR</button>
+            <button class="btn-danger">DESACTIVAR</button>
           </div>
-
         </article>
 
-        <article class="item-admin">
-
-          <div>
-            <h3>CERÁMICA</h3>
-            <p>Productos artesanales elaborados en barro y cerámica.</p>
-            <p><b>Productos:</b> 8</p>
-            <p><b>Estado:</b> Activa</p>
-          </div>
-
+        <article class="categoria-admin">
+          <h3>Mantas</h3>
+          <p><b>Descripción:</b> Mantas tejidas a mano para abrigar el hogar.</p>
+          <p><b>Productos:</b> 5 productos</p>
+          <p><b>Estado:</b> Activo</p>
           <div class="acciones">
-            <a class="boton" href="detalle.html">VER</a>
+            <a class="boton" href="detalle-categoria.html">VER</a>
             <a class="boton" href="editar.html">EDITAR</a>
-            <button class="btn-danger">ELIMINAR</button>
+            <button class="btn-danger">DESACTIVAR</button>
           </div>
-
         </article>
 
-        <article class="item-admin">
-
-          <div>
-            <h3>MADERA</h3>
-            <p>Productos artesanales elaborados en madera.</p>
-            <p><b>Productos:</b> 5</p>
-            <p><b>Estado:</b> Activa</p>
-          </div>
-
+        <article class="categoria-admin">
+          <h3>Chalinas</h3>
+          <p><b>Descripción:</b> Chalinas de lana para abrigar el cuello.</p>
+          <p><b>Productos:</b> 3 productos</p>
+          <p><b>Estado:</b> Activo</p>
           <div class="acciones">
-            <a class="boton" href="detalle.html">VER</a>
+            <a class="boton" href="detalle-categoria.html">VER</a>
             <a class="boton" href="editar.html">EDITAR</a>
-            <button class="btn-danger">ELIMINAR</button>
+            <button class="btn-danger">DESACTIVAR</button>
           </div>
-
         </article>
 
       </div>
@@ -123,4 +128,3 @@
 
 </body>
 </html>
-

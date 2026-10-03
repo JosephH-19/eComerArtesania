@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Detalle del Pedido</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <a href="pedidos.html">← Volver a Pedidos</a>
+
+    <h2>DETALLE DEL PEDIDO #ORD-2026-001</h2>
+
+    <section class="detalle-pedido">
+
+      <div class="pedido-info">
+        <div class="info-seccion">
+          <h3>Información del Pedido</h3>
+          <p><b>Número de Pedido:</b> ORD-2026-001</p>
+          <p><b>Fecha:</b> 12/09/2026</p>
+          <p><b>Estado:</b> <span class="estado entregado">ENTREGADO</span></p>
+          <p><b>Total:</b> S/ 123.00</p>
+        </div>
+
+        <div class="info-seccion">
+          <h3>Datos del Cliente</h3>
+          <p><b>Nombre:</b> Juan Pérez García</p>
+          <p><b>DNI:</b> 12345678</p>
+          <p><b>Teléfono:</b> 987654321</p>
+          <p><b>Correo:</b> juan.perez@example.com</p>
+          <p><b>Dirección:</b> Calle Real 123, Huancayo</p>
+        </div>
+
+        <div class="info-seccion">
+          <h3>Método de Pago y Entrega</h3>
+          <p><b>Método de Pago:</b> Yape</p>
+          <p><b>Estado de Pago:</b> <span class="estado confirmado">PAGO CONFIRMADO</span></p>
+          <p><b>Método de Entrega:</b> Recojo en taller</p>
+          <p><b>Fecha de Entrega:</b> 15/09/2026</p>
+        </div>
+      </div>
+
+      <div class="productos-pedido">
+        <h3>Productos del Pedido</h3>
+        <table class="tabla-datos">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Poncho Callhua</td>
+              <td>1</td>
+              <td>S/ 75.00</td>
+              <td>S/ 75.00</td>
+            </tr>
+            <tr>
+              <td>Poncho Andino</td>
+              <td>1</td>
+              <td>S/ 48.00</td>
+              <td>S/ 48.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3"><strong>Total:</strong></td>
+              <td><strong>S/ 123.00</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="seguimiento-pedido">
+        <h3>Seguimiento del Pedido</h3>
+        <div class="pasos-seguimiento">
+          <div class="paso completado">
+            <p>Pedido recibido</p>
+            <p class="fecha-paso">12/09/2026 10:30</p>
+          </div>
+          <div class="paso completado">
+            <p>Pago confirmado</p>
+            <p class="fecha-paso">12/09/2026 11:15</p>
+          </div>
+          <div class="paso completado">
+            <p>En preparación</p>
+            <p class="fecha-paso">12/09/2026 12:00</p>
+          </div>
+          <div class="paso completado">
+            <p>Listo para entrega</p>
+            <p class="fecha-paso">14/09/2026 10:00</p>
+          </div>
+          <div class="paso completado">
+            <p>Entregado</p>
+            <p class="fecha-paso">15/09/2026 11:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acciones-formulario">
+        <a class="boton" href="seguimiento.html?id=ORD-2026-001">VER SEGUIMIENTO DETALLADO</a>
+        <a class="boton-secundario" href="pedidos.html">VOLVER AL LISTADO</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Cliente | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Panel de Gestión - Editar Cliente</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../produccion/produccion.html">PRODUCCIÓN</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+    <a href="clientes.html">← Volver a Clientes</a>
+    
+    <div class="form-container">
+      <h1>EDITAR CLIENTE</h1>
+      <p>Modifica los datos del cliente CLI-001</p>
+      
+      <form>
+        <div class="form-section">
+          <h2>Información Personal</h2>
+          
+          <div class="form-group">
+            <label for="id">ID de Cliente</label>
+            <input type="text" id="id" name="id" value="CLI-001" readonly>
+          </div>
+          
+          <div class="form-group">
+            <label for="nombre">Nombre Completo *</label>
+            <input type="text" id="nombre" name="nombre" value="Juan Pérez García" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="dni">DNI *</label>
+            <input type="text" id="dni" name="dni" value="12345678" pattern="[0-9]{8}" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" value="1985-05-15">
+          </div>
+          
+          <div class="form-group">
+            <label for="genero">Género</label>
+            <select id="genero" name="genero">
+              <option value="masculino" selected>Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Información de Contacto</h2>
+          
+          <div class="form-group">
+            <label for="correo">Correo Electrónico *</label>
+            <input type="email" id="correo" name="correo" value="juan.perez@example.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" value="987654321" pattern="[0-9]{9}" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" value="Calle Real 123, Huancayo, Junín">
+          </div>
+          
+          <div class="form-group">
+            <label for="distrito">Distrito</label>
+            <select id="distrito" name="distrito">
+              <option value="huancayo" selected>Huancayo</option>
+              <option value="hualhuas">Hualhuas</option>
+              <option value="junin">Junín</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Estado</h2>
+          <div class="form-group">
+            <label for="estado">Estado del Cliente</label>
+            <select id="estado" name="estado">
+              <option value="activo" selected>ACTIVO</option>
+              <option value="inactivo">INACTIVO</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="boton principal">GUARDAR CAMBIOS</button>
+          <button type="button" class="boton" onclick="window.location.href='clientes.html'">CANCELAR</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Panel de Gestión</p>
+  </footer>
+</body>
+</html>
