@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+// Integrar bajo la autenticación y configuración MVC del proyecto común.
+// Las rutas administrativas deben quedar protegidas por el acceso del equipo.
 @Controller
 @RequestMapping("/elmer")
 public class PedidoController {

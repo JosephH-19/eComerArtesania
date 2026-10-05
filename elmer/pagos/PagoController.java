@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+// Integrar bajo la autenticación y configuración MVC del proyecto común.
+// Las rutas administrativas deben quedar protegidas por el acceso del equipo.
 @Controller
 @RequestMapping("/elmer")
 public class PagoController {

@@ -1,16 +1,16 @@
 package com.example.demo.elmer.metricas;
 
-import com.example.demo.elmer.comun.SqlDAO;
 import java.time.*;
 import java.util.*;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MetricaService {
-  private final SqlDAO db;
+  private final JdbcTemplate jdbcTemplate;
 
-  public MetricaService(SqlDAO db) {
-    this.db = db;
+  public MetricaService(JdbcTemplate jdbcTemplate) {
+    this.jdbcTemplate = jdbcTemplate;
   }
 
   public Map<String, Object> calcular(String mes) {
@@ -20,21 +20,21 @@ public class MetricaService {
     datos.put("mes", periodo.toString());
     datos.put(
         "ventas",
-        db.obtener(
+        obtener(
             "SELECT COUNT(*) AS pedidos,COALESCE(SUM(total),0) AS importe FROM pedido_t WHERE"
                 + " estado<>'CANCELADO' AND creado>=? AND creado<?",
             inicio,
             fin));
     datos.put(
         "cobros",
-        db.obtener(
+        obtener(
             "SELECT COALESCE(SUM(monto),0) AS importe FROM pago_t WHERE estado='CONFIRMADO' AND"
                 + " creado>=? AND creado<?",
             inicio,
             fin));
     datos.put(
         "unidades",
-        db.obtener(
+        obtener(
                 "SELECT COALESCE(SUM(d.cantidad),0) AS n FROM detalle_t d JOIN pedido_t p ON"
                     + " p.id=d.pedido_id WHERE p.estado<>'CANCELADO' AND p.creado>=? AND"
                     + " p.creado<?",
@@ -43,11 +43,25 @@ public class MetricaService {
             .get("n"));
     datos.put(
         "resumenEstados",
-        db.listar(
+        listar(
             "SELECT estado,COUNT(*) AS cantidad FROM pedido_t WHERE creado>=? AND creado<? GROUP BY"
                 + " estado",
             inicio,
             fin));
     return datos;
+  }
+
+  // JdbcTemplate ejecuta el SQL y devuelve las filas de la consulta.
+  private List<Map<String, Object>> listar(String sql, Object... parametros) {
+    return jdbcTemplate.queryForList(sql, parametros);
+  }
+
+  // Obtiene una sola fila, por ejemplo el pedido que se va a actualizar.
+  private Map<String, Object> obtener(String sql, Object... parametros) {
+    List<Map<String, Object>> filas = listar(sql, parametros);
+    if (filas.isEmpty()) {
+      throw new IllegalArgumentException("No se encontró el registro solicitado.");
+    }
+    return filas.get(0);
   }
 }

@@ -1,22 +1,22 @@
 package com.example.demo.elmer.pedidos;
 
-import com.example.demo.elmer.comun.SqlDAO;
 import java.math.BigDecimal;
 import java.util.*;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PedidoServiceImpl implements PedidoService {
-  private final SqlDAO db;
+  private final JdbcTemplate jdbcTemplate;
 
-  public PedidoServiceImpl(SqlDAO db) {
-    this.db = db;
+  public PedidoServiceImpl(JdbcTemplate jdbcTemplate) {
+    this.jdbcTemplate = jdbcTemplate;
   }
 
   public List<Map<String, Object>> listar(String q, String estado, String pago) {
     List<Map<String, Object>> pedidos =
-        db.listar(
+        listar(
             "SELECT p.*, COALESCE((SELECT SUM(monto) FROM pago_t WHERE pedido_id=p.id AND"
                 + " estado='CONFIRMADO'),0) AS cobrado FROM pedido_t p WHERE (LOWER(nombre) LIKE ?"
                 + " OR dni LIKE ? OR codigo LIKE ?) AND (?='' OR estado=?) ORDER BY id DESC",
@@ -39,15 +39,14 @@ public class PedidoServiceImpl implements PedidoService {
   }
 
   public Map<String, Object> obtener(long id) {
-    return db.obtener("SELECT * FROM pedido_t WHERE id=?", id);
+    return obtener("SELECT * FROM pedido_t WHERE id=?", id);
   }
 
   public Map<String, Object> consultar(String dni, String codigo) {
     if (!dni.matches("[0-9]{8}"))
       throw new IllegalArgumentException("El DNI debe tener 8 dígitos.");
     List<Map<String, Object>> pedidos =
-        db.listar(
-            "SELECT * FROM pedido_t WHERE dni=? AND codigo=?", dni, codigo.trim().toUpperCase());
+        listar("SELECT * FROM pedido_t WHERE dni=? AND codigo=?", dni, codigo.trim().toUpperCase());
     if (pedidos.isEmpty())
       throw new IllegalArgumentException("No se encontró un pedido con ese DNI y código.");
     return pedidos.get(0);
@@ -56,13 +55,13 @@ public class PedidoServiceImpl implements PedidoService {
   public Map<String, Object> detalle(long id) {
     Map<String, Object> vista = new HashMap<>();
     vista.put("pedido", obtener(id));
-    vista.put("detalles", db.listar("SELECT * FROM detalle_t WHERE pedido_id=?", id));
-    vista.put("pagos", db.listar("SELECT * FROM pago_t WHERE pedido_id=? ORDER BY id", id));
+    vista.put("detalles", listar("SELECT * FROM detalle_t WHERE pedido_id=?", id));
+    vista.put("pagos", listar("SELECT * FROM pago_t WHERE pedido_id=? ORDER BY id", id));
     vista.put(
-        "seguimiento", db.listar("SELECT * FROM seguimiento_t WHERE pedido_id=? ORDER BY id", id));
+        "seguimiento", listar("SELECT * FROM seguimiento_t WHERE pedido_id=? ORDER BY id", id));
     vista.put(
         "cobrado",
-        db.obtener(
+        obtener(
                 "SELECT COALESCE(SUM(monto),0) AS total FROM pago_t WHERE pedido_id=? AND"
                     + " estado='CONFIRMADO'",
                 id)
@@ -73,7 +72,7 @@ public class PedidoServiceImpl implements PedidoService {
   @Transactional
   public void cambiarEstado(long id, String siguiente, String nota) {
     // Bloqueamos este pedido mientras se valida y guarda el cambio.
-    Map<String, Object> p = db.obtener("SELECT * FROM pedido_t WHERE id=? FOR UPDATE", id);
+    Map<String, Object> p = obtener("SELECT * FROM pedido_t WHERE id=? FOR UPDATE", id);
     String actual = p.get("estado").toString();
     boolean permitido = false;
     if (actual.equals("PENDIENTE")) {
@@ -95,7 +94,7 @@ public class PedidoServiceImpl implements PedidoService {
           "No se permite pasar de " + actual + " a " + siguiente + ".");
     BigDecimal cobrado =
         (BigDecimal)
-            db.obtener(
+            obtener(
                     "SELECT COALESCE(SUM(monto),0) AS total FROM pago_t WHERE pedido_id=? AND"
                         + " estado='CONFIRMADO'",
                     id)
@@ -104,7 +103,7 @@ public class PedidoServiceImpl implements PedidoService {
       throw new IllegalArgumentException("Completa el pago antes de entregar el pedido.");
     if (siguiente.equals("CANCELADO")) {
       if (cobrado.signum() > 0
-          || !db.listar("SELECT id FROM pago_t WHERE pedido_id=? AND estado='PENDIENTE'", id)
+          || !listar("SELECT id FROM pago_t WHERE pedido_id=? AND estado='PENDIENTE'", id)
               .isEmpty())
         throw new IllegalArgumentException(
             "No se cancela un pedido con pagos confirmados o por revisar. Las devoluciones"
@@ -114,8 +113,22 @@ public class PedidoServiceImpl implements PedidoService {
     if (nota == null || nota.isBlank() || nota.length() > 500)
       throw new IllegalArgumentException(
           "Escribe una nota de seguimiento de hasta 500 caracteres.");
-    db.ejecutar("UPDATE pedido_t SET estado=? WHERE id=?", siguiente, id);
-    db.insertar(
+    jdbcTemplate.update("UPDATE pedido_t SET estado=? WHERE id=?", siguiente, id);
+    jdbcTemplate.update(
         "INSERT INTO seguimiento_t(pedido_id,estado,nota) VALUES(?,?,?)", id, siguiente, nota);
+  }
+
+  // JdbcTemplate ejecuta el SQL y devuelve las filas de la consulta.
+  private List<Map<String, Object>> listar(String sql, Object... parametros) {
+    return jdbcTemplate.queryForList(sql, parametros);
+  }
+
+  // Obtiene una sola fila, por ejemplo el pedido que se va a actualizar.
+  private Map<String, Object> obtener(String sql, Object... parametros) {
+    List<Map<String, Object>> filas = listar(sql, parametros);
+    if (filas.isEmpty()) {
+      throw new IllegalArgumentException("No se encontró el registro solicitado.");
+    }
+    return filas.get(0);
   }
 }

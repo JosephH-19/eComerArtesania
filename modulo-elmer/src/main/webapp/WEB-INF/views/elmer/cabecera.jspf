@@ -1,6 +1,0 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Elmer · Pedidos, pagos y métricas</title><link rel="stylesheet" href="/css/elmer.css"></head><body>
-<header><strong>TALLER BUENDÍA · Pedidos, pagos y métricas</strong></header>
-<nav><a href="/elmer/consulta">Consulta de pedido</a><a href="/elmer/admin/pedidos">Administrar pedidos</a><a href="/elmer/admin/pagos">Pagos</a><a href="/elmer/admin/metricas">Métricas</a></nav>
-<main><c:if test="${not empty aviso}"><p class="aviso" role="status"><c:out value="${aviso}"/></p></c:if>
