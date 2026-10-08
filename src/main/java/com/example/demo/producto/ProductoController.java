@@ -102,4 +102,17 @@ public class ProductoController {
 
         return "producto/crear";
     }
+
+    @GetMapping("/detalle")
+    public String detalle(@RequestParam("id") int id, Model model) {
+        Producto producto = productoService.buscarPorId(id);
+
+        if (producto == null) {
+            model.addAttribute("error", "El producto no existe.");
+        } else {
+            model.addAttribute("producto", producto);
+        }
+
+        return "producto/detalle";
+    }
 }

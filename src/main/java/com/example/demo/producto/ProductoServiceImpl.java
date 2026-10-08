@@ -99,4 +99,9 @@ public class ProductoServiceImpl implements ProductoService {
 
         productoDAO.guardar(producto);
     }
+
+    @Override
+    public Producto buscarPorId(int id) {
+        return productoDAO.buscarPorId(id);
+    }
 }

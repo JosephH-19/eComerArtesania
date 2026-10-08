@@ -28,6 +28,8 @@
             <th>Stock</th>
             <th>Estado</th>
             <th>Tipo de producto</th>
+            <!-- 1. SE AGREGÓ AQUÍ: Al final de los encabezados de la tabla -->
+            <th>Acciones</th>
         </tr>
     </thead>
 
@@ -42,6 +44,12 @@
                 <td><c:out value="${producto.stock}" /></td>
                 <td><c:out value="${producto.estado}" /></td>
                 <td><c:out value="${producto.tipoProducto.nombre}" /></td>
+                <!-- 2. SE AGREGÓ AQUÍ: Después del tipo de producto y antes de cerrar la fila (</tr>) -->
+                <td>
+                    <a href="${pageContext.request.contextPath}/producto/detalle?id=${producto.id}">
+                        Ver detalle
+                    </a>
+                </td>
             </tr>
         </c:forEach>
     </tbody>

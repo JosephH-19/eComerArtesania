@@ -115,4 +115,29 @@ public class ProductoRepository implements ProductoDAO {
                 producto.getImagen()
         );
     }
+
+    @Override
+    public Producto buscarPorId(int id) {
+        String query = "SELECT producto.id AS id, " +
+                "producto.nombre AS nombre, " +
+                "producto.fecha_creacion AS fechaCreacion, " +
+                "producto.descripcion, producto.material, " +
+                "producto.precio, producto.stock, " +
+                "producto.estado, producto.imagen, " +
+                "tipo_producto.id AS id_tipo_producto, " +
+                "tipo_producto.nombre AS nombre_tipo_producto, " +
+                "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
+                "FROM producto " +
+                "JOIN tipo_producto ON tipo_producto.id = producto.id_tipo_producto " +
+                "WHERE producto.id = ?";
+
+        List<Producto> productos =
+                jdbcTemplate.query(query, productoRowMapper, id);
+
+        if (productos.isEmpty()) {
+            return null;
+        }
+
+        return productos.get(0);
+    }
 }
