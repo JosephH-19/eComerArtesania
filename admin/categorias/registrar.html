@@ -1,61 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Registrar Categoría</title>
-
   <link rel="stylesheet" href="../../public/css/estilos.css">
 </head>
 
 <body>
 
-  <header>
-    <b>TALLER<br>BUENDÍA</b>
-    <span>Zona de Gestión</span>
-    <span class="usuario">Usuario: Administrador</span>
-  </header>
+<header>
+  <b>TALLER<br>BUENDÍA</b>
+  <span>Zona de Gestión</span>
+  <span class="usuario">Usuario: Administrador</span>
+</header>
 
-  <nav class="admin-nav">
-    <a href="categorias.html">CATEGORÍAS</a>
-  </nav>
+<nav class="admin-nav">
+  <a href="../perfil/perfil.html">PERFIL</a>
+  <a href="../productos/productos.html">PRODUCTOS</a>
+  <a href="categorias.html">CATEGORÍAS</a>
+  <a href="../artesanos/artesanos.html">ARTESANOS</a>
+  <a href="../promociones/promociones.html">DESCUENTOS</a>
+  <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+  <a href="../metricas/metricas.html">MÉTRICAS</a>
+  <a href="../login/login.html">SALIR</a>
+</nav>
 
-  <main>
+<main>
+  <div class="titulo-seccion">
+    <h2>NUEVA CATEGORÍA</h2>
+    <a class="boton" href="categorias.html">VOLVER A CATEGORÍAS</a>
+  </div>
 
-    <h2>REGISTRAR CATEGORÍA</h2>
-
-    <form class="formulario-admin">
-
-      <label>Nombre de la categoría</label>
-      <input type="text" placeholder="Ejemplo: Textiles">
-
-      <label>Descripción</label>
-      <textarea placeholder="Descripción de la categoría"></textarea>
-
-      <label>Estado</label>
-
-      <select>
-        <option>Activa</option>
-        <option>Inactiva</option>
+  <form id="formRegistrar">
+    <div>
+      <label for="nombre">Nombre de la Categoría *</label><br>
+      <input type="text" id="nombre" name="nombre" required placeholder="Ej: Cerámica, Textiles...">
+    </div>
+    <br>
+    <div>
+      <label for="descripcion">Descripción</label><br>
+      <textarea id="descripcion" name="descripcion" rows="4" placeholder="Breve descripción de los productos de esta categoría"></textarea>
+    </div>
+    <br>
+    <div>
+      <label for="estado">Estado</label><br>
+      <select id="estado" name="estado">
+        <option value="Activa">Activa</option>
+        <option value="Inactiva">Inactiva</option>
       </select>
+    </div>
+    <br>
+    <div>
+      <button type="submit" class="boton">GUARDAR CATEGORÍA</button>
+    </div>
+  </form>
+</main>
 
-      <div class="acciones-formulario">
+<footer>
+  <p>Taller Buendía - Zona de Gestión</p>
+</footer>
 
-        <a class="boton-secundario" href="categorias.html">
-          CANCELAR
-        </a>
+<!-- LÓGICA DE JAVASCRIPT (Agregada al final) -->
+<script>
+  const form = document.getElementById("formRegistrar");
 
-        <button type="submit">
-          GUARDAR CATEGORÍA
-        </button>
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Evita recargar la página
 
-      </div>
+    // 1. Obtener valores de los campos
+    const nombreInput = document.getElementById("nombre").value.trim();
+    const descripcionInput = document.getElementById("descripcion").value.trim();
+    const estadoInput = document.getElementById("estado").value;
 
-    </form>
+    if (!nombreInput) {
+      alert("Por favor, ingresa el nombre de la categoría.");
+      return;
+    }
 
-  </main>
+    // 2. Obtener categorías actuales de localStorage o inicializar array
+    const categoriasGuardadas = JSON.parse(localStorage.getItem("categorias")) || [
+      { id: "CAT01", nombre: "Textiles", descripcion: "Productos elaborados con fibras y técnicas textiles.", productos: 15, estado: "Activa" },
+      { id: "CAT02", nombre: "Cerámica", descripcion: "Productos artesanales elaborados en barro y cerámica.", productos: 8, estado: "Activa" },
+      { id: "CAT03", nombre: "Madera", descripcion: "Productos artesanales elaborados en madera.", productos: 5, estado: "Activa" }
+    ];
+
+    // 3. Crear el nuevo objeto categoría
+    const nuevaCategoria = {
+      id: "CAT" + String(categoriasGuardadas.length + 1).padStart(2, '0'),
+      nombre: nombreInput,
+      descripcion: descripcionInput || "Sin descripción",
+      productos: 0,
+      estado: estadoInput
+    };
+
+    // 4. Agregar y guardar en localStorage
+    const listaActualizada = [...categoriasGuardadas, nuevaCategoria];
+    localStorage.setItem("categorias", JSON.stringify(listaActualizada));
+
+    alert("¡Categoría guardada exitosamente!");
+    window.location.href = "categorias.html";
+  });
+</script>
 
 </body>
 </html>
-

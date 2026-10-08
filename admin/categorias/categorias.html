@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,121 +5,118 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Buendía - Categorías</title>
-
   <link rel="stylesheet" href="../../public/css/estilos.css">
 </head>
 
 <body>
 
-  <header>
-    <b>TALLER<br>BUENDÍA</b>
-    <span>Zona de Gestión</span>
-    <span class="usuario">Usuario: Administrador</span>
-  </header>
+<header>
+  <b>TALLER<br>BUENDÍA</b>
+  <span>Zona de Gestión</span>
+  <span class="usuario">Usuario: Administrador</span>
+</header>
 
-  <nav class="admin-nav">
-    <a href="../perfil/perfil.html">PERFIL</a>
-    <a href="../productos/productos.html">PRODUCTOS</a>
-    <a href="categorias.html">CATEGORÍAS</a>
-    <a href="../artesanos/artesanos.html">ARTESANOS</a>
-    <a href="../promociones/promociones.html">DESCUENTOS</a>
-    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
-    <a href="../metricas/metricas.html">MÉTRICAS</a>
-    <a href="../login/login.html">SALIR</a>
-  </nav>
+<nav class="admin-nav">
+  <a href="../perfil/perfil.html">PERFIL</a>
+  <a href="../productos/productos.html">PRODUCTOS</a>
+  <a href="categorias.html">CATEGORÍAS</a>
+  <a href="../artesanos/artesanos.html">ARTESANOS</a>
+  <a href="../promociones/promociones.html">DESCUENTOS</a>
+  <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+  <a href="../metricas/metricas.html">MÉTRICAS</a>
+  <a href="../login/login.html">SALIR</a>
+</nav>
 
-  <main>
-
-    <div class="titulo-seccion">
-
-      <div>
-        <h2>GESTIÓN DE CATEGORÍAS</h2>
-        <p>Consulta y administra las categorías de productos.</p>
-      </div>
-
-      <a class="boton" href="registrar.html">
-        NUEVA CATEGORÍA
-      </a>
-
+<main>
+  <div class="titulo-seccion">
+    <div>
+      <h2>GESTIÓN DE CATEGORÍAS</h2>
+      <p>Consulta y administra las categorías de productos.</p>
     </div>
+    <a class="boton" href="registrar.html">NUEVA CATEGORÍA</a>
+  </div>
 
-    <section class="busqueda">
+  <section class="busqueda">
+    <label>Buscar categoría</label>
+    <input type="text" id="inputBuscar" placeholder="Nombre de categoría">
+    <button id="btnBuscar">BUSCAR</button>
+  </section>
 
-      <label>Buscar categoría</label>
+  <section>
+    <h3>LISTADO DE CATEGORÍAS</h3>
+    <div class="lista-simple" id="contenedorCategorias">
+      <!-- Categorías dinámicas -->
+    </div>
+  </section>
+</main>
 
-      <input type="text" placeholder="Nombre de categoría">
+<footer>
+  <p>Taller Buendía - Zona de Gestión</p>
+</footer>
 
-      <button>BUSCAR</button>
+<script>
+  const categoriasIniciales = [
+    { id: "CAT01", nombre: "Textiles", descripcion: "Productos elaborados con fibras y técnicas textiles.", productos: 15, estado: "Activa" },
+    { id: "CAT02", nombre: "Cerámica", descripcion: "Productos artesanales elaborados en barro y cerámica.", productos: 8, estado: "Activa" },
+    { id: "CAT03", nombre: "Madera", descripcion: "Productos artesanales elaborados en madera.", productos: 5, estado: "Activa" }
+  ];
 
-    </section>
+  function obtenerCategorias() {
+    const guardadas = localStorage.getItem("categorias");
+    if (!guardadas) {
+      localStorage.setItem("categorias", JSON.stringify(categoriasIniciales));
+      return categoriasIniciales;
+    }
+    return JSON.parse(guardadas);
+  }
 
-    <section>
+  function guardarCategorias(lista) {
+    localStorage.setItem("categorias", JSON.stringify(lista));
+  }
 
-      <h3>LISTADO DE CATEGORÍAS</h3>
+  function renderizarCategorias(lista) {
+    const contenedor = document.getElementById("contenedorCategorias");
 
-      <div class="lista-simple">
+    if (lista.length === 0) {
+      contenedor.innerHTML = "<p>No se encontraron categorías.</p>";
+      return;
+    }
 
+    contenedor.innerHTML = lista.map(cat => `
         <article class="item-admin">
-
           <div>
-            <h3>TEXTILES</h3>
-            <p>Productos elaborados con fibras y técnicas textiles.</p>
-            <p><b>Productos:</b> 15</p>
-            <p><b>Estado:</b> Activa</p>
+            <h3>${cat.nombre.toUpperCase()}</h3>
+            <p>${cat.descripcion}</p>
+            <p><b>Productos:</b> ${cat.productos}</p>
+            <p><b>Estado:</b> ${cat.estado}</p>
           </div>
-
           <div class="acciones">
-            <a class="boton" href="detalle.html">VER</a>
-            <a class="boton" href="editar.html">EDITAR</a>
-            <button class="btn-danger">ELIMINAR</button>
+            <a class="boton" href="detalle.html?id=${cat.id}">VER</a>
+            <a class="boton" href="editar.html?id=${cat.id}">EDITAR</a>
+            <button class="btn-danger" onclick="eliminarCategoria('${cat.id}')">ELIMINAR</button>
           </div>
-
         </article>
+      `).join('');
+  }
 
-        <article class="item-admin">
+  function eliminarCategoria(id) {
+    if (confirm("¿Estás seguro de que deseas eliminar esta categoría?")) {
+      const actual = obtenerCategorias();
+      const actualizadas = actual.filter(cat => cat.id !== id);
+      guardarCategorias(actualizadas);
+      renderizarCategorias(actualizadas);
+    }
+  }
 
-          <div>
-            <h3>CERÁMICA</h3>
-            <p>Productos artesanales elaborados en barro y cerámica.</p>
-            <p><b>Productos:</b> 8</p>
-            <p><b>Estado:</b> Activa</p>
-          </div>
+  document.getElementById("btnBuscar").addEventListener("click", () => {
+    const texto = document.getElementById("inputBuscar").value.toLowerCase();
+    const actual = obtenerCategorias();
+    const filtradas = actual.filter(cat => cat.nombre.toLowerCase().includes(texto));
+    renderizarCategorias(filtradas);
+  });
 
-          <div class="acciones">
-            <a class="boton" href="detalle.html">VER</a>
-            <a class="boton" href="editar.html">EDITAR</a>
-            <button class="btn-danger">ELIMINAR</button>
-          </div>
-
-        </article>
-
-        <article class="item-admin">
-
-          <div>
-            <h3>MADERA</h3>
-            <p>Productos artesanales elaborados en madera.</p>
-            <p><b>Productos:</b> 5</p>
-            <p><b>Estado:</b> Activa</p>
-          </div>
-
-          <div class="acciones">
-            <a class="boton" href="detalle.html">VER</a>
-            <a class="boton" href="editar.html">EDITAR</a>
-            <button class="btn-danger">ELIMINAR</button>
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Taller Buendía - Zona de Gestión</p>
-  </footer>
+  renderizarCategorias(obtenerCategorias());
+</script>
 
 </body>
 </html>
-
