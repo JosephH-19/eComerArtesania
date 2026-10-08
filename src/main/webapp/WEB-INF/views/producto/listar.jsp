@@ -1,0 +1,129 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<body>
+
+<h1>Productos registrados</h1>
+
+<p>
+    <a href="${pageContext.request.contextPath}/producto/crear">
+        Registrar producto
+    </a>
+</p>
+
+<form action="${pageContext.request.contextPath}/producto/listar"
+      method="get">
+
+    <label for="nombre">Buscar por nombre:</label>
+
+    <input type="text"
+           id="nombre"
+           name="nombre"
+           maxlength="200"
+           value="<c:out value='${nombre}' />">
+
+    <label for="disponibilidad">Stock:</label>
+
+    <select id="disponibilidad" name="disponibilidad">
+        <option value="TODOS"
+                ${disponibilidad == 'TODOS' ? 'selected' : ''}>
+            Todos
+        </option>
+
+        <option value="CON_STOCK"
+                ${disponibilidad == 'CON_STOCK' ? 'selected' : ''}>
+            Con stock
+        </option>
+
+        <option value="SIN_STOCK"
+                ${disponibilidad == 'SIN_STOCK' ? 'selected' : ''}>
+            Sin stock
+        </option>
+    </select>
+
+    <button type="submit">Buscar</button>
+
+    <a href="${pageContext.request.contextPath}/producto/listar">
+        Mostrar todos
+    </a>
+</form>
+
+<br>
+<c:if test="${empty productos}">
+    <p>No se encontraron productos.</p>
+</c:if>
+
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Material</th>
+            <th>Precio (S/)</th>
+            <th>Stock</th>
+            <th>Estado</th>
+            <th>Tipo de producto</th>
+            <!-- 1. SE AGREGÓ AQUÍ: Al final de los encabezados de la tabla -->
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <c:forEach items="${productos}" var="producto">
+            <tr>
+                <td><c:out value="${producto.id}" /></td>
+                <td><c:out value="${producto.nombre}" /></td>
+                <td><c:out value="${producto.descripcion}" /></td>
+                <td><c:out value="${producto.material}" /></td>
+                <td><c:out value="${producto.precio}" /></td>
+                <td><c:out value="${producto.stock}" /></td>
+                <td><c:out value="${producto.estado}" /></td>
+                <td><c:out value="${producto.tipoProducto.nombre}" /></td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/producto/detalle?id=${producto.id}">
+                        Ver detalle
+                    </a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/producto/editar?id=${producto.id}">
+                        Editar
+                    </a>
+                    <br>
+
+                    <form action="${pageContext.request.contextPath}/producto/cambiarEstado"
+                          method="post">
+
+                        <input type="hidden" name="id" value="${producto.id}">
+
+                        <c:choose>
+                            <c:when test="${producto.estado == 'ACTIVO'}">
+                                <input type="hidden"
+                                       name="estado"
+                                       value="INACTIVO">
+
+                                <button type="submit">Desactivar</button>
+                            </c:when>
+
+                            <c:otherwise>
+                                <input type="hidden"
+                                       name="estado"
+                                       value="ACTIVO">
+
+                                <button type="submit">Activar</button>
+                            </c:otherwise>
+                        </c:choose>
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
+    </tbody>
+</table>
+
+</body>
+</html>
