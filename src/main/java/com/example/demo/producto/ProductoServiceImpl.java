@@ -140,4 +140,15 @@ public class ProductoServiceImpl implements ProductoService {
 
         return productoDAO.catalogo(nombre.trim(), disponibilidad);
     }
+
+    @Override
+    public void cambiarEstado(int id, String estado) {
+        if (!"ACTIVO".equals(estado) &&
+                !"INACTIVO".equals(estado)) {
+            throw new IllegalArgumentException(
+                    "El estado debe ser ACTIVO o INACTIVO.");
+        }
+
+        productoDAO.cambiarEstado(id, estado);
+    }
 }

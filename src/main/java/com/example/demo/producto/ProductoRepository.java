@@ -232,4 +232,15 @@ public class ProductoRepository implements ProductoDAO {
         return jdbcTemplate.query(
                 query, productoRowMapper, "%" + nombre + "%");
     }
+
+    @Override
+    public void cambiarEstado(int id, String estado) {
+        String query = "UPDATE producto SET estado = ? WHERE id = ?";
+
+        int filas = jdbcTemplate.update(query, estado, id);
+
+        if (filas == 0) {
+            throw new IllegalArgumentException("El producto no existe.");
+        }
+    }
 }

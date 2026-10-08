@@ -18,4 +18,6 @@ public interface ProductoDAO {
 
     List<Producto> catalogo(String nombre, String disponibilidad);
 
+    void cambiarEstado(int id, String estado);
+
 }

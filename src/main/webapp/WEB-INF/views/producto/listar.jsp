@@ -94,6 +94,31 @@
                     <a href="${pageContext.request.contextPath}/producto/editar?id=${producto.id}">
                         Editar
                     </a>
+                    <br>
+
+                    <form action="${pageContext.request.contextPath}/producto/cambiarEstado"
+                          method="post">
+
+                        <input type="hidden" name="id" value="${producto.id}">
+
+                        <c:choose>
+                            <c:when test="${producto.estado == 'ACTIVO'}">
+                                <input type="hidden"
+                                       name="estado"
+                                       value="INACTIVO">
+
+                                <button type="submit">Desactivar</button>
+                            </c:when>
+
+                            <c:otherwise>
+                                <input type="hidden"
+                                       name="estado"
+                                       value="ACTIVO">
+
+                                <button type="submit">Activar</button>
+                            </c:otherwise>
+                        </c:choose>
+                    </form>
                 </td>
             </tr>
         </c:forEach>

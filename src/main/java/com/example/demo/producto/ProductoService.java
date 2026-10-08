@@ -18,4 +18,6 @@ public interface ProductoService  {
 
     List<Producto> catalogo(String nombre, String disponibilidad);
 
+    void cambiarEstado(int id, String estado);
+
 }

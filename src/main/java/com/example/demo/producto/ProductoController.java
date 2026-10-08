@@ -201,4 +201,19 @@ public class ProductoController {
 
         return "producto/detalle_publico";
     }
+
+    @PostMapping("/cambiarEstado")
+    public String cambiarEstado(
+            @RequestParam("id") int id,
+            @RequestParam("estado") String estado,
+            Model model) {
+
+        try {
+            productoService.cambiarEstado(id, estado);
+            return "redirect:/producto/listar";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "producto/detalle";
+        }
+    }
 }
