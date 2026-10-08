@@ -17,6 +17,29 @@
     </a>
 </p>
 
+<form action="${pageContext.request.contextPath}/producto/listar"
+      method="get">
+
+    <label for="nombre">Buscar por nombre:</label>
+
+    <input type="text"
+           id="nombre"
+           name="nombre"
+           maxlength="200"
+           value="<c:out value='${nombre}' />">
+
+    <button type="submit">Buscar</button>
+
+    <a href="${pageContext.request.contextPath}/producto/listar">
+        Mostrar todos
+    </a>
+</form>
+
+<br>
+<c:if test="${empty productos}">
+    <p>No se encontraron productos.</p>
+</c:if>
+
 <table border="1" cellpadding="8">
     <thead>
         <tr>

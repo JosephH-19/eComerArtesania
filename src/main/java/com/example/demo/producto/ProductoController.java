@@ -51,11 +51,14 @@ public class ProductoController {
     }
 
     @GetMapping("/listar")
-    public String listar(Model model) {
-        model.addAttribute(
-                "productos",
-                productoService.listarTodos()
-        );
+    public String listar(
+            @RequestParam(name = "nombre", defaultValue = "") String nombre,
+            Model model) {
+
+        model.addAttribute("productos",
+                productoService.buscarPorNombre(nombre));
+
+        model.addAttribute("nombre", nombre);
 
         return "producto/listar";
     }

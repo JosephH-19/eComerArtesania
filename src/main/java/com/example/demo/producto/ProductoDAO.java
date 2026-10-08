@@ -12,4 +12,6 @@ public interface ProductoDAO {
 
     Producto buscarPorId(int id);
 
+    List<Producto> buscarPorNombre(String nombre);
+
 }

@@ -104,4 +104,13 @@ public class ProductoServiceImpl implements ProductoService {
     public Producto buscarPorId(int id) {
         return productoDAO.buscarPorId(id);
     }
+
+    @Override
+    public List<Producto> buscarPorNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            return productoDAO.listarTodos();
+        }
+
+        return productoDAO.buscarPorNombre(nombre.trim());
+    }
 }

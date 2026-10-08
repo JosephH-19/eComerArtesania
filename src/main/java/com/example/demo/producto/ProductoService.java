@@ -12,4 +12,6 @@ public interface ProductoService  {
 
     Producto buscarPorId(int id);
 
+    List<Producto> buscarPorNombre(String nombre);
+
 }
