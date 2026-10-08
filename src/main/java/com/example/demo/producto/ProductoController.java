@@ -53,12 +53,20 @@ public class ProductoController {
     @GetMapping("/listar")
     public String listar(
             @RequestParam(name = "nombre", defaultValue = "") String nombre,
+            @RequestParam(name = "disponibilidad", defaultValue = "TODOS")
+            String disponibilidad,
             Model model) {
 
+        if (!"CON_STOCK".equals(disponibilidad) &&
+                !"SIN_STOCK".equals(disponibilidad)) {
+            disponibilidad = "TODOS";
+        }
+
         model.addAttribute("productos",
-                productoService.buscarPorNombre(nombre));
+                productoService.filtrar(nombre, disponibilidad));
 
         model.addAttribute("nombre", nombre);
+        model.addAttribute("disponibilidad", disponibilidad);
 
         return "producto/listar";
     }

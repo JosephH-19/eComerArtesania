@@ -101,15 +101,6 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public List<Producto> buscarPorNombre(String nombre) {
-        if (nombre == null || nombre.trim().isEmpty()) {
-            return productoDAO.listarTodos();
-        }
-
-        return productoDAO.buscarPorNombre(nombre.trim());
-    }
-
-    @Override
     public void guardar(Producto producto) {
         validarProducto(producto);
 
@@ -130,5 +121,14 @@ public class ProductoServiceImpl implements ProductoService {
         validarProducto(producto);
 
         productoDAO.actualizar(producto);
+    }
+
+    @Override
+    public List<Producto> filtrar(String nombre, String disponibilidad) {
+        if (nombre == null) {
+            nombre = "";
+        }
+
+        return productoDAO.filtrar(nombre.trim(), disponibilidad);
     }
 }

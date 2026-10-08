@@ -28,6 +28,25 @@
            maxlength="200"
            value="<c:out value='${nombre}' />">
 
+    <label for="disponibilidad">Stock:</label>
+
+    <select id="disponibilidad" name="disponibilidad">
+        <option value="TODOS"
+                ${disponibilidad == 'TODOS' ? 'selected' : ''}>
+            Todos
+        </option>
+
+        <option value="CON_STOCK"
+                ${disponibilidad == 'CON_STOCK' ? 'selected' : ''}>
+            Con stock
+        </option>
+
+        <option value="SIN_STOCK"
+                ${disponibilidad == 'SIN_STOCK' ? 'selected' : ''}>
+            Sin stock
+        </option>
+    </select>
+
     <button type="submit">Buscar</button>
 
     <a href="${pageContext.request.contextPath}/producto/listar">

@@ -12,8 +12,8 @@ public interface ProductoService  {
 
     Producto buscarPorId(int id);
 
-    List<Producto> buscarPorNombre(String nombre);
-
     void actualizar(Producto producto);
+
+    List<Producto> filtrar(String nombre, String disponibilidad);
 
 }
