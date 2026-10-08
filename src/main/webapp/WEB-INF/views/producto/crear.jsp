@@ -6,85 +6,152 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registrar producto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Taller Buendía - Registrar producto</title>
+
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/css/catalogo.css">
+
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/css/productos-admin.css">
 </head>
 <body>
 
-<h1>Registrar producto</h1>
+<header>
+    <strong>TALLER BUENDÍA</strong>
+    <p>Zona de gestión de productos</p>
+</header>
 
-<p style="color: red;">
-    <c:out value="${error}" />
-</p>
-
-<form:form
-    method="post"
-    action="${pageContext.request.contextPath}/producto/guardar"
-    modelAttribute="producto">
-
-    <p>
-        <label>Nombre:</label><br>
-        <form:input path="nombre" maxlength="200" required="required" />
-    </p>
-
-    <p>
-        <label>Descripción:</label><br>
-        <form:textarea
-            path="descripcion"
-            maxlength="1000"
-            required="required" />
-    </p>
-
-    <p>
-        <label>Material:</label><br>
-        <form:input path="material" maxlength="200" required="required" />
-    </p>
-
-    <p>
-        <label>Precio en soles:</label><br>
-        <form:input
-            path="precio"
-            type="number"
-            min="0.01"
-            max="99999999.99"
-            step="0.01"
-            required="required" />
-    </p>
-
-    <p>
-        <label>Stock:</label><br>
-        <form:input
-            path="stock"
-            type="number"
-            min="0"
-            step="1"
-            required="required" />
-    </p>
-
-    <p>
-        <label>Tipo de producto:</label><br>
-        <form:select path="tipoProducto.id">
-            <form:option value="0" label="Seleccionar" />
-            <form:options
-                items="${tipoproductos}"
-                itemValue="id"
-                itemLabel="nombre" />
-        </form:select>
-    </p>
-
-    <p>
-        <label>Ruta de imagen (opcional):</label><br>
-        <form:input path="imagen" maxlength="500" />
-    </p>
-
-    <button type="submit">Guardar producto</button>
-
-</form:form>
-
-<p>
+<nav>
     <a href="${pageContext.request.contextPath}/producto/listar">
-        Volver al listado
+        PRODUCTOS
     </a>
-</p>
+</nav>
+
+<main>
+
+    <h1>Registrar producto</h1>
+
+    <p>Completa los datos de la artesanía que deseas registrar.</p>
+
+    <form:form
+        method="post"
+        action="${pageContext.request.contextPath}/producto/guardar"
+        modelAttribute="producto"
+        cssClass="formulario-producto">
+
+        <c:if test="${not empty error}">
+            <p class="error" role="alert">
+                <c:out value="${error}" />
+            </p>
+        </c:if>
+
+        <p>
+            <label for="nombre">Nombre:</label>
+
+            <form:input
+                id="nombre"
+                path="nombre"
+                maxlength="200"
+                required="required" />
+        </p>
+
+        <p>
+            <label for="descripcion">Descripción:</label>
+
+            <form:textarea
+                id="descripcion"
+                path="descripcion"
+                maxlength="1000"
+                required="required" />
+        </p>
+
+        <p>
+            <label for="material">Material:</label>
+
+            <form:input
+                id="material"
+                path="material"
+                maxlength="200"
+                required="required" />
+        </p>
+
+        <p>
+            <label for="precio">Precio en soles:</label>
+
+            <form:input
+                id="precio"
+                path="precio"
+                type="number"
+                min="0.01"
+                max="99999999.99"
+                step="0.01"
+                required="required" />
+        </p>
+
+        <p>
+            <label for="stock">Stock:</label>
+
+            <form:input
+                id="stock"
+                path="stock"
+                type="number"
+                min="0"
+                step="1"
+                required="required" />
+        </p>
+
+        <p>
+            <label for="tipoProducto">Tipo de producto:</label>
+
+            <form:select
+                id="tipoProducto"
+                path="tipoProducto.id">
+
+                <form:option value="0" label="Seleccionar" />
+
+                <form:options
+                    items="${tipoproductos}"
+                    itemValue="id"
+                    itemLabel="nombre" />
+
+            </form:select>
+        </p>
+
+        <p>
+            <label for="imagen">Ruta de imagen (opcional):</label>
+
+            <form:input
+                id="imagen"
+                path="imagen"
+                maxlength="500"
+                placeholder="/imagenes/bufanda.jpg" />
+        </p>
+
+        <p class="ayuda">
+            Puedes dejar la imagen vacía si todavía no tienes una fotografía.
+        </p>
+
+        <div class="acciones-formulario">
+
+            <button type="submit" class="boton">
+                Guardar producto
+            </button>
+
+            <a href="${pageContext.request.contextPath}/producto/listar">
+                Volver al listado
+            </a>
+
+        </div>
+
+    </form:form>
+
+</main>
+
+<footer>
+    <p>Taller Buendía - Zona de gestión</p>
+</footer>
 
 </body>
 </html>
