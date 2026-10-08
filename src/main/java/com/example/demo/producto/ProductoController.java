@@ -166,4 +166,39 @@ public class ProductoController {
 
         return "producto/editar";
     }
+
+    @GetMapping("/catalogo")
+    public String catalogo(
+            @RequestParam(name = "nombre", defaultValue = "") String nombre,
+            @RequestParam(name = "disponibilidad", defaultValue = "TODOS")
+            String disponibilidad,
+            Model model) {
+
+        if (!"CON_STOCK".equals(disponibilidad) &&
+                !"SIN_STOCK".equals(disponibilidad)) {
+            disponibilidad = "TODOS";
+        }
+
+        model.addAttribute("productos",
+                productoService.catalogo(nombre, disponibilidad));
+
+        model.addAttribute("nombre", nombre);
+        model.addAttribute("disponibilidad", disponibilidad);
+
+        return "producto/catalogo";
+    }
+
+    @GetMapping("/detallePublico")
+    public String detallePublico(@RequestParam("id") int id, Model model) {
+        Producto producto = productoService.buscarPorId(id);
+
+        if (producto == null ||
+                !"ACTIVO".equals(producto.getEstado())) {
+            model.addAttribute("error", "El producto no está disponible.");
+        } else {
+            model.addAttribute("producto", producto);
+        }
+
+        return "producto/detalle_publico";
+    }
 }

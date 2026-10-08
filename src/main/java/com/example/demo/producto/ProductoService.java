@@ -16,4 +16,6 @@ public interface ProductoService  {
 
     List<Producto> filtrar(String nombre, String disponibilidad);
 
+    List<Producto> catalogo(String nombre, String disponibilidad);
+
 }

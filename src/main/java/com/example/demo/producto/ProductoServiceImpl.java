@@ -131,4 +131,13 @@ public class ProductoServiceImpl implements ProductoService {
 
         return productoDAO.filtrar(nombre.trim(), disponibilidad);
     }
+
+    @Override
+    public List<Producto> catalogo(String nombre, String disponibilidad) {
+        if (nombre == null) {
+            nombre = "";
+        }
+
+        return productoDAO.catalogo(nombre.trim(), disponibilidad);
+    }
 }

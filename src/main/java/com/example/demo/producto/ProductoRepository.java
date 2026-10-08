@@ -204,4 +204,32 @@ public class ProductoRepository implements ProductoDAO {
         return jdbcTemplate.query(
                 query, productoRowMapper, "%" + nombre + "%");
     }
+
+    @Override
+    public List<Producto> catalogo(String nombre, String disponibilidad) {
+        String query = "SELECT producto.id AS id, " +
+                "producto.nombre AS nombre, " +
+                "producto.fecha_creacion AS fechaCreacion, " +
+                "producto.descripcion, producto.material, " +
+                "producto.precio, producto.stock, " +
+                "producto.estado, producto.imagen, " +
+                "tipo_producto.id AS id_tipo_producto, " +
+                "tipo_producto.nombre AS nombre_tipo_producto, " +
+                "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
+                "FROM producto " +
+                "JOIN tipo_producto ON tipo_producto.id = producto.id_tipo_producto " +
+                "WHERE producto.estado = 'ACTIVO' " +
+                "AND LOWER(producto.nombre) LIKE LOWER(?) ";
+
+        if ("CON_STOCK".equals(disponibilidad)) {
+            query += "AND producto.stock > 0 ";
+        } else if ("SIN_STOCK".equals(disponibilidad)) {
+            query += "AND producto.stock = 0 ";
+        }
+
+        query += "ORDER BY producto.id";
+
+        return jdbcTemplate.query(
+                query, productoRowMapper, "%" + nombre + "%");
+    }
 }
