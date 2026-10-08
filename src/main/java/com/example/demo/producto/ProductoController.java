@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.tipoProducto.TipoProducto;
 import com.example.demo.tipoProducto.TipoProductoService;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
@@ -172,6 +175,10 @@ public class ProductoController {
             @RequestParam(name = "nombre", defaultValue = "") String nombre,
             @RequestParam(name = "disponibilidad", defaultValue = "TODOS")
             String disponibilidad,
+            @RequestParam(name = "precioMinimo", required = false)
+            BigDecimal precioMinimo,
+            @RequestParam(name = "precioMaximo", required = false)
+            BigDecimal precioMaximo,
             Model model) {
 
         if (!"CON_STOCK".equals(disponibilidad) &&
@@ -179,11 +186,19 @@ public class ProductoController {
             disponibilidad = "TODOS";
         }
 
-        model.addAttribute("productos",
-                productoService.catalogo(nombre, disponibilidad));
-
         model.addAttribute("nombre", nombre);
         model.addAttribute("disponibilidad", disponibilidad);
+        model.addAttribute("precioMinimo", precioMinimo);
+        model.addAttribute("precioMaximo", precioMaximo);
+
+        try {
+            model.addAttribute("productos",
+                    productoService.catalogo(
+                            nombre, disponibilidad, precioMinimo, precioMaximo));
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            model.addAttribute("productos", new ArrayList<Producto>());
+        }
 
         return "producto/catalogo";
     }

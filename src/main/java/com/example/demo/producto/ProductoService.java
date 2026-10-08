@@ -1,6 +1,7 @@
 package com.example.demo.producto;
 
 import java.util.List;
+import java.math.BigDecimal;
 
 public interface ProductoService  {
     
@@ -16,7 +17,11 @@ public interface ProductoService  {
 
     List<Producto> filtrar(String nombre, String disponibilidad);
 
-    List<Producto> catalogo(String nombre, String disponibilidad);
+    List<Producto> catalogo(
+            String nombre,
+            String disponibilidad,
+            BigDecimal precioMinimo,
+            BigDecimal precioMaximo);
 
     void cambiarEstado(int id, String estado);
 

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import com.example.demo.tipoProducto.TipoProducto;
 
@@ -206,7 +208,8 @@ public class ProductoRepository implements ProductoDAO {
     }
 
     @Override
-    public List<Producto> catalogo(String nombre, String disponibilidad) {
+    public List<Producto> catalogo(String nombre, String disponibilidad, BigDecimal precioMinimo, BigDecimal precioMaximo) {
+
         String query = "SELECT producto.id AS id, " +
                 "producto.nombre AS nombre, " +
                 "producto.fecha_creacion AS fechaCreacion, " +
@@ -221,16 +224,29 @@ public class ProductoRepository implements ProductoDAO {
                 "WHERE producto.estado = 'ACTIVO' " +
                 "AND LOWER(producto.nombre) LIKE LOWER(?) ";
 
+        List<Object> parametros = new ArrayList<>();
+        parametros.add("%" + nombre + "%");
+
         if ("CON_STOCK".equals(disponibilidad)) {
             query += "AND producto.stock > 0 ";
         } else if ("SIN_STOCK".equals(disponibilidad)) {
             query += "AND producto.stock = 0 ";
         }
 
+        if (precioMinimo != null) {
+            query += "AND producto.precio >= ? ";
+            parametros.add(precioMinimo);
+        }
+
+        if (precioMaximo != null) {
+            query += "AND producto.precio <= ? ";
+            parametros.add(precioMaximo);
+        }
+
         query += "ORDER BY producto.id";
 
         return jdbcTemplate.query(
-                query, productoRowMapper, "%" + nombre + "%");
+                query, productoRowMapper, parametros.toArray());
     }
 
     @Override

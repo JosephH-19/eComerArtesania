@@ -133,12 +133,38 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public List<Producto> catalogo(String nombre, String disponibilidad) {
+    public List<Producto> catalogo(
+            String nombre,
+            String disponibilidad,
+            BigDecimal precioMinimo,
+            BigDecimal precioMaximo) {
+
         if (nombre == null) {
             nombre = "";
         }
 
-        return productoDAO.catalogo(nombre.trim(), disponibilidad);
+        if (precioMinimo != null &&
+                (precioMinimo.compareTo(BigDecimal.ZERO) < 0 ||
+                        precioMinimo.scale() > 2)) {
+            throw new IllegalArgumentException(
+                    "El precio mínimo debe ser positivo o cero, con hasta dos decimales.");
+        }
+
+        if (precioMaximo != null &&
+                (precioMaximo.compareTo(BigDecimal.ZERO) < 0 ||
+                        precioMaximo.scale() > 2)) {
+            throw new IllegalArgumentException(
+                    "El precio máximo debe ser positivo o cero, con hasta dos decimales.");
+        }
+
+        if (precioMinimo != null && precioMaximo != null &&
+                precioMinimo.compareTo(precioMaximo) > 0) {
+            throw new IllegalArgumentException(
+                    "El precio mínimo no puede ser mayor que el máximo.");
+        }
+
+        return productoDAO.catalogo(
+                nombre.trim(), disponibilidad, precioMinimo, precioMaximo);
     }
 
     @Override

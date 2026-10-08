@@ -41,6 +41,24 @@
         </option>
     </select>
 
+    <label for="precioMinimo">Precio mínimo (S/):</label>
+
+    <input type="number"
+           id="precioMinimo"
+           name="precioMinimo"
+           min="0"
+           step="0.01"
+           value="<c:out value='${precioMinimo}' />">
+
+    <label for="precioMaximo">Precio máximo (S/):</label>
+
+    <input type="number"
+           id="precioMaximo"
+           name="precioMaximo"
+           min="0"
+           step="0.01"
+           value="<c:out value='${precioMaximo}' />">
+
     <button type="submit">Buscar</button>
 
     <a href="${pageContext.request.contextPath}/producto/catalogo">
@@ -48,7 +66,13 @@
     </a>
 </form>
 
-<c:if test="${empty productos}">
+<c:if test="${not empty error}">
+    <p style="color: red;">
+        <c:out value="${error}" />
+    </p>
+</c:if>
+
+<c:if test="${empty productos and empty error}">
     <p>No se encontraron productos.</p>
 </c:if>
 
