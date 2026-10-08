@@ -17,8 +17,14 @@ CREATE TABLE IF NOT EXISTS producto (
     nombre VARCHAR(200) NOT NULL,
     fecha_creacion DATE NOT NULL,
     id_tipo_producto INT NOT NULL,
+    descripcion VARCHAR(1000) NOT NULL DEFAULT '',
+    material VARCHAR(200) NOT NULL DEFAULT '',
+    precio DECIMAL(10, 2) NOT NULL DEFAULT 0 CHECK (precio >= 0),
+    stock INT NOT NULL DEFAULT 0 CHECK (stock >= 0),
+    estado VARCHAR(20) NOT NULL DEFAULT 'ACTIVO',
+    imagen VARCHAR(500) NOT NULL DEFAULT '',
     CONSTRAINT fk_tipo_producto FOREIGN KEY (id_tipo_producto)
-    REFERENCES tipo_producto(id) ON DELETE SET NULL
-);
+        REFERENCES tipo_producto(id)
+    );
 
 

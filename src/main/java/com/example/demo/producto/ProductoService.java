@@ -4,8 +4,10 @@ import java.util.List;
 
 public interface ProductoService  {
     
-    public List<Producto> ProductoReporte(Integer idTipoProducto);
+    List<Producto> ProductoReporte(Integer idTipoProducto);
 
-    public List<Producto> listarTodos();
+    List<Producto> listarTodos();
+
+    void guardar(Producto producto);
 
 }

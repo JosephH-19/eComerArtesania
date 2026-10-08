@@ -8,4 +8,6 @@ public interface ProductoDAO {
 
     List<Producto> listarTodos();
 
+    void guardar(Producto producto);
+
 }

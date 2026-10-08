@@ -9,53 +9,110 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.tipoProducto.TipoProducto;
 
 @Repository
-public class ProductoRepository implements ProductoDAO{
-    
+public class ProductoRepository implements ProductoDAO {
+
     private final JdbcTemplate jdbcTemplate;
 
     public ProductoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private final RowMapper<Producto> ProductoRowMapper = (rs, rowNum) -> {
-        return new Producto(
-            rs.getInt("id"),  
-            rs.getString("nombre"),  
-            rs.getDate("fechaCreacion").toLocalDate(),
-            new TipoProducto(
-                rs.getInt("id_tipo_producto"),  
-                rs.getString("nombre_tipo_producto"),  
-                rs.getDate("fecha_Creacion_tipo_producto").toLocalDate() )
+    private final RowMapper<Producto> productoRowMapper = (rs, rowNum) -> {
+
+        TipoProducto tipoProducto = new TipoProducto(
+                rs.getInt("id_tipo_producto"),
+                rs.getString("nombre_tipo_producto"),
+                rs.getDate("fecha_creacion_tipo_producto").toLocalDate()
         );
+
+        Producto producto = new Producto(
+                rs.getInt("id"),
+                rs.getString("nombre"),
+                rs.getDate("fechaCreacion").toLocalDate(),
+                tipoProducto
+        );
+
+        producto.setDescripcion(rs.getString("descripcion"));
+        producto.setMaterial(rs.getString("material"));
+        producto.setPrecio(rs.getBigDecimal("precio"));
+        producto.setStock(rs.getInt("stock"));
+        producto.setEstado(rs.getString("estado"));
+        producto.setImagen(rs.getString("imagen"));
+
+        return producto;
     };
-    
+
     @Override
     public List<Producto> ProductoReporte(Integer idTipoProducto) {
-        System.out.println("idTipoProducto = " + idTipoProducto);
-        String query = "SELECT producto.id as id, producto.nombre as nombre "+
-              ", producto.fecha_creacion as fechaCreacion, "+
-              " tipo_producto.id as id_tipo_producto , "+
-              " tipo_producto.nombre as nombre_tipo_producto, " +
-              " tipo_producto.fechaCreacion as fecha_Creacion_tipo_producto " +
-              " FROM producto " +
-              " join tipo_producto "+
-              " on tipo_producto.id = producto.id_tipo_producto " +
-              " where id_tipo_producto = ? " ;
-        return jdbcTemplate.query(query, ProductoRowMapper,idTipoProducto  );
+
+        String query = "SELECT producto.id, producto.nombre, " +
+                "producto.fecha_creacion AS fechaCreacion, " +
+                "producto.descripcion, producto.material, producto.precio, " +
+                "producto.stock, producto.estado, producto.imagen, " +
+                "tipo_producto.id AS id_tipo_producto, " +
+                "tipo_producto.nombre AS nombre_tipo_producto, " +
+                "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
+                "FROM producto " +
+                "JOIN tipo_producto " +
+                "ON tipo_producto.id = producto.id_tipo_producto " +
+                "WHERE producto.id_tipo_producto = ? " +
+                "ORDER BY producto.id";
+
+        return jdbcTemplate.query(
+                query, productoRowMapper, idTipoProducto
+        );
     }
 
     public List<Producto> listarTodos() {
-        String query = "SELECT producto.id as id, producto.nombre as nombre, " +
-                "producto.fecha_creacion as fechaCreacion, " +
-                "tipo_producto.id as id_tipo_producto, " +
-                "tipo_producto.nombre as nombre_tipo_producto, " +
-                "tipo_producto.fechaCreacion as fecha_Creacion_tipo_producto " +
+
+        String query = "SELECT producto.id, producto.nombre, " +
+                "producto.fecha_creacion AS fechaCreacion, " +
+                "producto.descripcion, producto.material, producto.precio, " +
+                "producto.stock, producto.estado, producto.imagen, " +
+                "tipo_producto.id AS id_tipo_producto, " +
+                "tipo_producto.nombre AS nombre_tipo_producto, " +
+                "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
                 "FROM producto " +
-                "JOIN tipo_producto ON tipo_producto.id = producto.id_tipo_producto " +
+                "JOIN tipo_producto " +
+                "ON tipo_producto.id = producto.id_tipo_producto " +
                 "ORDER BY producto.id";
-        return jdbcTemplate.query(query, ProductoRowMapper);
+
+        return jdbcTemplate.query(query, productoRowMapper);
     }
 
+    @Override
+    public void guardar(Producto producto) {
+
+        String consulta = "SELECT COUNT(*) FROM tipo_producto WHERE id = ?";
+
+        Integer cantidad = jdbcTemplate.queryForObject(
+                consulta,
+                Integer.class,
+                producto.getTipoProducto().getId()
+        );
+
+        if (cantidad == null || cantidad == 0) {
+            throw new IllegalArgumentException(
+                    "Selecciona un tipo de producto existente."
+            );
+        }
+
+        String query = "INSERT INTO producto " +
+                "(nombre, fecha_creacion, id_tipo_producto, descripcion, " +
+                "material, precio, stock, estado, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        jdbcTemplate.update(
+                query,
+                producto.getNombre(),
+                producto.getFechaCreacion(),
+                producto.getTipoProducto().getId(),
+                producto.getDescripcion(),
+                producto.getMaterial(),
+                producto.getPrecio(),
+                producto.getStock(),
+                producto.getEstado(),
+                producto.getImagen()
+        );
+    }
 }
-
-
