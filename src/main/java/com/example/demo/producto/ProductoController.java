@@ -118,4 +118,44 @@ public class ProductoController {
 
         return "producto/detalle";
     }
+
+    @GetMapping("/editar")
+    public String editar(@RequestParam("id") int id, Model model) {
+        Producto producto = productoService.buscarPorId(id);
+
+        if (producto == null) {
+            model.addAttribute("error", "El producto no existe.");
+            return "producto/detalle";
+        }
+
+        model.addAttribute("producto", producto);
+        model.addAttribute("tipoproductos",
+                tipoProductoService.listaTipoProducto());
+
+        return "producto/editar";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizar(
+            @ModelAttribute("producto") Producto producto,
+            BindingResult resultado,
+            Model model) {
+
+        if (resultado.hasErrors()) {
+            model.addAttribute("error",
+                    "Revisa el precio, stock y tipo de producto.");
+        } else {
+            try {
+                productoService.actualizar(producto);
+                return "redirect:/producto/listar";
+            } catch (IllegalArgumentException e) {
+                model.addAttribute("error", e.getMessage());
+            }
+        }
+
+        model.addAttribute("tipoproductos",
+                tipoProductoService.listaTipoProducto());
+
+        return "producto/editar";
+    }
 }

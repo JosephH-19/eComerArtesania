@@ -25,8 +25,7 @@ public class ProductoServiceImpl implements ProductoService {
         return productoDAO.listarTodos();
     }
 
-    @Override
-    public void guardar(Producto producto) {
+    private void validarProducto(Producto producto) {
 
         if (producto.getNombre() == null ||
                 producto.getNombre().trim().isEmpty()) {
@@ -94,10 +93,6 @@ public class ProductoServiceImpl implements ProductoService {
         producto.setNombre(producto.getNombre().trim());
         producto.setDescripcion(producto.getDescripcion().trim());
         producto.setMaterial(producto.getMaterial().trim());
-        producto.setFechaCreacion(LocalDate.now());
-        producto.setEstado("ACTIVO");
-
-        productoDAO.guardar(producto);
     }
 
     @Override
@@ -112,5 +107,28 @@ public class ProductoServiceImpl implements ProductoService {
         }
 
         return productoDAO.buscarPorNombre(nombre.trim());
+    }
+
+    @Override
+    public void guardar(Producto producto) {
+        validarProducto(producto);
+
+        producto.setFechaCreacion(LocalDate.now());
+        producto.setEstado("ACTIVO");
+
+        productoDAO.guardar(producto);
+    }
+
+    @Override
+    public void actualizar(Producto producto) {
+        Producto existente = productoDAO.buscarPorId(producto.getId());
+
+        if (existente == null) {
+            throw new IllegalArgumentException("El producto no existe.");
+        }
+
+        validarProducto(producto);
+
+        productoDAO.actualizar(producto);
     }
 }

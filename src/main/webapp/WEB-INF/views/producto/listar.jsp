@@ -67,10 +67,13 @@
                 <td><c:out value="${producto.stock}" /></td>
                 <td><c:out value="${producto.estado}" /></td>
                 <td><c:out value="${producto.tipoProducto.nombre}" /></td>
-                <!-- 2. SE AGREGÓ AQUÍ: Después del tipo de producto y antes de cerrar la fila (</tr>) -->
                 <td>
                     <a href="${pageContext.request.contextPath}/producto/detalle?id=${producto.id}">
                         Ver detalle
+                    </a>
+                    <br>
+                    <a href="${pageContext.request.contextPath}/producto/editar?id=${producto.id}">
+                        Editar
                     </a>
                 </td>
             </tr>

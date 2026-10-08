@@ -160,4 +160,41 @@ public class ProductoRepository implements ProductoDAO {
         return jdbcTemplate.query(
                 query, productoRowMapper, "%" + nombre + "%");
     }
+
+    @Override
+    public void actualizar(Producto producto) {
+        String consultaTipo =
+                "SELECT COUNT(*) FROM tipo_producto WHERE id = ?";
+
+        Integer cantidad = jdbcTemplate.queryForObject(
+                consultaTipo,
+                Integer.class,
+                producto.getTipoProducto().getId());
+
+        if (cantidad == null || cantidad == 0) {
+            throw new IllegalArgumentException(
+                    "Selecciona un tipo de producto existente.");
+        }
+
+        String query = "UPDATE producto SET " +
+                "nombre = ?, descripcion = ?, material = ?, " +
+                "precio = ?, stock = ?, imagen = ?, " +
+                "id_tipo_producto = ? " +
+                "WHERE id = ?";
+
+        int filas = jdbcTemplate.update(
+                query,
+                producto.getNombre(),
+                producto.getDescripcion(),
+                producto.getMaterial(),
+                producto.getPrecio(),
+                producto.getStock(),
+                producto.getImagen(),
+                producto.getTipoProducto().getId(),
+                producto.getId());
+
+        if (filas == 0) {
+            throw new IllegalArgumentException("El producto no existe.");
+        }
+    }
 }

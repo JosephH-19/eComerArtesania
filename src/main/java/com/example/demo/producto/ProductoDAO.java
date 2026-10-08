@@ -14,4 +14,6 @@ public interface ProductoDAO {
 
     List<Producto> buscarPorNombre(String nombre);
 
+    void actualizar(Producto producto);
+
 }
