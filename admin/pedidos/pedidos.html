@@ -31,6 +31,7 @@
   </nav>
 
   <main>
+    <p id="aviso-pedidos" role="status"></p>
 
     <div class="titulo-seccion">
       <div>
@@ -53,14 +54,13 @@
       <div>
         <label>Estado</label>
         <select>
-          <option>Todos</option>
-          <option>Pendiente de pago</option>
-          <option>Confirmado</option>
-          <option>En preparación</option>
-          <option>Listo para entrega</option>
-          <option>En camino</option>
-          <option>Entregado</option>
-          <option>Cancelado</option>
+          <option value="todos">Todos</option>
+          <option value="PENDIENTE_PAGO">Pendiente de pago</option>
+          <option value="PAGO_CONFIRMADO">Pago confirmado</option>
+          <option value="EN_PREPARACION">En preparación</option>
+          <option value="LISTO_PARA_ENTREGA">Listo para entrega</option>
+          <option value="ENTREGADO">Entregado</option>
+          <option value="CANCELADO">Cancelado</option>
         </select>
       </div>
       
@@ -74,7 +74,7 @@
     <section>
       <h3>LISTADO DE PEDIDOS</h3>
       
-      <table class="tabla-datos">
+      <table class="tabla-datos tabla-pedidos">
         <thead>
           <tr>
             <th>N° Pedido</th>
@@ -160,4 +160,5 @@
   </footer>
 
 </body>
+  <script src="../js/pedidos-admin.js"></script>
 </html>

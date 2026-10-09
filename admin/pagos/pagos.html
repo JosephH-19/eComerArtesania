@@ -28,6 +28,7 @@
   <main>
     <h1>GESTIÓN DE PAGOS</h1>
     <p>Registra y gestiona los pagos recibidos de los clientes.</p>
+    <p id="aviso-pagos" role="status"></p>
 
     <div class="acciones-principales">
       <div class="buscador">
@@ -54,7 +55,7 @@
       </select>
     </div>
 
-    <table class="tabla-datos">
+    <table class="tabla-datos tabla-pagos">
       <thead>
         <tr>
           <th>N° Pedido</th>
@@ -148,5 +149,6 @@
   <footer>
     <p>Taller Buendía - Panel de Gestión</p>
   </footer>
+  <script src="../js/pagos-admin.js"></script>
 </body>
 </html>
