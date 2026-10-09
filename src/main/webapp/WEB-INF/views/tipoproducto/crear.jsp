@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!-- filepath: d:\Roberto\utp\2025-I\Material\Desarrollo Web Integrado\Semana 03\demo_sem03\demo\demo\src\main\webapp\WEB-INF\views\tipoproducto\crear.jsp -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -11,6 +12,7 @@
     <h1>Crear Tipo de Producto</h1>
     <!-- El formulario está vinculado al objeto "tipoProducto" -->
     <form:form action="/tipoproducto/crear" method="post" modelAttribute="tipoProducto">
+<input type="hidden" name="tokenFormulario" value="${sessionScope.tokenFormulario}">
         <label for="nombre">Nombre:</label>
         <form:input path="nombre" id="nombre" required="true" />
         <br>

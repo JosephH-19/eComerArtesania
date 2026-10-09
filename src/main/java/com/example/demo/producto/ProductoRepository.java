@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import com.example.demo.tipoProducto.TipoProducto;
+import com.example.demo.artesano.Artesano;
 
 @Repository
 public class ProductoRepository implements ProductoDAO {
@@ -41,6 +42,11 @@ public class ProductoRepository implements ProductoDAO {
         producto.setEstado(rs.getString("estado"));
         producto.setImagen(rs.getString("imagen"));
 
+        Artesano artesano = new Artesano();
+        artesano.setId(rs.getInt("id_artesano"));
+        artesano.setNombres(rs.getString("artesano_nombres"));
+        artesano.setApellidos(rs.getString("artesano_apellidos"));
+        producto.setArtesano(artesano);
         return producto;
     };
 
@@ -51,10 +57,13 @@ public class ProductoRepository implements ProductoDAO {
                 "producto.fecha_creacion AS fechaCreacion, " +
                 "producto.descripcion, producto.material, producto.precio, " +
                 "producto.stock, producto.estado, producto.imagen, " +
+                "producto.id_artesano, artesano.nombres AS artesano_nombres, " +
+                "artesano.apellidos AS artesano_apellidos, " +
                 "tipo_producto.id AS id_tipo_producto, " +
                 "tipo_producto.nombre AS nombre_tipo_producto, " +
                 "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
                 "FROM producto " +
+                "JOIN artesano ON artesano.id = producto.id_artesano " +
                 "JOIN tipo_producto " +
                 "ON tipo_producto.id = producto.id_tipo_producto " +
                 "WHERE producto.id_tipo_producto = ? " +
@@ -71,10 +80,13 @@ public class ProductoRepository implements ProductoDAO {
                 "producto.fecha_creacion AS fechaCreacion, " +
                 "producto.descripcion, producto.material, producto.precio, " +
                 "producto.stock, producto.estado, producto.imagen, " +
+                "producto.id_artesano, artesano.nombres AS artesano_nombres, " +
+                "artesano.apellidos AS artesano_apellidos, " +
                 "tipo_producto.id AS id_tipo_producto, " +
                 "tipo_producto.nombre AS nombre_tipo_producto, " +
                 "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
                 "FROM producto " +
+                "JOIN artesano ON artesano.id = producto.id_artesano " +
                 "JOIN tipo_producto " +
                 "ON tipo_producto.id = producto.id_tipo_producto " +
                 "ORDER BY producto.id";
@@ -100,15 +112,16 @@ public class ProductoRepository implements ProductoDAO {
         }
 
         String query = "INSERT INTO producto " +
-                "(nombre, fecha_creacion, id_tipo_producto, descripcion, " +
+                "(nombre, fecha_creacion, id_tipo_producto, id_artesano, descripcion, " +
                 "material, precio, stock, estado, imagen) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         jdbcTemplate.update(
                 query,
                 producto.getNombre(),
                 producto.getFechaCreacion(),
                 producto.getTipoProducto().getId(),
+                producto.getArtesano().getId(),
                 producto.getDescripcion(),
                 producto.getMaterial(),
                 producto.getPrecio(),
@@ -126,10 +139,13 @@ public class ProductoRepository implements ProductoDAO {
                 "producto.descripcion, producto.material, " +
                 "producto.precio, producto.stock, " +
                 "producto.estado, producto.imagen, " +
+                "producto.id_artesano, artesano.nombres AS artesano_nombres, " +
+                "artesano.apellidos AS artesano_apellidos, " +
                 "tipo_producto.id AS id_tipo_producto, " +
                 "tipo_producto.nombre AS nombre_tipo_producto, " +
                 "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
                 "FROM producto " +
+                "JOIN artesano ON artesano.id = producto.id_artesano " +
                 "JOIN tipo_producto ON tipo_producto.id = producto.id_tipo_producto " +
                 "WHERE producto.id = ?";
 
@@ -161,7 +177,7 @@ public class ProductoRepository implements ProductoDAO {
         String query = "UPDATE producto SET " +
                 "nombre = ?, descripcion = ?, material = ?, " +
                 "precio = ?, stock = ?, imagen = ?, " +
-                "id_tipo_producto = ? " +
+                "id_tipo_producto = ?, id_artesano = ? " +
                 "WHERE id = ?";
 
         int filas = jdbcTemplate.update(
@@ -173,6 +189,7 @@ public class ProductoRepository implements ProductoDAO {
                 producto.getStock(),
                 producto.getImagen(),
                 producto.getTipoProducto().getId(),
+                producto.getArtesano().getId(),
                 producto.getId());
 
         if (filas == 0) {
@@ -188,10 +205,13 @@ public class ProductoRepository implements ProductoDAO {
                 "producto.descripcion, producto.material, " +
                 "producto.precio, producto.stock, " +
                 "producto.estado, producto.imagen, " +
+                "producto.id_artesano, artesano.nombres AS artesano_nombres, " +
+                "artesano.apellidos AS artesano_apellidos, " +
                 "tipo_producto.id AS id_tipo_producto, " +
                 "tipo_producto.nombre AS nombre_tipo_producto, " +
                 "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
                 "FROM producto " +
+                "JOIN artesano ON artesano.id = producto.id_artesano " +
                 "JOIN tipo_producto ON tipo_producto.id = producto.id_tipo_producto " +
                 "WHERE LOWER(producto.nombre) LIKE LOWER(?) ";
 
@@ -216,10 +236,13 @@ public class ProductoRepository implements ProductoDAO {
                 "producto.descripcion, producto.material, " +
                 "producto.precio, producto.stock, " +
                 "producto.estado, producto.imagen, " +
+                "producto.id_artesano, artesano.nombres AS artesano_nombres, " +
+                "artesano.apellidos AS artesano_apellidos, " +
                 "tipo_producto.id AS id_tipo_producto, " +
                 "tipo_producto.nombre AS nombre_tipo_producto, " +
                 "tipo_producto.fechaCreacion AS fecha_creacion_tipo_producto " +
                 "FROM producto " +
+                "JOIN artesano ON artesano.id = producto.id_artesano " +
                 "JOIN tipo_producto ON tipo_producto.id = producto.id_tipo_producto " +
                 "WHERE producto.estado = 'ACTIVO' " +
                 "AND LOWER(producto.nombre) LIKE LOWER(?) ";
@@ -258,5 +281,13 @@ public class ProductoRepository implements ProductoDAO {
         if (filas == 0) {
             throw new IllegalArgumentException("El producto no existe.");
         }
+    }
+
+    public boolean descontarStock(int id, int cantidad) {
+        if (cantidad <= 0) {
+            return false;
+        }
+        return jdbcTemplate.update("UPDATE producto SET stock = stock - ? WHERE id = ? AND stock >= ? AND estado = 'ACTIVO'",
+                cantidad, id, cantidad) == 1;
     }
 }

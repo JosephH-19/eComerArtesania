@@ -9,11 +9,55 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
 
 
 @Controller
 @RequestMapping("/tipoproducto")
 public class TipoProductoController {
+
+    @GetMapping("/listar")
+    public String listar(Model model) {
+        model.addAttribute("tipoproductos", tipoProductoService.listaTipoProducto());
+        return "tipoproducto/listar";
+    }
+
+    @GetMapping("/nuevo")
+    public String nuevo(Model model) {
+        model.addAttribute("tipoProducto", new TipoProducto());
+        return "tipoproducto/nuevo";
+    }
+
+    @PostMapping("/guardar")
+    public String guardar(@ModelAttribute("tipoProducto") TipoProducto tipo, BindingResult resultado, Model model) {
+        if (resultado.hasErrors()) {
+            model.addAttribute("error", "Revisa los datos de la categoría.");
+        } else {
+            try {
+                tipoProductoService.crearTipoProducto(tipo);
+                return "redirect:/tipoproducto/listar";
+            } catch (IllegalArgumentException error) {
+                model.addAttribute("error", error.getMessage());
+            }
+        }
+        return "tipoproducto/nuevo";
+    }
+
+    @GetMapping("/detalle")
+    public String detalle(@RequestParam int id, Model model) {
+        TipoProducto tipo = tipoProductoService.obtenerTipoProductoPorId(id);
+        if (tipo == null) {
+            throw new IllegalArgumentException("La categoría no existe.");
+        }
+        model.addAttribute("tipoProducto", tipo);
+        return "tipoproducto/detalle";
+    }
+
+    @PostMapping("/desactivar")
+    public String desactivar(@RequestParam int id) {
+        tipoProductoService.desactivar(id);
+        return "redirect:/tipoproducto/listar";
+    }
 
     private final TipoProductoService tipoProductoService;
 

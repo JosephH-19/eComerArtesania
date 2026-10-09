@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!-- filepath: d:\Roberto\utp\2025-I\Material\Desarrollo Web Integrado\Semana 03\demo_sem03\demo\demo\src\main\webapp\WEB-INF\views\tipoproducto\obtener.jsp -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,6 +10,7 @@
     <h1>Crear Tipo de Producto</h1>
    
     <form action="/tipoProducto/registrar" method="post">
+<input type="hidden" name="tokenFormulario" value="${sessionScope.tokenFormulario}">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" value="${tipoProducto.nombre}" required><br>
         <label for="Fecha de creacion">Fecha de creacion:</label>

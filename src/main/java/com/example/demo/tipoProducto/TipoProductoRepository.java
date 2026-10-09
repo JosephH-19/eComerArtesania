@@ -15,20 +15,23 @@ public class TipoProductoRepository implements TipoProductoDAO{
     }
 
     private final RowMapper<TipoProducto> tipoProductoRowMapper = (rs, rowNum) -> {
-        return new TipoProducto(
+        TipoProducto tipo = new TipoProducto(
             rs.getInt("id"),  
             rs.getString("nombre"),  
             rs.getDate("fechaCreacion").toLocalDate()  
         );
+        tipo.setDescripcion(rs.getString("descripcion"));
+        tipo.setEstado(rs.getString("estado"));
+        return tipo;
     };
     
     public List<TipoProducto> listaTipoProducto() {
-        String query = "SELECT id, nombre, fechaCreacion FROM tipo_producto";
+        String query = "SELECT * FROM tipo_producto ORDER BY id";
         return jdbcTemplate.query(query, tipoProductoRowMapper);
     }
 
     public TipoProducto obtenerTipoProductoPorId(int id) {
-        String query = "SELECT id, nombre, fechaCreacion FROM tipo_producto WHERE id = ?";
+        String query = "SELECT * FROM tipo_producto WHERE id = ?";
         List<TipoProducto> result = jdbcTemplate.query(query, tipoProductoRowMapper, id);
         if (result.isEmpty()) {
             return null; 
@@ -40,8 +43,18 @@ public class TipoProductoRepository implements TipoProductoDAO{
     }
 
     public void crearTipoProducto(TipoProducto tipoProducto) {
-        String query = "INSERT INTO tipo_producto (nombre, fechaCreacion) VALUES (?, ?)";
-        jdbcTemplate.update(query, tipoProducto.getNombre(), tipoProducto.getFechaCreacion());
+        String query = "INSERT INTO tipo_producto (nombre, fechaCreacion, descripcion, estado) VALUES (?, ?, ?, 'ACTIVO')";
+        jdbcTemplate.update(query, tipoProducto.getNombre(), tipoProducto.getFechaCreacion(), tipoProducto.getDescripcion());
+    }
+
+    public List<TipoProducto> listarActivos() {
+        return jdbcTemplate.query("SELECT * FROM tipo_producto WHERE estado = 'ACTIVO' ORDER BY id", tipoProductoRowMapper);
+    }
+
+    public void desactivar(int id) {
+        if (jdbcTemplate.update("UPDATE tipo_producto SET estado = 'INACTIVO' WHERE id = ?", id) == 0) {
+            throw new IllegalArgumentException("La categoría no existe.");
+        }
     }
 
 }

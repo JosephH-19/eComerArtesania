@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.example.demo.tipoProducto.TipoProducto;
+import com.example.demo.artesano.Artesano;
 
 public class Producto {
 
@@ -18,6 +19,33 @@ public class Producto {
     private int stock;
     private String estado;
     private String imagen;
+    private Artesano artesano;
+    private BigDecimal porcentajeDescuento = BigDecimal.ZERO;
+    private BigDecimal precioFinal;
+
+    public BigDecimal getPorcentajeDescuento() {
+        return porcentajeDescuento;
+    }
+
+    public void setPorcentajeDescuento(BigDecimal porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
+    }
+
+    public BigDecimal getPrecioFinal() {
+        return precioFinal == null ? precio : precioFinal;
+    }
+
+    public void setPrecioFinal(BigDecimal precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
+    public Artesano getArtesano() {
+        return artesano;
+    }
+
+    public void setArtesano(Artesano artesano) {
+        this.artesano = artesano;
+    }
 
     public Producto() {
     }

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.tipoProducto.TipoProducto;
+import com.example.demo.artesano.ArtesanoService;
+import com.example.demo.artesano.Artesano;
+import java.util.List;
 import com.example.demo.tipoProducto.TipoProductoService;
 
 import java.math.BigDecimal;
@@ -21,13 +24,15 @@ public class ProductoController {
 
     private final TipoProductoService tipoProductoService;
     private final ProductoService productoService;
+    private final ArtesanoService artesanoService;
 
     public ProductoController(
             TipoProductoService tipoProductoService,
-            ProductoService productoService) {
+            ProductoService productoService, ArtesanoService artesanoService) {
 
         this.tipoProductoService = tipoProductoService;
         this.productoService = productoService;
+        this.artesanoService = artesanoService;
     }
 
     @GetMapping("/list")
@@ -79,13 +84,15 @@ public class ProductoController {
 
         Producto producto = new Producto();
         producto.setTipoProducto(new TipoProducto());
+        producto.setArtesano(new Artesano());
 
         model.addAttribute("producto", producto);
         model.addAttribute(
                 "tipoproductos",
-                tipoProductoService.listaTipoProducto()
+                tipoProductoService.listarActivos()
         );
 
+        cargarRelaciones(producto, model);
         return "producto/crear";
     }
 
@@ -111,9 +118,10 @@ public class ProductoController {
 
         model.addAttribute(
                 "tipoproductos",
-                tipoProductoService.listaTipoProducto()
+                tipoProductoService.listarActivos()
         );
 
+        cargarRelaciones(producto, model);
         return "producto/crear";
     }
 
@@ -141,8 +149,9 @@ public class ProductoController {
 
         model.addAttribute("producto", producto);
         model.addAttribute("tipoproductos",
-                tipoProductoService.listaTipoProducto());
+                tipoProductoService.listarActivos());
 
+        cargarRelaciones(producto, model);
         return "producto/editar";
     }
 
@@ -165,8 +174,9 @@ public class ProductoController {
         }
 
         model.addAttribute("tipoproductos",
-                tipoProductoService.listaTipoProducto());
+                tipoProductoService.listarActivos());
 
+        cargarRelaciones(producto, model);
         return "producto/editar";
     }
 
@@ -179,6 +189,7 @@ public class ProductoController {
             BigDecimal precioMinimo,
             @RequestParam(name = "precioMaximo", required = false)
             BigDecimal precioMaximo,
+            @RequestParam(name = "categoria", required = false) Integer categoria,
             Model model) {
 
         if (!"CON_STOCK".equals(disponibilidad) &&
@@ -190,11 +201,13 @@ public class ProductoController {
         model.addAttribute("disponibilidad", disponibilidad);
         model.addAttribute("precioMinimo", precioMinimo);
         model.addAttribute("precioMaximo", precioMaximo);
+        model.addAttribute("categoria", categoria);
+        model.addAttribute("categorias", tipoProductoService.listaTipoProducto());
 
         try {
             model.addAttribute("productos",
                     productoService.catalogo(
-                            nombre, disponibilidad, precioMinimo, precioMaximo));
+                            nombre, disponibilidad, precioMinimo, precioMaximo, categoria));
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
             model.addAttribute("productos", new ArrayList<Producto>());
@@ -215,6 +228,24 @@ public class ProductoController {
         }
 
         return "producto/detalle_publico";
+    }
+
+    private void cargarRelaciones(Producto producto, Model model) {
+        List<TipoProducto> categorias = new ArrayList<>(tipoProductoService.listarActivos());
+        List<Artesano> artesanos = new ArrayList<>(artesanoService.listarActivos());
+        Producto existente = productoService.buscarPorId(producto.getId());
+        if (existente != null) {
+            TipoProducto actual = tipoProductoService.obtenerTipoProductoPorId(existente.getTipoProducto().getId());
+            if (actual != null && "INACTIVO".equals(actual.getEstado())) {
+                categorias.add(actual);
+            }
+            Artesano artesano = artesanoService.buscarPorId(existente.getArtesano().getId());
+            if (artesano != null && "INACTIVO".equals(artesano.getEstado())) {
+                artesanos.add(artesano);
+            }
+        }
+        model.addAttribute("tipoproductos", categorias);
+        model.addAttribute("artesanos", artesanos);
     }
 
     @PostMapping("/cambiarEstado")

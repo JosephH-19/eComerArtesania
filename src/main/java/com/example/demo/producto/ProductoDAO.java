@@ -24,5 +24,6 @@ public interface ProductoDAO {
             BigDecimal precioMaximo);
 
     void cambiarEstado(int id, String estado);
+    boolean descontarStock(int id, int cantidad);
 
 }

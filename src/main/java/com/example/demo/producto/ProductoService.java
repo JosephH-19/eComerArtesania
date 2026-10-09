@@ -24,5 +24,6 @@ public interface ProductoService  {
             BigDecimal precioMaximo);
 
     void cambiarEstado(int id, String estado);
+    List<Producto> catalogo(String nombre, String disponibilidad, BigDecimal minimo, BigDecimal maximo, Integer categoria);
 
 }

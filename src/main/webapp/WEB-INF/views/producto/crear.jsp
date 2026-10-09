@@ -28,6 +28,7 @@
         PRODUCTOS
     </a>
 </nav>
+<%@ include file="../comun/navegacion.jsp" %>
 
 <main>
 
@@ -40,6 +41,7 @@
         action="${pageContext.request.contextPath}/producto/guardar"
         modelAttribute="producto"
         cssClass="formulario-producto">
+<input type="hidden" name="tokenFormulario" value="${sessionScope.tokenFormulario}">
 
         <c:if test="${not empty error}">
             <p class="error" role="alert">
@@ -103,7 +105,7 @@
         </p>
 
         <p>
-            <label for="tipoProducto">Tipo de producto:</label>
+            <label for="tipoProducto">Categoría:</label>
 
             <form:select
                 id="tipoProducto"
@@ -116,6 +118,14 @@
                     itemValue="id"
                     itemLabel="nombre" />
 
+            </form:select>
+        </p>
+
+        <p>
+            <label for="artesano">Artesano:</label>
+            <form:select id="artesano" path="artesano.id">
+                <form:option value="0" label="Seleccionar" />
+                <form:options items="${artesanos}" itemValue="id" itemLabel="nombreCompleto" />
             </form:select>
         </p>
 

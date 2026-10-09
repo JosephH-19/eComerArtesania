@@ -24,6 +24,7 @@
         CATÁLOGO
     </a>
 </nav>
+<%@ include file="../comun/navegacion.jsp" %>
 
 <main>
 
@@ -51,7 +52,7 @@
                         </c:when>
 
                         <c:otherwise>
-                            <p>Este producto todavía no tiene imagen.</p>
+                            <p>Sin imagen</p>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -63,8 +64,11 @@
                     </h1>
 
                     <p class="precio">
-                        S/ <c:out value="${producto.precio}" />
+                        S/ <c:out value="${producto.precioFinal}" />
                     </p>
+                    <c:if test="${producto.porcentajeDescuento > 0}">
+                        <p>Antes S/ ${producto.precio}. Descuento vigente: ${producto.porcentajeDescuento}%</p>
+                    </c:if>
 
                     <h2>Descripción del producto</h2>
 
@@ -76,8 +80,10 @@
                     </p>
 
                     <p>
-                        <strong>Tipo de producto:</strong>
+                        <strong>Categoría:</strong>
                         <c:out value="${producto.tipoProducto.nombre}" />
+                    </p>
+                    <p><strong>Artesano:</strong> <c:out value="${producto.artesano.nombreCompleto}" />
                     </p>
 
                     <c:choose>
@@ -94,6 +100,15 @@
                         </c:otherwise>
                     </c:choose>
 
+                <c:if test="${producto.stock > 0}">
+                    <form method="post" action="${pageContext.request.contextPath}/carrito/agregar">
+                        <%@ include file="../comun/token.jsp" %>
+                        <input type="hidden" name="id" value="${producto.id}">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="${producto.stock}" step="1" value="1" required>
+                        <button type="submit">Agregar al carrito</button>
+                    </form>
+                </c:if>
                 </section>
 
             </div>

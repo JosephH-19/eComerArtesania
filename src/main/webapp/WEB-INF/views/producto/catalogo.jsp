@@ -24,6 +24,7 @@
         CATÁLOGO
     </a>
 </nav>
+<%@ include file="../comun/navegacion.jsp" %>
 
 <main>
     <h1>Catálogo de artesanías textiles</h1>
@@ -44,6 +45,13 @@
                        maxlength="200"
                        value="<c:out value='${nombre}' />">
 
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="0">Todas</option>
+                    <c:forEach items="${categorias}" var="tipo">
+                        <option value="${tipo.id}" ${categoria == tipo.id ? 'selected' : ''}><c:out value="${tipo.nombre}" /></option>
+                    </c:forEach>
+                </select>
                 <label for="disponibilidad">Disponibilidad:</label>
 
                 <select id="disponibilidad" name="disponibilidad">
@@ -133,8 +141,11 @@
                             </h2>
 
                             <p class="precio">
-                                S/ <c:out value="${producto.precio}" />
+                                S/ <c:out value="${producto.precioFinal}" />
                             </p>
+                            <c:if test="${producto.porcentajeDescuento > 0}">
+                                <p>Antes S/ ${producto.precio}. Descuento vigente: ${producto.porcentajeDescuento}%</p>
+                            </c:if>
 
                             <c:choose>
                                 <c:when test="${producto.stock > 0}">

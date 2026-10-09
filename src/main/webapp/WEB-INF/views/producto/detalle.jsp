@@ -27,6 +27,7 @@
         PRODUCTOS
     </a>
 </nav>
+<%@ include file="../comun/navegacion.jsp" %>
 
 <main>
 
@@ -54,7 +55,7 @@
                         </c:when>
 
                         <c:otherwise>
-                            <p>Este producto todavía no tiene imagen.</p>
+                            <p>Sin imagen</p>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -95,8 +96,10 @@
                     </p>
 
                     <p>
-                        <strong>Tipo de producto:</strong>
+                        <strong>Categoría:</strong>
                         <c:out value="${producto.tipoProducto.nombre}" />
+                    </p>
+                    <p><strong>Artesano:</strong> <c:out value="${producto.artesano.nombreCompleto}" />
                     </p>
 
                     <p>

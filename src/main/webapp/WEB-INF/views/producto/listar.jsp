@@ -27,6 +27,7 @@
         PRODUCTOS
     </a>
 </nav>
+<%@ include file="../comun/navegacion.jsp" %>
 
 <main>
 
@@ -165,6 +166,7 @@
 
                     <form action="${pageContext.request.contextPath}/producto/cambiarEstado"
                           method="post">
+<input type="hidden" name="tokenFormulario" value="${sessionScope.tokenFormulario}">
 
                         <input type="hidden"
                                name="id"
