@@ -1,0 +1,157 @@
+.titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.busqueda {
+    margin: 20px 0;
+    padding: 20px;
+    background: white;
+    border: 1px solid #888;
+}
+
+.busqueda form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.busqueda input,
+.busqueda select {
+    padding: 8px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.productos-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.producto-admin {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #888;
+}
+
+.foto-admin {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    background: #eee9dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-admin img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.informacion-admin {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.informacion-admin h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.informacion-admin p {
+    margin: 8px 0;
+}
+
+.acciones-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 130px;
+    flex-shrink: 0;
+}
+
+.acciones-admin .boton {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.boton-desactivar {
+    background: #a93226;
+}
+
+.boton-activar {
+    background: #28633d;
+}
+
+@media (max-width: 700px) {
+    .titulo-seccion,
+    .producto-admin {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .foto-admin {
+        width: 100%;
+        height: 200px;
+    }
+
+    .acciones-admin {
+        width: 100%;
+    }
+}
+
+.formulario-producto {
+    max-width: 650px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #888;
+}
+
+.formulario-producto label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.formulario-producto input,
+.formulario-producto select,
+.formulario-producto textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.formulario-producto textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.ayuda {
+    color: #555;
+    font-size: 14px;
+}
+
+.acciones-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.acciones-formulario a {
+    color: #7b3f32;
+}

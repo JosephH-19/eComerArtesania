@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eee9dd;
+    color: #333;
+}
+
+header {
+    background: #7b3f32;
+    color: white;
+    padding: 20px 6%;
+}
+
+header strong {
+    font-size: 22px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+nav {
+    background: white;
+    padding: 15px 6%;
+    border-bottom: 1px solid #ccc;
+}
+
+nav a {
+    color: #7b3f32;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 25px 6%;
+}
+
+h1 {
+    color: #7b3f32;
+}
+
+.catalogo {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.filtros {
+    width: 220px;
+    flex-shrink: 0;
+    padding: 20px;
+    border: 1px solid #888;
+    background: white;
+}
+
+.filtros h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.filtros label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.filtros input,
+.filtros select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.boton {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #7b3f32;
+    color: white;
+    border: 0;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filtros button {
+    margin-top: 20px;
+}
+
+.mostrar-todos {
+    display: block;
+    margin-top: 15px;
+    color: #7b3f32;
+}
+
+.resultados {
+    flex: 1;
+    min-width: 0;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.producto-card {
+    min-width: 0;
+    border: 1px solid #888;
+    background: white;
+}
+
+.producto-imagen {
+    height: 220px;
+    background: #eee9dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.producto-contenido {
+    padding: 15px;
+}
+
+.producto-contenido h2 {
+    margin-top: 0;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+.producto-contenido p {
+    overflow-wrap: anywhere;
+}
+
+.precio {
+    color: #7b3f32;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.disponible {
+    color: #28633d;
+}
+
+.agotado,
+.error {
+    color: #a93226;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #7b3f32;
+    color: white;
+}
+
+@media (max-width: 1100px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .catalogo {
+        flex-direction: column;
+    }
+
+    .filtros,
+    .resultados {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+}
+
+.detalle-producto {
+    display: flex;
+    gap: 30px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #888;
+}
+
+.detalle-foto {
+    width: 40%;
+    min-height: 300px;
+    background: #eee9dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detalle-foto img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+}
+
+.detalle-informacion {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.detalle-informacion h1 {
+    margin-top: 0;
+}
+
+.descripcion {
+    white-space: pre-line;
+}
+
+.volver {
+    margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .detalle-producto {
+        flex-direction: column;
+    }
+
+    .detalle-foto {
+        width: 100%;
+    }
+}
