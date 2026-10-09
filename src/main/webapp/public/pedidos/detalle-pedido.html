@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Pedido | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <div>
+      <strong>TALLER BUENDÍA</strong>
+      <span>Textil Huanca · Artesanía de Huancayo</span>
+    </div>
+    <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
+  </header>
+
+  <nav aria-label="Menú principal">
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="../catalogo/productos.html">CATÁLOGO</a>
+    <a href="../catalogo/carrito.html">CARRITO</a>
+    <a href="../promociones/index.html">PROMOCIONES</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+  </nav>
+
+  <main>
+    <a href="mis-pedidos.html">← Volver a Mis Pedidos</a>
+    
+    <div class="detalle-pedido-container">
+      <div class="pedido-encabezado">
+        <h1>Detalle del Pedido #ORD-2026-001</h1>
+        <span class="estado-pedido confirmado">CONFIRMADO</span>
+      </div>
+
+      <div class="pedido-info">
+        <div class="info-seccion">
+          <h2>Información del Pedido</h2>
+          <p><strong>Fecha:</strong> 12/09/2026</p>
+          <p><strong>Estado:</strong> Confirmado</p>
+          <p><strong>Método de pago:</strong> Yape</p>
+          <p><strong>Método de entrega:</strong> Recojo en taller</p>
+        </div>
+
+        <div class="info-seccion">
+          <h2>Datos del Cliente</h2>
+          <p><strong>Nombre:</strong> Juan Pérez García</p>
+          <p><strong>DNI:</strong> 12345678</p>
+          <p><strong>Teléfono:</strong> 987654321</p>
+          <p><strong>Correo:</strong> juan.perez@example.com</p>
+        </div>
+      </div>
+
+      <div class="productos-pedido">
+        <h2>Productos</h2>
+        <table class="tabla-productos">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="producto-detalle">
+                  <img src="../../assets/productos/8.jpg" alt="Poncho Callhua" class="img-producto-detalle">
+                  <span>Poncho Callhua</span>
+                </div>
+              </td>
+              <td>1</td>
+              <td>S/ 75.00</td>
+              <td>S/ 75.00</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="producto-detalle">
+                  <img src="../../assets/productos/6.jpg" alt="Poncho Andino" class="img-producto-detalle">
+                  <span>Poncho Andino</span>
+                </div>
+              </td>
+              <td>1</td>
+              <td>S/ 48.00</td>
+              <td>S/ 48.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3"><strong>Total:</strong></td>
+              <td><strong>S/ 123.00</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="seguimiento-pedido">
+        <h2>Seguimiento del Pedido</h2>
+        <div class="pasos-seguimiento">
+          <div class="paso completado">
+            <div class="numero-paso">1</div>
+            <p>Pedido recibido</p>
+            <p class="fecha-paso">12/09/2026 10:30</p>
+          </div>
+          <div class="paso completado">
+            <div class="numero-paso">2</div>
+            <p>Pago confirmado</p>
+            <p class="fecha-paso">12/09/2026 11:15</p>
+          </div>
+          <div class="paso actual">
+            <div class="numero-paso">3</div>
+            <p>En preparación</p>
+            <p class="fecha-paso">-</p>
+          </div>
+          <div class="paso pendiente">
+            <div class="numero-paso">4</div>
+            <p>Listo para entrega</p>
+            <p class="fecha-paso">-</p>
+          </div>
+          <div class="paso pendiente">
+            <div class="numero-paso">5</div>
+            <p>Entregado</p>
+            <p class="fecha-paso">-</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="acciones-pedido">
+        <button class="boton" disabled>Cancelar pedido</button>
+        <button class="boton principal">Descargar comprobante</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Textil Huanca</p>
+  </footer>
+</body>
+</html>

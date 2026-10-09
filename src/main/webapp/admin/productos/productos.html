@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Gestión de Productos</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <!-- MENÚ DE ADMINISTRACIÓN -->
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <div class="titulo-seccion">
+
+      <div>
+        <h2>GESTIÓN DE PRODUCTOS</h2>
+        <p>Consulta y administra los productos disponibles.</p>
+      </div>
+
+      <a class="boton" href="registrar.html">
+        NUEVO PRODUCTO
+      </a>
+
+    </div>
+
+    <!-- BÚSQUEDA -->
+    <section class="busqueda">
+
+      <label>Buscar producto</label>
+
+      <input
+        type="text"
+        placeholder="Nombre del producto">
+
+      <button>
+        BUSCAR
+      </button>
+
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filtros-admin">
+
+      <div>
+        <label>Categoría</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Textiles</option>
+          <option>Ponchos</option>
+          <option>Mantas</option>
+          <option>Chalinas</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Estado</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Disponible</option>
+          <option>Agotado</option>
+          <option>Bajo Pedido</option>
+        </select>
+      </div>
+
+    </section>
+
+    <!-- LISTADO -->
+    <section>
+
+      <h3>LISTADO DE PRODUCTOS</h3>
+
+      <div class="productos-admin">
+
+        <!-- PRODUCTO 1 -->
+        <article class="producto-admin">
+
+          <img
+            src="../../assets/productos/8.jpg"
+            alt="Poncho Callhua - Diseño tradicional en lana de oveja">
+
+          <div>
+
+            <h3>Poncho Callhua</h3>
+
+            <p>
+              <b>Categoría:</b> Ponchos
+            </p>
+
+            <p>
+              <b>Artesano:</b> José Buendía
+            </p>
+
+            <p>
+              <b>Precio:</b> S/ 75.00
+            </p>
+
+            <p>
+              <b>Stock:</b> 12 unidades
+            </p>
+
+            <p>
+              <b>Estado:</b> Disponible
+            </p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle-producto.html">
+              VER
+            </a>
+
+            <a class="boton" href="editar.html">
+              EDITAR
+            </a>
+
+            <button class="btn-danger">
+              DESACTIVAR
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 2 -->
+        <article class="producto-admin">
+
+          <img
+            src="../../assets/productos/6.jpg"
+            alt="Poncho Andino - Diseño Sicaya en lana de alpaca">
+
+          <div>
+
+            <h3>Poncho Andino</h3>
+
+            <p>
+              <b>Categoría:</b> Ponchos
+            </p>
+
+            <p>
+              <b>Artesano:</b> María López
+            </p>
+
+            <p>
+              <b>Precio:</b> S/ 48.00
+            </p>
+
+            <p>
+              <b>Stock:</b> 5 unidades
+            </p>
+
+            <p>
+              <b>Estado:</b> Disponible
+            </p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle-producto.html">
+              VER
+            </a>
+
+            <a class="boton" href="editar.html">
+              EDITAR
+            </a>
+
+            <button class="btn-danger">
+              DESACTIVAR
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 3 -->
+        <article class="producto-admin">
+
+          <img
+            src="../../assets/productos/4.jpg"
+            alt="Poncho Sicaino - Tejido tradicional con diseños geométricos">
+
+          <div>
+
+            <h3>Poncho Sicaino</h3>
+
+            <p>
+              <b>Categoría:</b> Ponchos
+            </p>
+
+            <p>
+              <b>Artesano:</b> Carlos Gómez
+            </p>
+
+            <p>
+              <b>Precio:</b> S/ 35.00
+            </p>
+
+            <p>
+              <b>Stock:</b> 2 unidades
+            </p>
+
+            <p>
+              <b>Estado:</b> Bajo Pedido
+            </p>
+
+          </div>
+
+          <div class="acciones">
+
+            <a class="boton" href="detalle-producto.html">
+              VER
+            </a>
+
+            <a class="boton" href="editar.html">
+              EDITAR
+            </a>
+
+            <button class="btn-danger">
+              DESACTIVAR
+            </button>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>

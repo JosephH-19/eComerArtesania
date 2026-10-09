@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Lista de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .tabla-productos {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .tabla-productos th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .tabla-productos td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabla-productos tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .tabla-productos tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</h:head>
+<h:body>
+    <h1>Catálogo de Productos</h1>
+
+    <h:dataTable value="#{productoBean.productos}"
+                 var="producto"
+                 styleClass="tabla-productos">
+
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{producto.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Nombre del Producto</f:facet>
+            #{producto.nombre}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Tipo de Producto</f:facet>
+            #{producto.tipoProducto.nombre}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Fecha de Creación</f:facet>
+            <h:outputText value="#{producto.fechaCreacion}">
+                <!-- f:convertDateTime pattern="dd/MM/yyyy" /-->
+            </h:outputText>
+        </h:column>
+
+    </h:dataTable>
+
+</h:body>
+</html>

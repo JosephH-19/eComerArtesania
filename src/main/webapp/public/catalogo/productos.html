@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Taller Buendía - Catálogo</title>
+
+    <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <b>TALLER<br>BUENDÍA</b>
+
+        <span>Taller Buendía - Textil Huanca</span>
+
+        <a href="../../admin/login/login.html">
+            INGRESAR AL SISTEMA
+        </a>
+    </header>
+
+
+    <!-- MENÚ PRINCIPAL -->
+
+    <nav>
+        <a href="../index.html">INICIO</a>
+        <a href="../nosotros/index.html">NOSOTROS</a>
+        <a href="productos.html">CATÁLOGO</a>
+        <a href="carrito.html">CARRITO</a>
+        <a href="../promociones/index.html">PUBLICIDAD</a>
+        <a href="../contacto/contacto.html">CONTACTO</a>
+    </nav>
+
+
+   
+    <main>
+
+        <h1>CATÁLOGO DE PRODUCTOS</h1>
+
+        <div class="catalogo">
+
+            <!-- FILTROS -->
+
+            <aside class="filtros">
+
+                <h3>FILTROS</h3>
+
+                <p>Categoría</p>
+
+                <select id="filtro-categoria">
+                    <option value="todos">Todos</option>
+                    <option value="textiles">Textiles</option>
+                    <option value="ponchos">Ponchos</option>
+                    <option value="mantas">Mantas</option>
+                </select>
+
+                <p>Rango de precio</p>
+
+                <select id="filtro-precio">
+                    <option value="todos">Todos</option>
+                    <option value="0-50">S/ 0 - S/ 50</option>
+                    <option value="51-100">S/ 51 - S/ 100</option>
+                    <option value="101-200">S/ 101 - S/ 200</option>
+                    <option value="200+">Más de S/ 200</option>
+                </select>
+
+                <p>Disponibilidad</p>
+
+                <select id="filtro-disponibilidad">
+                    <option value="todos">Todos</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="bajo-pedido">Bajo pedido</option>
+                </select>
+
+            </aside>
+
+
+            <!-- PRODUCTOS -->
+
+            <section class="productos">
+
+                <article class="producto-card">
+
+                    <div class="producto-imagen">
+                        <img src="../../assets/productos/8.jpg"
+                            alt="Poncho Callhua - Diseño tradicional de Hualhuas en lana de oveja">
+                    </div>
+
+                    <div class="producto-contenido">
+
+                        <h3>Poncho Callhua</h3>
+
+                        <p>Color: Marrón | Material: Lana 100% de oveja</p>
+
+                        <p class="precio">S/ 75.00</p>
+
+                        <div class="acciones-producto">
+
+                            <a href="detalle-producto.html">
+                                VER DETALLES
+                            </a>
+
+                            <button type="button" aria-label="Agregar Poncho Callhua al carrito">
+                                AGREGAR AL CARRITO
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="producto-card">
+
+                    <div class="producto-imagen">
+                        <img src="../../assets/productos/6.jpg"
+                            alt="Poncho Andino - Diseño Sicaya en lana natural">
+                    </div>
+
+                    <div class="producto-contenido">
+
+                        <h3>Poncho Andino</h3>
+
+                        <p>Color: Blanco con Rojo | Material: Lana de alpaca</p>
+
+                        <p class="precio">S/ 48.00</p>
+
+                        <div class="acciones-producto">
+
+                            <a href="detalle-producto.html">
+                                VER DETALLES
+                            </a>
+
+                            <button type="button" aria-label="Agregar Poncho Andino al carrito">
+                                AGREGAR AL CARRITO
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="producto-card">
+
+                    <div class="producto-imagen">
+                        <img src="../../assets/productos/4.jpg"
+                            alt="Poncho Sicaino - Tejido tradicional en telar">
+                    </div>
+
+                    <div class="producto-contenido">
+
+                        <h3>Poncho Sicaino</h3>
+
+                        <p>Color: Blanco con Negro | Material: Lana de oveja</p>
+
+                        <p class="precio">S/ 35.00</p>
+
+                        <div class="acciones-producto">
+
+                            <a href="detalle-producto.html">
+                                VER DETALLES
+                            </a>
+
+                            <button type="button" aria-label="Agregar Poncho Sicaino al carrito">
+                                AGREGAR AL CARRITO
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>Taller Buendía - Textil Huanca</p>
+    </footer>
+
+</body>
+
+</html>

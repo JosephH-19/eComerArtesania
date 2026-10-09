@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Contacto</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Taller Buendía - Textil Huanca</span>
+    <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
+  </header>
+
+  <nav>
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="../catalogo/productos.html">CATÁLOGO</a>
+    <a href="../catalogo/carrito.html">CARRITO</a>
+    <a href="../promociones/index.html">PUBLICIDAD</a>
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+
+  <main class="pagina-contacto">
+    <h1>Contacto</h1>
+    <p class="contacto-intro">Estamos para ayudarte con tus consultas sobre productos, pedidos y artesanía.</p>
+
+    <div class="contacto-grid">
+      <section class="contacto-panel contacto-info">
+        <h2>Visita el taller</h2>
+        <p><strong>Taller Buendía - Textil Huanca</strong></p>
+        <p>Hualhuas, Huancayo, Junín - Perú</p>
+        <p><a href="mailto:taller@buendia.com">taller@buendia.com</a></p>
+        <p><a href="tel:+51999999999">999 999 999</a></p>
+        <h3>Ubicación</h3>
+        <div class="mapa">
+          <img src="../../assets/general/mapa.png" alt="Mapa de ubicación del Taller Buendía en Hualhuas, Huancayo, Junín">
+        </div>
+      </section>
+
+      <form class="contacto-panel formulario-contacto" action="#" method="POST">
+        <h2>Envíanos un mensaje</h2>
+        <div class="campo-contacto">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+        </div>
+        <div class="campo-contacto">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="campo-contacto campo-mensaje">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="boton principal">ENVIAR MENSAJE</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Textil Huanca</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Pagos | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Panel de Gestión - Pagos</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+    <h1>GESTIÓN DE PAGOS</h1>
+    <p>Registra y gestiona los pagos recibidos de los clientes.</p>
+
+    <div class="acciones-principales">
+      <div class="buscador">
+        <input type="text" placeholder="Buscar por número de pedido o cliente...">
+        <button>Buscar</button>
+      </div>
+    </div>
+
+    <div class="filtros-admin">
+      <label>Filtrar por estado:</label>
+      <select id="filtro-estado">
+        <option value="todos">Todos</option>
+        <option value="pendiente">Pendiente de pago</option>
+        <option value="confirmado">Pago confirmado</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+      
+      <label>Filtrar por método:</label>
+      <select id="filtro-metodo">
+        <option value="todos">Todos</option>
+        <option value="yape">Yape</option>
+        <option value="plin">Plin</option>
+        <option value="efectivo">Efectivo</option>
+      </select>
+    </div>
+
+    <table class="tabla-datos">
+      <thead>
+        <tr>
+          <th>N° Pedido</th>
+          <th>Cliente</th>
+          <th>Fecha Pedido</th>
+          <th>Monto</th>
+          <th>Método de Pago</th>
+          <th>Estado</th>
+          <th>Fecha Pago</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ORD-2026-001</td>
+          <td>Juan Pérez García</td>
+          <td>12/09/2026</td>
+          <td>S/ 123.00</td>
+          <td>Yape</td>
+          <td><span class="estado confirmado">PAGO CONFIRMADO</span></td>
+          <td>12/09/2026 11:15</td>
+          <td>
+            <a href="#" class="boton-accion ver">VER COMPROBANTE</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ORD-2026-002</td>
+          <td>María López Martínez</td>
+          <td>10/09/2026</td>
+          <td>S/ 85.00</td>
+          <td>Efectivo</td>
+          <td><span class="estado pendiente">PENDIENTE</span></td>
+          <td>-</td>
+          <td>
+            <a href="#" class="boton-accion confirmar">CONFIRMAR PAGO</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ORD-2026-003</td>
+          <td>Carlos Gómez Sánchez</td>
+          <td>05/09/2026</td>
+          <td>S/ 200.00</td>
+          <td>Plin</td>
+          <td><span class="estado confirmado">PAGO CONFIRMADO</span></td>
+          <td>05/09/2026 14:30</td>
+          <td>
+            <a href="#" class="boton-accion ver">VER COMPROBANTE</a>
+          </td>
+        </tr>
+        <tr>
+          <td>ORD-2026-004</td>
+          <td>Ana Rodríguez</td>
+          <td>03/09/2026</td>
+          <td>S/ 150.00</td>
+          <td>Yape</td>
+          <td><span class="estado cancelado">CANCELADO</span></td>
+          <td>-</td>
+          <td>
+            <a href="#" class="boton-accion ver">VER DETALLE</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagos-estadisticas">
+      <div class="estadistica-card">
+        <h3>Pagos Pendientes</h3>
+        <p class="numero">5</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Pagos Confirmados</h3>
+        <p class="numero">32</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Total Recibido</h3>
+        <p class="numero">S/ 4,850.00</p>
+      </div>
+      <div class="estadistica-card">
+        <h3>Pagos Cancelados</h3>
+        <p class="numero">2</p>
+      </div>
+    </div>
+
+    <div class="paginacion">
+      <button class="boton" disabled>← Anterior</button>
+      <span>Página 1 de 5</span>
+      <button class="boton">Siguiente →</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Panel de Gestión</p>
+  </footer>
+</body>
+</html>

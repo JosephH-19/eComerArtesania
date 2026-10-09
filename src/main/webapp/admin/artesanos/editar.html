@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Editar Artesano</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <a href="artesanos.html">← Volver a Artesanos</a>
+
+    <h2>EDITAR ARTESANO</h2>
+    <p>Modificando: José Buendía (ID: ART-001)</p>
+
+    <form class="formulario-admin">
+
+      <div class="form-section">
+        <h3>Datos Personales</h3>
+
+        <div class="form-group">
+          <label for="codigo">Código de Artesano</label>
+          <input type="text" id="codigo" name="codigo" value="ART-001" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Nombre Completo *</label>
+          <input type="text" id="nombre" name="nombre" value="José Buendía" required>
+        </div>
+
+        <div class="form-group">
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" min="18" max="100" value="55">
+        </div>
+
+        <div class="form-group">
+          <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+          <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" value="1965-05-15">
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Información Profesional</h3>
+
+        <div class="form-group">
+          <label for="especialidad">Especialidad *</label>
+          <select id="especialidad" name="especialidad" required>
+            <option value="">Seleccionar especialidad...</option>
+            <option value="telar" selected>Telar tradicional</option>
+            <option value="punto">Tejido de punto</option>
+            <option value="tintes">Tintes naturales</option>
+            <option value="disenos">Diseños tradicionales</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="historia">Historia / Descripción</label>
+          <textarea id="historia" name="historia" rows="4">Artesano dedicado a la elaboración de tejidos tradicionales en la comunidad de Hualhuas. Sus obras han sido reconocidas en ferias artesanales a nivel nacional e internacional.</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="anios-experiencia">Años de Experiencia</label>
+          <input type="number" id="anios-experiencia" name="anios-experiencia" min="0" value="40">
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Datos de Contacto</h3>
+
+        <div class="form-group">
+          <label for="correo">Correo Electrónico</label>
+          <input type="email" id="correo" name="correo" value="jose.buendia@tallerbuendia.com">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" value="987654321">
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Foto del Artesano</label>
+          <input type="file" id="foto" name="foto" accept="image/*">
+          <p class="nota">Foto actual: <a href="../../assets/artesanos/ArtesanoHistoria.jpeg" target="_blank">Ver foto</a></p>
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="activo" selected>Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="boton principal">GUARDAR CAMBIOS</button>
+        <button type="button" class="boton" onclick="window.location.href='artesanos.html'">CANCELAR</button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Editar Descuento</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <a href="promociones.html">← Volver a Descuentos</a>
+
+    <h2>EDITAR DESCUENTO</h2>
+    <p>Modificando: Fiestas Patrias (ID: PROMO-001)</p>
+
+    <form class="formulario-admin">
+
+      <div class="form-section">
+        <h3>Datos del Descuento</h3>
+
+        <div class="form-group">
+          <label for="codigo">Código de Descuento</label>
+          <input type="text" id="codigo" name="codigo" value="PROMO-001" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" value="Fiestas Patrias" required>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="3">15% de descuento en todos los ponchos tradicionales para celebrar las Fiestas Patrias.</textarea>
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Configuración de Descuento</h3>
+
+        <div class="form-group">
+          <label for="tipo-descuento">Tipo de Descuento *</label>
+          <select id="tipo-descuento" name="tipo-descuento" required>
+            <option value="">Seleccionar tipo...</option>
+            <option value="porcentaje" selected>Porcentaje (%)</option>
+            <option value="monto">Monto fijo (S/)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="valor">Valor *</label>
+          <input type="number" id="valor" name="valor" step="0.01" min="0" value="15" required>
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Vigencia</h3>
+
+        <div class="form-group">
+          <label for="fecha-inicio">Fecha de Inicio *</label>
+          <input type="date" id="fecha-inicio" name="fecha-inicio" value="2026-07-01" required>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha-fin">Fecha de Fin *</label>
+          <input type="date" id="fecha-fin" name="fecha-fin" value="2026-07-31" required>
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Configuración</h3>
+
+        <div class="form-group">
+          <label for="aplicable-a">Aplicable a:</label>
+          <select id="aplicable-a" name="aplicable-a">
+            <option value="">Seleccionar...</option>
+            <option value="todos">Todos los productos</option>
+            <option value="categoria" selected>Categoría específica</option>
+            <option value="producto">Producto específico</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="categoria">Categoría (si aplica)</label>
+          <select id="categoria" name="categoria" disabled>
+            <option value="">Seleccionar categoría...</option>
+            <option value="ponchos" selected>Ponchos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="activo" selected>Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="boton principal">GUARDAR CAMBIOS</button>
+        <button type="button" class="boton" onclick="window.location.href='promociones.html'">CANCELAR</button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Pedidos | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <div>
+      <strong>TALLER BUENDÍA</strong>
+      <span>Textil Huanca · Artesanía de Huancayo</span>
+    </div>
+    <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
+  </header>
+
+  <nav aria-label="Menú principal">
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="../catalogo/productos.html">CATÁLOGO</a>
+    <a href="../catalogo/carrito.html">CARRITO</a>
+    <a href="../promociones/index.html">PROMOCIONES</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+    <a href="mis-pedidos.html">ESTADO DE PEDIDO</a>
+  </nav>
+
+  <main>
+    <h1>Consulta el estado de tu pedido</h1>
+    <p>Ingresa el DNI usado al confirmar la compra para consultar tus pedidos activos.</p>
+
+    <form id="consulta-dni" class="consulta-pedidos">
+      <label for="dni-consulta">DNI</label>
+      <input id="dni-consulta" name="dni" type="text" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" placeholder="8 dígitos" required>
+      <button type="submit" class="boton principal">CONSULTAR</button>
+    </form>
+
+    <p class="nota">Los pedidos cancelados no aparecen en los resultados.</p>
+    <section id="resultados-pedidos" class="lista-pedidos" aria-live="polite" aria-label="Resultados de pedidos"></section>
+
+    <div class="acciones">
+      <a href="../catalogo/productos.html" class="boton">← Seguir comprando</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Textil Huanca</p>
+  </footer>
+  <script src="../js/pedidos.js"></script>
+</body>
+</html>

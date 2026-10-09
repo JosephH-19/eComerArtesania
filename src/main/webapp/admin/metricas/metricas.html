@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Taller Buendía - Métricas</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <div class="titulo-seccion">
+      <div>
+        <h2>MÉTRICAS DE VENTAS</h2>
+        <p>Consulta general de los principales indicadores de la tienda.</p>
+      </div>
+    </div>
+
+    <!-- Métricas de Series de Tiempo (5 requeridas) -->
+    <section class="metricas serie-tiempo">
+      <h3>MÉTRICAS BASADAS EN SERIES DE TIEMPO</h3>
+      <div class="metricas-grid">
+        <article class="metrica">
+          <h4>Ventas por Mes</h4>
+          <p class="numero">S/ 4,850.00</p>
+          <p>Total en septiembre 2026</p>
+          <p class="tendencia">↑ 15% vs mes anterior</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Pedidos por Mes</h4>
+          <p class="numero">48</p>
+          <p>Pedidos registrados en septiembre 2026</p>
+          <p class="tendencia">↑ 20% vs mes anterior</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Ingresos por Mes</h4>
+          <p class="numero">S/ 5,200.00</p>
+          <p>Ingresos totales en septiembre 2026</p>
+          <p class="tendencia">↑ 18% vs mes anterior</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Productos Vendidos por Mes</h4>
+          <p class="numero">72</p>
+          <p>Unidades vendidas en septiembre 2026</p>
+          <p class="tendencia">↑ 25% vs mes anterior</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Pedidos Personalizados por Mes</h4>
+          <p class="numero">8</p>
+          <p>Pedidos con personalización en septiembre 2026</p>
+          <p class="tendencia">↑ 30% vs mes anterior</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Métricas de Estado Puntual (5 requeridas) -->
+    <section class="metricas estado-puntual">
+      <h3> MÉTRICAS DE ESTADO PUNTUAL</h3>
+      <div class="metricas-grid">
+        <article class="metrica">
+          <h4>Ventas Acumuladas</h4>
+          <p class="numero">S/ 28,450.00</p>
+          <p>Total acumulado en 2026</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Pedidos Pendientes</h4>
+          <p class="numero">5</p>
+          <p>Pedidos sin confirmar pago</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Pedidos Confirmados</h4>
+          <p class="numero">12</p>
+          <p>Pedidos listos para seguimiento</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Productos Disponibles</h4>
+          <p class="numero">28</p>
+          <p>Productos con stock disponible</p>
+        </article>
+
+        <article class="metrica">
+          <h4>Saldo Pendiente de Cobro</h4>
+          <p class="numero">S/ 1,250.00</p>
+          <p>Montos pendientes de confirmación</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Resumen de pedidos -->
+    <section class="tabla-metricas">
+      <h3>RESUMEN DE PEDIDOS POR ESTADO</h3>
+      <table class="tabla-datos">
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>Cantidad</th>
+            <th>Porcentaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="estado pendiente">Pendiente de pago</span></td>
+            <td>5</td>
+            <td>10%</td>
+          </tr>
+          <tr>
+            <td><span class="estado confirmado">Confirmado</span></td>
+            <td>12</td>
+            <td>25%</td>
+          </tr>
+          <tr>
+            <td><span class="estado preparacion">En preparación</span></td>
+            <td>6</td>
+            <td>12.5%</td>
+          </tr>
+          <tr>
+            <td><span class="estado listo">Listo para entrega</span></td>
+            <td>8</td>
+            <td>16.5%</td>
+          </tr>
+          <tr>
+            <td><span class="estado entregado">Entregado</span></td>
+            <td>17</td>
+            <td>35%</td>
+          </tr>
+          <tr>
+            <td><span class="estado cancelado">Cancelado</span></td>
+            <td>2</td>
+            <td>4%</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>48</strong></td>
+            <td><strong>100%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>
+

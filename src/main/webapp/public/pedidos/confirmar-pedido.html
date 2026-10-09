@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmar pedido | Taller Buendía</title>
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+  <header>
+    <div>
+      <strong>TALLER BUENDÍA</strong>
+      <span>Textil Huanca · Artesanía de Huancayo</span>
+    </div>
+    <a href="../../admin/login/login.html">INGRESAR AL SISTEMA</a>
+  </header>
+
+  <nav aria-label="Menú principal">
+    <a href="../index.html">INICIO</a>
+    <a href="../nosotros/index.html">NOSOTROS</a>
+    <a href="../catalogo/productos.html">CATÁLOGO</a>
+    <a href="../catalogo/carrito.html">CARRITO <span id="contador">1</span> ↗</a>
+    <a href="../promociones/index.html">PROMOCIONES</a>
+    <a href="../contacto/contacto.html">CONTACTO</a>
+  </nav>
+
+  <main>
+    <a href="../catalogo/carrito.html">← Volver al carrito</a>
+    <h1>Confirmar pedido</h1>
+    
+    <div class="pedido-resumen">
+      <div class="resumen-detalle">
+        <h2>Detalles del Pedido</h2>
+        <div id="pedido">
+          <p><strong>Método de entrega:</strong> Recojo en el taller</p>
+          <p><strong>Método de pago:</strong> Se selecciona abajo</p>
+          <p><strong>Total:</strong> <span id="total-pedido">S/ 123.00</span></p>
+        </div>
+      </div>
+      
+      <div class="resumen-productos">
+        <h2>Productos en tu pedido</h2>
+        <div id="lista-productos-pedido"></div>
+      </div>
+    </div>
+    
+    <form id="form-confirmar-pedido" class="datos-cliente formulario-pedido">
+      <h2>Tus datos</h2>
+        <div class="form-group">
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="dni">DNI *</label>
+          <input type="text" id="dni" name="dni" pattern="[0-9]{8}" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono *</label>
+          <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo electrónico *</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="metodo-pago">Método de pago *</label>
+          <select id="metodo-pago" name="metodo-pago" required>
+            <option value="">Selecciona un método</option>
+            <option value="Yape">Yape</option>
+            <option value="Plin">Plin</option>
+            <option value="Efectivo al recoger">Efectivo al recoger</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección (opcional)</label>
+          <input type="text" id="direccion" name="direccion">
+        </div>
+        <p class="nota">* Campos obligatorios</p>
+      <div class="acciones-pedido">
+        <a href="../catalogo/carrito.html" class="boton">Volver al carrito</a>
+        <button type="submit" class="boton principal">Confirmar pedido y pago de demostración</button>
+      </div>
+      <p id="aviso" role="status"></p>
+    </form>
+    
+    <p class="nota">
+      Prototipo estático: el pago es simulado y no se realiza ningún cobro real. El pedido se guardará solo en este navegador.
+    </p>
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Textil Huanca · Demostración académica, sin pedidos ni cobros reales.</p>
+  </footer>
+  <script src="../js/pedidos.js"></script>
+</body>
+</html>

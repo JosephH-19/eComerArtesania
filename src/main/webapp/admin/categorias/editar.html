@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Editar Categoría</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <a href="categorias.html">← Volver a Categorías</a>
+
+    <h2>EDITAR CATEGORÍA</h2>
+    <p>Modificando: Ponchos (ID: CAT-001)</p>
+
+    <form class="formulario-admin">
+
+      <div class="form-section">
+        <h3>Datos de la Categoría</h3>
+
+        <div class="form-group">
+          <label for="codigo">Código de Categoría</label>
+          <input type="text" id="codigo" name="codigo" value="CAT-001" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input type="text" id="nombre" name="nombre" value="Ponchos" required>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="3">Prendas tradicionales tejidas en telar con diseños únicos de la comunidad de Hualhuas. Estos ponchos representan la identidad cultural y el trabajo artesanal transmitido entre generaciones.</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="activo" selected>Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="boton principal">GUARDAR CAMBIOS</button>
+        <button type="button" class="boton" onclick="window.location.href='categorias.html'">CANCELAR</button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Categorías</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS Y PAGOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <div class="titulo-seccion">
+
+      <div>
+        <h2>GESTIÓN DE CATEGORÍAS</h2>
+        <p>Consulta y administra las categorías de productos.</p>
+      </div>
+
+      <a class="boton" href="registrar.html">
+        NUEVA CATEGORÍA
+      </a>
+
+    </div>
+
+    <section class="busqueda">
+
+      <label>Buscar categoría</label>
+
+      <input
+        type="text"
+        placeholder="Nombre de la categoría">
+
+      <button>
+        BUSCAR
+      </button>
+
+    </section>
+
+    <section class="filtros-admin">
+
+      <div>
+        <label>Estado</label>
+
+        <select>
+          <option>Todos</option>
+          <option>Activo</option>
+          <option>Inactivo</option>
+        </select>
+      </div>
+
+    </section>
+
+    <section>
+
+      <h3>LISTADO DE CATEGORÍAS</h3>
+
+      <div class="categorias-admin">
+
+        <article class="categoria-admin">
+          <h3>Ponchos</h3>
+          <p><b>Descripción:</b> Prendas tradicionales tejidas en telar con diseños únicos de Hualhuas.</p>
+          <p><b>Productos:</b> 8 productos</p>
+          <p><b>Estado:</b> Activo</p>
+          <div class="acciones">
+            <a class="boton" href="detalle-categoria.html">VER</a>
+            <a class="boton" href="editar.html">EDITAR</a>
+            <button class="btn-danger">DESACTIVAR</button>
+          </div>
+        </article>
+
+        <article class="categoria-admin">
+          <h3>Mantas</h3>
+          <p><b>Descripción:</b> Mantas tejidas a mano para abrigar el hogar.</p>
+          <p><b>Productos:</b> 5 productos</p>
+          <p><b>Estado:</b> Activo</p>
+          <div class="acciones">
+            <a class="boton" href="detalle-categoria.html">VER</a>
+            <a class="boton" href="editar.html">EDITAR</a>
+            <button class="btn-danger">DESACTIVAR</button>
+          </div>
+        </article>
+
+        <article class="categoria-admin">
+          <h3>Chalinas</h3>
+          <p><b>Descripción:</b> Chalinas de lana para abrigar el cuello.</p>
+          <p><b>Productos:</b> 3 productos</p>
+          <p><b>Estado:</b> Activo</p>
+          <div class="acciones">
+            <a class="boton" href="detalle-categoria.html">VER</a>
+            <a class="boton" href="editar.html">EDITAR</a>
+            <button class="btn-danger">DESACTIVAR</button>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>

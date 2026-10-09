@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Seguimiento del Pedido</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="../artesanos/artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="pedidos.html">PEDIDOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <a href="pedidos.html">← Volver a Pedidos</a>
+
+    <h2>SEGUIMIENTO DEL PEDIDO #ORD-2026-001</h2>
+
+    <section class="resumen-seguimiento">
+      <div class="info-seccion">
+        <h3>Información Básica</h3>
+        <p><b>Número de Pedido:</b> ORD-2026-001</p>
+        <p><b>Cliente:</b> Juan Pérez García</p>
+        <p><b>Fecha de Pedido:</b> 12/09/2026</p>
+        <p><b>Total:</b> S/ 123.00</p>
+        <p><b>Estado Actual:</b> <span class="estado listo">LISTO PARA ENTREGA</span></p>
+      </div>
+    </section>
+
+    <section class="seg-seguimiento">
+      <h3>ACTUALIZAR ESTADO DEL PEDIDO</h3>
+      
+      <form class="formulario-admin">
+        <div class="form-group">
+          <label for="estado-actual">Estado Actual:</label>
+          <select id="estado-actual" name="estado-actual" disabled>
+            <option value="listo" selected>Listo para entrega</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="nuevo-estado">Nuevo Estado:</label>
+          <select id="nuevo-estado" name="nuevo-estado">
+            <option value="">Seleccionar nuevo estado...</option>
+            <option value="en-camino">En camino</option>
+            <option value="entregado">Entregado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="notas">Notas/Comentarios:</label>
+          <textarea id="notas" name="notas" rows="3" placeholder="Agregar notas sobre el estado del pedido..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="boton principal">ACTUALIZAR ESTADO</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="historial-seguimiento">
+      <h3>HISTORIAL DE ESTADOS</h3>
+      <table class="tabla-datos">
+        <thead>
+          <tr>
+            <th>Fecha y Hora</th>
+            <th>Estado</th>
+            <th>Responsable</th>
+            <th>Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12/09/2026 10:30</td>
+            <td><span class="estado pendiente">PENDIENTE DE PAGO</span></td>
+            <td>Sistema</td>
+            <td>Pedido creado</td>
+          </tr>
+          <tr>
+            <td>12/09/2026 11:15</td>
+            <td><span class="estado confirmado">CONFIRMADO</span></td>
+            <td>Admin</td>
+            <td>Pago verificado via Yape</td>
+          </tr>
+          <tr>
+            <td>12/09/2026 12:00</td>
+            <td><span class="estado preparacion">EN PREPARACIÓN</span></td>
+            <td>José Buendía</td>
+            <td>Iniciando fabricación</td>
+          </tr>
+          <tr>
+            <td>14/09/2026 10:00</td>
+            <td><span class="estado listo">LISTO PARA ENTREGA</span></td>
+            <td>María López</td>
+            <td>Producto finalizado y revisado</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="acciones-formulario">
+      <a class="boton-secundario" href="detalle-pedido.html?id=ORD-2026-001">VER DETALLE DEL PEDIDO</a>
+      <a class="boton-secundario" href="pedidos.html">VOLVER AL LISTADO</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>
+

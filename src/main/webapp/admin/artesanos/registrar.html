@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller Buendía - Registrar Artesano</title>
+
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <b>TALLER<br>BUENDÍA</b>
+    <span>Zona de Gestión</span>
+    <span class="usuario">Usuario: Administrador</span>
+    <a href="../login/login.html">CERRAR SESIÓN</a>
+  </header>
+
+  <nav class="admin-nav">
+    <a href="../perfil/perfil.html">PERFIL</a>
+    <a href="../productos/productos.html">PRODUCTOS</a>
+    <a href="../categorias/categorias.html">CATEGORÍAS</a>
+    <a href="artesanos.html">ARTESANOS</a>
+    <a href="../clientes/clientes.html">CLIENTES</a>
+    <a href="../promociones/promociones.html">DESCUENTOS</a>
+    <a href="../pedidos/pedidos.html">PEDIDOS</a>
+    <a href="../pagos/pagos.html">PAGOS</a>
+    <a href="../metricas/metricas.html">MÉTRICAS</a>
+  </nav>
+
+  <main>
+
+    <a href="artesanos.html">← Volver a Artesanos</a>
+
+    <h2>REGISTRAR NUEVO ARTESANO</h2>
+
+    <form class="formulario-admin">
+
+      <div class="form-section">
+        <h3>Datos Personales</h3>
+
+        <div class="form-group">
+          <label for="codigo">Código de Artesano *</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Ej: ART-004" required>
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Nombre Completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana Martínez Sánchez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" min="18" max="100" placeholder="Ej: 45">
+        </div>
+
+        <div class="form-group">
+          <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+          <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Información Profesional</h3>
+
+        <div class="form-group">
+          <label for="especialidad">Especialidad *</label>
+          <select id="especialidad" name="especialidad" required>
+            <option value="">Seleccionar especialidad...</option>
+            <option value="telar">Telar tradicional</option>
+            <option value="punto">Tejido de punto</option>
+            <option value="tintes">Tintes naturales</option>
+            <option value="disenos">Diseños tradicionales</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="historia">Historia / Descripción</label>
+          <textarea id="historia" name="historia" rows="4" placeholder="Descripción de la experiencia y trayectoria del artesano..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="anios-experiencia">Años de Experiencia</label>
+          <input type="number" id="anios-experiencia" name="anios-experiencia" min="0" placeholder="Ej: 25">
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h3>Datos de Contacto</h3>
+
+        <div class="form-group">
+          <label for="correo">Correo Electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="Ej: artesano@ejemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="Ej: 987654321">
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Foto del Artesano</label>
+          <input type="file" id="foto" name="foto" accept="image/*">
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required>
+            <option value="">Seleccionar estado...</option>
+            <option value="activo" selected>Activo</option>
+            <option value="inactivo">Inactivo</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="boton principal">REGISTRAR ARTESANO</button>
+        <button type="reset" class="boton">LIMPIAR FORMULARIO</button>
+        <a href="artesanos.html" class="boton">CANCELAR</a>
+      </div>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <p>Taller Buendía - Zona de Gestión</p>
+  </footer>
+
+</body>
+</html>
