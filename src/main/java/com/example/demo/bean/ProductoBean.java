@@ -1,4 +1,4 @@
-package com.example.demo.bean;
+/*package com.example.demo.bean;
 
 import com.example.demo.producto.Producto;
 import com.example.demo.producto.ProductoService;
@@ -37,4 +37,4 @@ public class ProductoBean implements Serializable {
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
-}
+}*/
